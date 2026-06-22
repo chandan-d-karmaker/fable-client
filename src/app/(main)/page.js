@@ -1,10 +1,13 @@
 import Banner from "@/components/main/Banner";
-import Image from "next/image";
+import Featured from "@/components/main/Featured";
+import TopWriter from "@/components/main/TopWriter";
 
 export default function Home() {
   return (
     <>
-      <Banner/>
+      <Banner />
+      <Featured />
+      <TopWriter />
     </>
   );
 }

@@ -15,7 +15,7 @@ import { symbol } from "better-auth";
 const slides = [
     {
         id: 1,
-        title: "Discover Your Next Great Read",
+        title: "Discover & Read Original Ebooks",
         description:
             "Explore a vast collection of ebooks across all genres, curated for book lovers and avid readers.",
         image: "https://i.ibb.co.com/VpmkGTrq/slider1.jpg",

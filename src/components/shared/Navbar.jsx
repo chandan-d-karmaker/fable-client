@@ -79,15 +79,17 @@ function Navbar() {
                 {/* desktop menu */}
                 <div className="hidden border-x h-16 p-2 md:flex items-center justify-between">
                     <div className="flex items-center gap-4">
-                        <ul className="hidden items-center gap-4 md:flex">
+                        <ul className="hidden items-center gap-1 md:flex">
                             {menuItems.map((item, index) => (
                                 <li key={index} className="px-1">
-                                    <Link
-                                        href={item.href}
-                                        className="text-sm font-medium text-foreground/80 hover:text-white transition-colors"
-                                    >
-                                        {item.name}
-                                    </Link>
+                                    <Button variant="ghost">
+                                        <Link
+                                            href={item.href}
+                                            className="text-sm font-medium text-foreground/80 hover:text-white transition-colors"
+                                        >
+                                            {item.name}
+                                        </Link>
+                                    </Button>
                                 </li>
                             ))}
                             {user ? <li>
