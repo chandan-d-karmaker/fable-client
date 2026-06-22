@@ -8,10 +8,10 @@ const TopWriter = async () => {
     const writers = await getWriters();
     console.log(writers);
     return (
-        <div className='flex justify-between'>
+        <div className='flex flex-wrap items-center justify-between gap-2'>
             {
                 writers.map((writer) => (
-                    <Card key={writer._id} className="flex flex-row gap-3 p-10" variant="tertiary">
+                    <Card key={writer._id} className="flex flex-row gap-3 p-4" variant="tertiary">
                         <Avatar variant='letter'>
                             <Avatar.Image alt="John Doe" src={writer.image} />
                             <Avatar.Fallback>{writer.name[0]}</Avatar.Fallback>

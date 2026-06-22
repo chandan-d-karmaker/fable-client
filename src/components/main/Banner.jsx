@@ -44,7 +44,7 @@ const Banner = () => {
     // console.log(role)
 
     return (
-        <section className="px-4 py-6">
+        <section className="py-6">
             <div className="max-w-7xl mx-auto">
                 <Swiper
                     modules={[Autoplay, Pagination]}

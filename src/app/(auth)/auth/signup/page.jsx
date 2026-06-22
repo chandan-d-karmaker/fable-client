@@ -21,6 +21,19 @@ function SignupContent() {
     const searchParams = useSearchParams();
     // const redirectTo = searchParams.get("redirect") || "/"
 
+    const handleGoogleSignIn = async () => {
+        const { data, error } = await authClient.signIn.social({
+            provider: "google",
+            callbackURL: "/onboarding",
+        });
+        if (error) {
+            toast.error(error.message);
+            return;
+        } else {
+            toast.success("Redirecting to google!");
+        }
+    };
+
     const onSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
@@ -40,7 +53,7 @@ function SignupContent() {
             toast.error(error.message)
         } else {
             toast.success("Signup Successfull!");
-            window.location.href='/';
+            window.location.href = '/';
         }
 
         // const role = data?.user?.role;
@@ -145,15 +158,14 @@ function SignupContent() {
                             Sign Up
                         </Button>
 
+
+                        <Button variant="secondary" onClick={handleGoogleSignIn}>
+                            Sign up with google
+                        </Button>
+
                         <Button type="reset" variant="secondary">
                             Reset
                         </Button>
-
-                        <Link href="/">
-                            <Button variant="secondary">
-                                Back
-                            </Button>
-                        </Link>
                     </div>
                 </Form>
             </Card>
