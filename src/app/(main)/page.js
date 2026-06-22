@@ -1,23 +1,10 @@
+import Banner from "@/components/main/Banner";
 import Image from "next/image";
 
 export default function Home() {
   return (
     <>
-      <h1>this is home page</h1>
-      <h1>this is home page</h1>
-      <h1>this is home page</h1>
-      <h1>this is home page</h1>
-      <h1>this is home page</h1>
-      <h1>this is home page</h1>
-      <h1>this is home page</h1>
-      <h1>this is home page</h1>
-      <h1>this is home page</h1>
-      <h1>this is home page</h1>
-      <h1>this is home page</h1>
-      <h1>this is home page</h1>
-      <h1>this is home page</h1>
-      <h1>this is home page</h1>
-      <h1>this is home page</h1>
+      <Banner/>
     </>
   );
 }
