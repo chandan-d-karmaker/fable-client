@@ -1,5 +1,6 @@
 import { getWriters } from '@/lib/api/users';
 import { Avatar, Card } from '@heroui/react';
+import { motion } from "motion/react"
 import Image from 'next/image';
 import React from 'react';
 

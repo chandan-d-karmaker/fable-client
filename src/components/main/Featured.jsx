@@ -1,6 +1,7 @@
 import { getFeatEbooks } from '@/lib/api/ebooks';
 import React from 'react';
 import BookCard from '../shared/BookCard';
+import * as motion from "motion/react-client";
 
 const Featured = async () => {
 
@@ -12,8 +13,15 @@ const Featured = async () => {
             <p className='text-muted text-center'>Highest purchased from last month</p>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-10'>
                 {
-                    books.map((book) => (
-                        <BookCard key={book._id} book={book} />
+                    books.map((book, index) => (
+                        <motion.div key={book._id}
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: index * 0.1 }} // Staggers each card by 0.1s
+                            viewport={{ once: true }}>
+
+                            <BookCard book={book} />
+                        </motion.div>
                     ))
                 }
             </div>
