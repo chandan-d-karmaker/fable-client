@@ -3,12 +3,10 @@
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
-
 import "swiper/css";
 import "swiper/css/pagination";
-import { getUserSession } from "@/lib/core/session";
+import { motion } from "motion/react"
 import { useSession } from "@/lib/auth-client";
-import { symbol } from "better-auth";
 
 
 
@@ -70,7 +68,13 @@ const Banner = () => {
                                 <div className="absolute inset-0 bg-black/60" />
 
                                 {/* Content */}
-                                <div className="absolute inset-0 flex items-center">
+                                <motion.div className="absolute inset-0 flex items-center"
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{
+                                        duration: 0.8,
+                                        ease: "easeOut"
+                                    }}>
                                     <div className="max-w-3xl px-8 md:px-16 text-white">
                                         <span className="inline-block rounded-full border border-cyan-400/40 bg-cyan-500/10 px-4 py-1 text-sm backdrop-blur-md">
                                             Ebook Sharing Platform
@@ -85,14 +89,14 @@ const Banner = () => {
                                         </p>
 
                                         <div className="mt-8 flex flex-wrap gap-4">
-                                           { role === 'reader' && <Link
+                                            {role === 'reader' && <Link
                                                 href="/ebooks"
                                                 className="rounded-xl bg-linear-to-r from-cyan-500 to-blue-600 px-6 py-3 font-semibold text-white shadow-lg hover:scale-105 transition"
                                             >
                                                 Explore Ebooks
                                             </Link>}
 
-                                           { role === 'writer' && <Link
+                                            {role === 'writer' && <Link
                                                 href="/add-ebook"
                                                 className="rounded-xl border border-white/30 bg-white/10 px-6 py-3 font-semibold backdrop-blur-md hover:bg-white/20 transition"
                                             >
@@ -100,7 +104,7 @@ const Banner = () => {
                                             </Link>}
                                         </div>
                                     </div>
-                                </div>
+                                </motion.div>
                             </div>
                         </SwiperSlide>
                     ))}

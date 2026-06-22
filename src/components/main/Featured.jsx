@@ -9,8 +9,15 @@ const Featured = async () => {
     console.log(books);
     return (
         <div className='my-10'>
-            <h1 className='text-4xl font-semibold text-center'>Featured Ebooks</h1>
-            <p className='text-muted text-center'>Highest purchased from last month</p>
+            <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+            >
+                <h1 className='text-4xl font-semibold text-center'>Featured Ebooks</h1>
+                <p className='text-muted text-center'>Highest purchased from last month</p>
+            </motion.div>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-10'>
                 {
                     books.map((book, index) => (
