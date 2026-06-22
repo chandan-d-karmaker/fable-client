@@ -5,6 +5,7 @@ import NavLink from "./Navlink";
 import logo from "@/assets/logo.png"
 import Image from "next/image";
 import Link from "next/link";
+import ThemeSwitcher from "./theme-toggle";
 
 function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -86,8 +87,9 @@ function Navbar() {
                             </li>
                         </ul>
                     </div>
-                    {/* <div className="h-5 w-px bg-gray-700/80"></div> */}
 
+                    <ThemeSwitcher/>
+                    {/* <div className="h-5 w-px bg-gray-700/80"></div> */}
                 </div>
             </header>
 

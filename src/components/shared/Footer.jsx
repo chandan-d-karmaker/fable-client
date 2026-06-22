@@ -22,16 +22,16 @@ export default function Footer() {
     };
 
     return (
-        <footer className="w-full bg-background pt-16 pb-8 px-5 sm:px-10 border-t border-white/5">
+        <footer className="w-full bg-background pt-10 pb-8 px-5 sm:px-10 border-t border-backgroud/50">
             <div className="max-w-7xl mx-auto">
                 {/* Top Section: Branding & Links */}
                 <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-8 mb-16">
 
                     {/* Left Column: Logo & Tagline */}
-                    <div className="lg:col-span-2 flex items-center gap-5">
+                    <div className="lg:col-span-2 flex items-start gap-5">
                         <Image src={Logo} alt='logo' height={50} width={50}></Image>
                         <p className="text-[#a2a1a1] text-sm leading-relaxed max-w-xs pr-4">
-                            Ebook Sharing Platform
+                            Fable is a digital platform that connects ebook lovers, readers, and collectors with talented writers. The platform allows users to browse, discover, and read original ebooks. Writers can upload and manage their creations after a one-time verification payment, while an admin oversees the entire system.
                         </p>
                     </div>
 
@@ -43,7 +43,7 @@ export default function Footer() {
                             <ul className="flex flex-col gap-3">
                                 {footerLinks.product.map((link) => (
                                     <li key={link.name}>
-                                        <Link href={link.href} className="text-[#908f8f] hover:text-white transition-colors text-sm">
+                                        <Link href={link.href} className="text-[#908f8f] hover:text-foreground/80  transition-colors text-sm">
                                             {link.name}
                                         </Link>
                                     </li>
@@ -57,7 +57,7 @@ export default function Footer() {
                             <ul className="flex flex-col gap-3">
                                 {footerLinks.navigations.map((link) => (
                                     <li key={link.name}>
-                                        <Link href={link.href} className="text-[#908f8f] hover:text-white transition-colors text-sm">
+                                        <Link href={link.href} className="text-[#908f8f] hover:text-foreground/80 transition-colors text-sm">
                                             {link.name}
                                         </Link>
                                     </li>
@@ -76,7 +76,7 @@ export default function Footer() {
                                     type="email"
                                     placeholder="Enter your email"
                                     required
-                                    className="w-full bg-[#111111] border border-white/10 text-white text-sm rounded-md px-4 py-2.5 focus:outline-none focus:border-[#4F46E5] transition-colors"
+                                    className="w-full bg-background border border-foreground/10 text-foreground text-sm rounded-md px-4 py-2.5 focus:outline-none focus:border-[#4F46E5] transition-colors"
                                 />
                                 <button
                                     type="submit"
@@ -95,17 +95,17 @@ export default function Footer() {
                     {/* Social Icons (Gravity UI) */}
                     <div className="flex items-center gap-3">
                         {/* Facebook */}
-                        <a href="#" className="flex items-center justify-center w-9 h-9 rounded-md bg-[#111111] text-[#737373] hover:text-white hover:bg-gray-800 transition-colors" aria-label="Facebook">
+                        <a href="#" className="flex items-center justify-center w-9 h-9 rounded-md border border-foreground/50 bg-backgroud text-foreground hover:text-background hover:bg-gray-800 transition-colors" aria-label="Facebook">
                             <FaFacebook />
                         </a>
 
                         {/* Pinterest */}
-                        <a href="#" className="flex items-center justify-center w-9 h-9 rounded-md bg-[#111111] text-white hover:bg-[#4338ca] transition-colors" aria-label="Pinterest">
+                        <a href="#" className="flex items-center justify-center w-9 h-9 rounded-md border border-foreground/50 bg-backgroud text-foreground hover:text-background hover:bg-gray-800 transition-colors" aria-label="Pinterest">
                             <FaPinterest />
                         </a>
 
                         {/* LinkedIn */}
-                        <a href="#" className="flex items-center justify-center w-9 h-9 rounded-md bg-[#111111] text-[#737373] hover:text-white hover:bg-gray-800 transition-colors" aria-label="LinkedIn">
+                        <a href="#" className="flex items-center justify-center w-9 h-9 rounded-md border border-foreground/50 bg-backgroud text-foreground hover:text-background hover:bg-gray-800 transition-colors" aria-label="LinkedIn">
                             <FaLinkedin />
                         </a>
                     </div>
