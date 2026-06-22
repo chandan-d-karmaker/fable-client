@@ -57,7 +57,7 @@ function Navbar() {
                 </div>
 
                 {/* desktop menu */}
-                <div className="border p-2 rounded-2xl flex items-center justify-between">
+                <div className="hidden border p-2 rounded-2xl md:flex items-center justify-between">
                     <div>
                         <ul className="hidden items-center gap-4 md:flex">
                             {menuItems.map((item, index) => (
@@ -96,15 +96,29 @@ function Navbar() {
             {isMenuOpen && (
                 <div className="border-t border-separator md:hidden">
                     <ul className="flex flex-col gap-2 p-4">
+                        {menuItems.map((item, index) => (
+                            <li key={index}>
+                                <Link
+                                    href={item.href}
+                                    className="text-sm font-medium text-foreground/80 hover:text-white transition-colors"
+                                >
+                                    {item.name}
+                                </Link>
+                            </li>
+                        ))}
                         <li>
-                            <NavLink href="#" className="block py-2">
-                                Features
-                            </NavLink>
+                            <Button variant="outline">
+                                <Link href='/auth/login'>
+                                    Log in
+                                </Link>
+                            </Button>
                         </li>
                         <li>
-                            <NavLink href="#" className="block py-2">
-                                Pricing
-                            </NavLink>
+                            <Button variant="primary">
+                                <Link href='/auth/signup'>
+                                    Get Started
+                                </Link>
+                            </Button>
                         </li>
                     </ul>
                 </div>
