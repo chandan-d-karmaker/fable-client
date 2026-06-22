@@ -61,7 +61,7 @@ function Navbar() {
                     <div>
                         <ul className="hidden items-center gap-4 md:flex">
                             {menuItems.map((item, index) => (
-                                <li key={index}>
+                                <li key={index} className="px-1">
                                     <Link
                                         href={item.href}
                                         className="text-sm font-medium text-foreground/80 hover:text-white transition-colors"
@@ -97,7 +97,7 @@ function Navbar() {
                 <div className="border-t border-separator md:hidden">
                     <ul className="flex flex-col gap-2 p-4">
                         {menuItems.map((item, index) => (
-                            <li key={index}>
+                            <li key={index} className="px-1">
                                 <Link
                                     href={item.href}
                                     className="text-sm font-medium text-foreground/80 hover:text-white transition-colors"
