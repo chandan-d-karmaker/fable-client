@@ -1,24 +1,43 @@
 'use client'
 import { useState } from "react";
-import { Button } from "@heroui/react";
+import { Avatar, Button } from "@heroui/react";
 import NavLink from "./Navlink";
 import logo from "@/assets/logo.png"
 import Image from "next/image";
 import Link from "next/link";
 import ThemeSwitcher from "./theme-toggle";
+import { signOut, useSession } from "@/lib/auth-client";
 
 function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const { data } = useSession();
+    const user = data?.user;
 
     const menuItems = [
         { name: "Home", href: "/" },
         { name: "Ebooks", href: "/ebooks" }
     ];
 
+    const dashboardLinks = {
+        reader: '/dashboard/reader',
+        writer: '/dashboard/writer',
+        admin: '/dashboard/admin'
+    }
+
+    if (user?.email) {
+        menuItems.push(
+            {
+                name: 'Dashboard',
+                href: dashboardLinks[user?.role || 'reader']
+            }
+        )
+    }
+
     return (
         <nav className="sticky top-0 z-40 w-full border-b border-separator bg-background/70 backdrop-blur-lg">
             <header className="flex h-16 items-center justify-between px-6">
-                <div className="flex items-center gap-4">
+                <div className="flex items-center h-16 border-x px-4 gap-4">
                     <button
                         className="md:hidden"
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -58,8 +77,8 @@ function Navbar() {
                 </div>
 
                 {/* desktop menu */}
-                <div className="hidden border p-2 rounded-2xl md:flex items-center justify-between">
-                    <div>
+                <div className="hidden border-x h-16 p-2 md:flex items-center justify-between">
+                    <div className="flex items-center gap-4">
                         <ul className="hidden items-center gap-4 md:flex">
                             {menuItems.map((item, index) => (
                                 <li key={index} className="px-1">
@@ -71,24 +90,37 @@ function Navbar() {
                                     </Link>
                                 </li>
                             ))}
-                            <li>
+                            {user ? <li>
+                                <Button variant="outline" onClick={() => signOut()}>
+                                    Log out
+                                </Button>
+                            </li> : <li>
                                 <Button variant="outline">
                                     <Link href='/auth/login'>
                                         Log in
                                     </Link>
                                 </Button>
-                            </li>
-                            <li>
+                            </li>}
+                            {!user && <li>
                                 <Button variant="primary">
                                     <Link href='/auth/signup'>
                                         Get Started
                                     </Link>
                                 </Button>
-                            </li>
+                            </li>}
                         </ul>
+                        {
+                            user && <div>
+                                <Avatar>
+                                    <Avatar.Image alt={user?.name} src={user?.image} />
+                                    <Avatar.Fallback>{user.name[0]}</Avatar.Fallback>
+                                </Avatar>
+                            </div>
+                        }
+
+                        <ThemeSwitcher />
                     </div>
 
-                    <ThemeSwitcher/>
                     {/* <div className="h-5 w-px bg-gray-700/80"></div> */}
                 </div>
             </header>

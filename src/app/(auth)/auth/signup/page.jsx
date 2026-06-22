@@ -16,6 +16,7 @@ import welcome from '@/assets/Login.svg'
 function SignupContent() {
     const [isVisible, setIsVisible] = useState(false);
     const [error, setError] = useState('');
+    const [role, setRole] = useState("reader");
     const router = useRouter();
     const searchParams = useSearchParams();
     // const redirectTo = searchParams.get("redirect") || "/"
@@ -27,11 +28,13 @@ function SignupContent() {
 
         console.log(userData);
 
+        // userData.role = role;
+
         const { data, error } = await authClient.signUp.email({
-            ...userData
+            ...userData,
         });
 
-        console.log("signup data", {data, error});
+        console.log("signup data", { data, error });
 
         if (error) {
             toast.error(error.message)
@@ -108,26 +111,30 @@ function SignupContent() {
                     </TextField>
 
 
-                    <Label>Select your role</Label>
-                    <RadioGroup defaultValue="reader" name="role" orientation="horizontal">
-                        <Radio value="seeker">
-                            <Radio.Control>
-                                <Radio.Indicator />
-                            </Radio.Control>
+                    <Label>What you want to do?</Label>
+                    <RadioGroup
+                        onValueChange={setRole}
+                        defaultValue={role} name="role" orientation="horizontal">
+                        <Radio value="reader">
                             <Radio.Content>
-                                <Label>User (Reader)</Label>
+                                <Radio.Control>
+                                    <Radio.Indicator />
+                                </Radio.Control>
+                                Reader
                             </Radio.Content>
+                            <Description>To read books</Description>
                         </Radio>
-                        <Radio value="recruiter">
-                            <Radio.Control>
-                                <Radio.Indicator />
-                            </Radio.Control>
+                        <Radio value="writer">
                             <Radio.Content>
-                                <Label>Writer</Label>
+                                <Radio.Control>
+                                    <Radio.Indicator />
+                                </Radio.Control>
+                                Writer
                             </Radio.Content>
+                            <Description>For publishing ebooks</Description>
                         </Radio>
                     </RadioGroup>
-                    
+
                     {/* {`/auth/login?redirect=${redirectTo}`} */}
                     <Link href={`/auth/login`}>
                         <p>Already a member? <span className='text-blue-500'>Login now!</span> </p>
