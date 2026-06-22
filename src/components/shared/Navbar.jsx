@@ -85,7 +85,7 @@ function Navbar() {
                                     <Button variant="ghost">
                                         <Link
                                             href={item.href}
-                                            className="text-sm font-medium text-foreground/80 hover:text-white transition-colors"
+                                            className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors"
                                         >
                                             {item.name}
                                         </Link>

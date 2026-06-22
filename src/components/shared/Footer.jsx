@@ -27,7 +27,7 @@ export default function Footer() {
                 <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-8 mb-16">
 
                     {/* Left Column: Logo & Tagline */}
-                    <div className="lg:col-span-2 lg:mx-0 mx-auto flex items-center gap-5 p-4 md:border lg:border-l-0">
+                    <div className="lg:col-span-2 md:mx-0 mx-auto flex items-center gap-5 p-4 md:border lg:border-l-0">
                         <Image src={Logo} alt='logo' height={50} width={50} className="md:w-25"></Image>
                         <p className="text-[#a2a1a1] text-sm leading-relaxed max-w-xs pr-4">
                             Fable is a digital platform that connects ebook lovers, readers, and collectors with talented writers. The platform allows users to browse, discover, and read original ebooks. Writers can upload and manage their creations after a one-time verification payment, while an admin oversees the entire system.

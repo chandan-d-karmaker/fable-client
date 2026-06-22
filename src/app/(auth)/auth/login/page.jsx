@@ -8,6 +8,7 @@ import toast from 'react-hot-toast';
 import { useRouter, useSearchParams } from 'next/navigation';
 import welcome from '@/assets/Login.svg'
 import Image from 'next/image';
+import { BsGoogle } from 'react-icons/bs';
 
 // 1. Move your main logic into a separate component
 const LoginContent = () => {
@@ -17,6 +18,18 @@ const LoginContent = () => {
     const router = useRouter();
     const searchParams = useSearchParams();
     // const redirectTo = searchParams.get("redirect") || '/';
+
+    const handleGoogleSignIn = async () => {
+        const { data, error } = await authClient.signIn.social({
+            provider: "google",
+        });
+        if (error) {
+            toast.error(error.message);
+            return;
+        } else {
+            toast.success("Redirecting to google!");
+        }
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -35,7 +48,7 @@ const LoginContent = () => {
             return;
         } else {
             toast.success("Logged in successfully!");
-            window.location.href='/';
+            window.location.href = '/';
             // router.push(redirectTo);
         }
 
@@ -108,12 +121,18 @@ const LoginContent = () => {
                         <p>Not a member? <span className='text-blue-500'>Register Now</span> </p>
                     </Link>
 
-                    <div className="flex gap-2 w-full">
+                    <div className="flex items-center gap-2 w-full">
                         <Button type="submit" className="w-full">
                             Login
                         </Button>
+
+                        <div className="h-5 w-px bg-gray-700/80"></div>
+
+                        <Button variant="secondary" onClick={handleGoogleSignIn}>
+                            <BsGoogle/>
+                        </Button>
                         <Button type="reset" variant="secondary">
-                            Cancel
+                            Reset
                         </Button>
                     </div>
                 </Form>
