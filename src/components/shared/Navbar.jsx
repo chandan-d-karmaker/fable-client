@@ -142,20 +142,37 @@ function Navbar() {
                                 </Link>
                             </li>
                         ))}
-                        <li>
+                        {user ? <li>
+                            <Button variant="outline" onClick={() => signOut()}>
+                                Log out
+                            </Button>
+                        </li> : <li>
                             <Button variant="outline">
                                 <Link href='/auth/login'>
                                     Log in
                                 </Link>
                             </Button>
-                        </li>
-                        <li>
+                        </li>}
+                        {!user && <li>
                             <Button variant="primary">
                                 <Link href='/auth/signup'>
                                     Get Started
                                 </Link>
                             </Button>
-                        </li>
+                        </li>}
+                        {
+                            <div className="flex items-center gap-2">
+                                {user && <div>
+                                    <Avatar>
+                                        <Avatar.Image alt={user?.name} src={user?.image} />
+                                        <Avatar.Fallback>{user.name[0]}</Avatar.Fallback>
+                                    </Avatar>
+                                </div>}
+
+                                <ThemeSwitcher />
+                            </div>
+
+                        }
                     </ul>
                 </div>
             )}

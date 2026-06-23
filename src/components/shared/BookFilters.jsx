@@ -48,7 +48,7 @@ export default function BooksFilters({
                             </Select.Indicator>
                         </Select.Trigger>
 
-                        <Select.Popover className="bg-background/80 border border-foreground-700 rounded-xl shadow-xl mt-1 overflow-hidden z-50">
+                        <Select.Popover className="bg-background/70 backdrop-blur-sm border border-foreground-700 rounded-xl shadow-xl mt-1 overflow-hidden z-50">
                             <ListBox className="p-1">
                                 <ListBox.Item id="all" className="flex items-center justify-between text-foreground/80 hover:bg-purple-600 hover:text-foreground rounded-lg px-3 py-2 text-sm cursor-pointer capitalize">
                                     <span>All Types</span>
@@ -73,21 +73,21 @@ export default function BooksFilters({
                     </Select>
                 </div>
 
-                {/* 3. Category Select Filter - Span 3 columns */}
+                {/* 3. sort Filter - Span 3 columns */}
                 <div className="md:col-span-3">
                     <span className="text-sm font-medium text-foreground/80 block mb-2">Sort</span>
                     <Select
                         selectedKey={selectedSort}
                         onSelectionChange={(key) => setSelectedSort(key)}
                     >
-                        <Select.Trigger className="w-full flex items-center justify-between bg-background/80 text-foreground border border-foreground/70 hover:border-foreground/60 rounded-xl py-2.5 px-4 text-sm font-normal transition-all">
+                        <Select.Trigger className="w-full flex items-center justify-between bg-background text-foreground border border-foreground/70 hover:border-foreground/60 rounded-xl py-2.5 px-4 text-sm font-normal transition-all">
                             <Select.Value>{selectedSort === "all" ? "All Categories" : selectedSort}</Select.Value>
                             <Select.Indicator>
                                 <ChevronDown className="w-4 h-4 text-foreground/80" />
                             </Select.Indicator>
                         </Select.Trigger>
 
-                        <Select.Popover className="bg-background/80 border border-foreground-700 rounded-xl shadow-xl mt-1 overflow-hidden z-50">
+                        <Select.Popover className="bg-background/70 backdrop-blur-sm border border-foreground-700 rounded-xl shadow-xl mt-1 overflow-hidden z-50">
                             <ListBox className="p-1">
                                 <ListBox.Item id="all" className="text-foreground/80 hover:bg-purple-600 hover:text-foreground rounded-lg px-3 py-2 text-sm cursor-pointer capitalize">
                                     <span>All Categories</span>

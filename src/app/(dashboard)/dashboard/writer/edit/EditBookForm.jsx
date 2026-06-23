@@ -106,9 +106,9 @@ export default function EditEbookForm({ initialData }) {
     const labelClass = "text-foreground font-medium pb-2 text-sm";
 
     return (
-        <div className="w-full max-w-4xl mx-auto py-8 text-foreground">
+        <div className="w-full max-w-4xl mx-auto py-4 text-foreground">
             {/* Form Container */}
-            <div className="bg-background border border-divider rounded-nome p-8 sm:p-10 shadow-sm">
+            <div className="bg-background border border-divider rounded-nome p-4 sm:p-6 shadow-sm">
 
                 {/* Header */}
                 <div className="mb-10">

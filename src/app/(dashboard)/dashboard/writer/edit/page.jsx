@@ -25,7 +25,7 @@ const WriterEbooksPage = async () => {
     };
 
     return (
-        <div className="p-6">
+        <div>
             <div className="flex justify-between items-center mb-6">
                 <h1 className="text-2xl font-bold text-foreground">My Ebooks</h1>
                 {/* <Link href='/dashboard/writer/books/new'>

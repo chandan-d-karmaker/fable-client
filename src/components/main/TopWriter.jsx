@@ -1,4 +1,4 @@
-import { getWriters } from '@/lib/api/users';
+import { getTopWriters, getWriters } from '@/lib/api/users';
 import { Avatar, Card } from '@heroui/react';
 import { motion } from "motion/react"
 import Image from 'next/image';
@@ -6,7 +6,7 @@ import React from 'react';
 
 const TopWriter = async () => {
 
-    const writers = await getWriters();
+    const writers = await getTopWriters();
     console.log(writers);
     return (
         <div className='flex flex-wrap items-center justify-between gap-2'>

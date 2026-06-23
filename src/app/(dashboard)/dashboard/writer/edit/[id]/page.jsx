@@ -19,7 +19,7 @@ export default async function EditPage({ params }) {
 
     // Pass the fetched data down to your client-side form component
     return (
-        <div className="p-6 w-full max-w-4xl mx-auto">
+        <div className="w-full max-w-4xl mx-auto">
             <h1 className="text-2xl font-bold mb-6 text-foreground">Edit Ebook</h1>
             
             {/* Pass the data as a prop so your form can pre-fill the inputs */}
