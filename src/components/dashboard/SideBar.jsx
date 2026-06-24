@@ -25,7 +25,6 @@ export async function SideBar() {
         { icon: VectorSquare, href: "/dashboard/writer", label: "Dashboard" },
         { icon: Magnifier, href: "/dashboard/writer/manage-ebook", label: "Manage Ebooks" },
         { icon: FaWpforms, href: "/dashboard/writer/add-ebook", label: "Add Ebooks" },
-        { icon: FileText, href: "/dashboard/writer/edit", label: "Edit Ebook" },
         { icon: CiBookmark, href: "/dashboard/writer/bookmark", label: "Bookmarks" },
         { icon: LiaMoneyBillWaveAltSolid, href: "/dashboard/writer/sales-history", label: "Sales History" },
     ];

@@ -7,14 +7,35 @@ export const serverQuery = async (path) => {
     return res.json();
 }
 
-export const serverMutation = async (path, data, method ='POST') => {
-    const res = await fetch(`${baseUrl}${path}`, {
+// export const serverMutation = async (path, data, method ='POST') => {
+//     const res = await fetch(`${baseUrl}${path}`, {
+//         method: method,
+//         headers: {
+//             'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify(data),
+//     });
+
+//     return res.json();
+// }
+
+export const serverMutation = async (path, data = {}, method = 'POST') => {
+    const options = {
         method: method,
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data),
-    });
+    };
+
+    if (data) {
+        options.body = JSON.stringify(data);
+    }
+
+    const res = await fetch(`${baseUrl}${path}`, options);
+
+    if (res.status === 204) {
+        return { success: true }; 
+    }
 
     return res.json();
 }

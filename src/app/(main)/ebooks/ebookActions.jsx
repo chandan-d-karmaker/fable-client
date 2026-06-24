@@ -3,11 +3,11 @@ import toast from 'react-hot-toast';
 import { Button } from '@heroui/react';
 
 const EbookActions = ({ handleBookmark, uploader, user }) => {
-    
+
     const onBookmarkClick = async () => {
 
         const result = await handleBookmark();
-        
+
         if (result.success) {
             toast.success(result.message);
         } else {
@@ -17,9 +17,16 @@ const EbookActions = ({ handleBookmark, uploader, user }) => {
 
     return (
         <div className='flex gap-4 mt-4'>
-            <Button isDisabled={uploader === user?.id} className='text-background'>
+            <form action="/api/checkout_sessions" method="POST">
+                <section>
+                    <Button type="submit" role="link" isDisabled={uploader === user?.id} className='text-background'>
+                        {uploader === user?.id ? 'You cannot buy your own book' : 'Purchase'}
+                    </Button>
+                </section>
+            </form>
+            {/* <Button isDisabled={uploader === user?.id} className='text-background'>
                 {uploader === user?.id ? 'You cannot buy your own book' : 'Purchase'}
-            </Button>
+            </Button> */}
             <Button className='text-background'>Wishlist</Button>
             <Button onClick={onBookmarkClick} className='text-background'>Add to bookmark</Button>
         </div>

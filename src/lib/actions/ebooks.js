@@ -11,7 +11,11 @@ export const publishEbook = async (ebookData) => {
 export const updateEbook = async (ebookId, ebookData) => {
     const result = serverMutation(`/api/ebooks/${ebookId}`, ebookData, 'PATCH');
     revalidatePath('/dashboard/writes/manage-ebook');
-    redirect('/dashboard/write/manage-ebook');
+    return result;
+}
+export const deleteEbook = async (ebookId) => {
+    const result = await serverMutation(`/api/ebooks/${ebookId}`, null, 'DELETE');
+    revalidatePath('/dashboard/writes/manage-ebook');
     return result;
 }
 

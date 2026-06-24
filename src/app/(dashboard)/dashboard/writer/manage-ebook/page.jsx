@@ -1,6 +1,7 @@
+import DeleteEbook from '@/components/shared/DeleteEbook';
 import { getEbookByWriter } from '@/lib/api/ebooks';
 import { getUserSession } from '@/lib/core/session';
-import { Button, Chip, Tooltip, Table } from '@heroui/react';
+import { Button, Chip, Tooltip, Table, Modal } from '@heroui/react';
 import { Edit2, Trash2, EyeOff, Eye } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react';
@@ -77,8 +78,7 @@ const WriterEbooksPage = async () => {
                                         </Table.Cell>
                                         <Table.Cell>
                                             <div className="relative flex items-center justify-start gap-2">
-                                                <Tooltip content="Edit Ebook">
-                                                    {/* Consider using a Link wrapping the Button if editing is on a separate page */}
+                                                <Tooltip delay={0}>
                                                     <Link href={`/dashboard/writer/edit/${ebook._id}`}>
                                                         <Button
                                                             isIconOnly
@@ -89,6 +89,9 @@ const WriterEbooksPage = async () => {
                                                             <Edit2 className="text-default-500 w-4 h-4 hover:text-primary transition-colors" />
                                                         </Button>
                                                     </Link>
+                                                    <Tooltip.Content>
+                                                        <p>Edit Ebook</p>
+                                                    </Tooltip.Content>
                                                 </Tooltip>
 
                                                 {/* Publish/Unpublish Toggle Button */}
@@ -107,16 +110,7 @@ const WriterEbooksPage = async () => {
                                                     </Button>
                                                 </Tooltip>
 
-                                                <Tooltip content="Delete Ebook" color="danger">
-                                                    <Button
-                                                        isIconOnly
-                                                        size="sm"
-                                                        variant="light"
-                                                        aria-label="Delete ebook"
-                                                    >
-                                                        <Trash2 className="text-default-500 w-4 h-4 hover:text-danger transition-colors" />
-                                                    </Button>
-                                                </Tooltip>
+                                                <DeleteEbook ebook={ebook}/>
                                             </div>
                                         </Table.Cell>
                                     </Table.Row>
@@ -125,8 +119,8 @@ const WriterEbooksPage = async () => {
                         </Table.Content>
                     </Table.ScrollContainer>
                 </Table>
-            </div>
-        </div>
+            </div >
+        </div >
     );
 };
 
