@@ -5,7 +5,7 @@ import React from 'react';
 
 const BookCard = ({ book }) => {
 
-    console.log(book);
+    // console.log(book);
     return (
         <Card className="relative overflow-hidden w-full h-100 rounded-none border-none flex flex-col">
 

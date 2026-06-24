@@ -12,6 +12,14 @@ export const getUserSession = async () => {
     return session?.user || null;
 }
 
+export const getUserRole = async () => {
+    const session = await auth.api.getSession({
+        headers: await headers()
+    })
+
+    return session?.user?.role || null;
+}
+
 export const requireRole = async(role) =>{
     const user = await getUserSession()
     if(!user){

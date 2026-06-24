@@ -72,7 +72,7 @@ const EbookDetailsPage = async ({ params }) => {
                     <Button onClick={handleBookmark} className='text-background'>Add to bookmark</Button>
                 </div> */}
 
-                <EbookActions handleBookmark={handleBookmark} uploader={uploader} user={user} />
+                <EbookActions ebookId={id} handleBookmark={handleBookmark} uploader={uploader} user={user} />
             </div>
         </div >
     );

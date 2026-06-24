@@ -3,6 +3,7 @@ import { getEbooks } from '@/lib/api/ebooks';
 import React from 'react';
 import * as motion from "motion/react-client";
 import BooksContainer from '@/components/shared/BooksContainer';
+import { getUserRole } from '@/lib/core/session';
 
 const AllEBooksPage = async ({ searchParams }) => {
 
