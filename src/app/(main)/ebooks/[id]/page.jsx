@@ -55,7 +55,8 @@ const EbookDetailsPage = async ({ params }) => {
                 <div>
                     <Chip color="success">{ebook.genre}</Chip>
                 </div>
-                <div className="divider my-1"></div>
+                
+                <p className="text-md font-medium text-foreground-300">Price: ${ebook.price}</p>
 
                 {/* review */}
                 <div className='space-y-4'>

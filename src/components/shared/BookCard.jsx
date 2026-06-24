@@ -35,9 +35,12 @@ const BookCard = ({ book }) => {
                 <Card.Title className="text-xl font-bold text-white mb-1 line-clamp-2 text-left leading-tight">
                     {book.title}
                 </Card.Title>
-                <Card.Description className="text-sm font-medium text-zinc-300">
-                    {book.genre}
-                </Card.Description>
+                <div>
+                    <Card.Description className="text-sm font-medium text-zinc-300">
+                        {book.genre}
+                    </Card.Description>
+                    <p className="text-sm font-medium text-foreground-300">${book.price}</p>
+                </div>
             </Card.Header>
 
             {/* Footer */}
