@@ -21,7 +21,7 @@ export default function BooksFilters({
                         onChange={(value) => setSearchQuery(value)}
                         className="w-full"
                     >
-                        <span className="text-sm font-medium text-foreground/80 block mb-2">Search Jobs</span>
+                        <span className="text-sm font-medium text-foreground/80 block mb-2">Search Ebooks</span>
                         <InputGroup className="bg-background border border-foreground focus-within:border-purple-500 rounded-none transition-all">
                             <InputGroup.Prefix className="pl-3 text-foreground/80">
                                 <Magnifier className="w-4 h-4" />

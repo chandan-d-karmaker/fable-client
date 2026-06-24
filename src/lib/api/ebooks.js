@@ -16,3 +16,4 @@ export const getEbookByWriter = async (writerId) => {
 export const getEbookById = async (ebookId) => {
     return serverQuery(`/api/ebooks/${ebookId}`);
 }
+

@@ -14,3 +14,7 @@ export const updateEbook = async (ebookId, ebookData) => {
     redirect('/dashboard/write/manage-ebook');
     return result;
 }
+
+export const addBookmark = async (Data) => {
+    return serverMutation(`/api/ebooks/bookmark`, Data);
+}
