@@ -11,11 +11,11 @@ import EbookActions from '../ebookActions';
 const EbookDetailsPage = async ({ params }) => {
 
     const { id } = await params;
-    console.log(id);
+    // console.log(id);
     const ebook = await getEbookById(id);
-    console.log(ebook);
+    // console.log(ebook);
     const user = await getUserSession();
-    console.log(user);
+    // console.log(user);
 
     const uploader = ebook.addedBy;
 
@@ -55,7 +55,7 @@ const EbookDetailsPage = async ({ params }) => {
                 <div>
                     <Chip color="success">{ebook.genre}</Chip>
                 </div>
-                
+
                 <p className="text-md font-medium text-foreground-300">Price: ${ebook.price}</p>
 
                 {/* review */}

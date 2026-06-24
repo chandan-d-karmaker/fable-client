@@ -53,7 +53,11 @@ export async function POST(req) {
             cancel_url: `${origin}/ebooks/cancel`, // Good practice to have a cancel URL
             metadata: {
                 ebookId: ebook._id.toString(),
-                userId: user.id
+                ebookTitle: ebook.title,
+                ebookPrice: ebook.price,
+                userId: user.id,
+                buyerName: user.name,
+                writerId: ebook.addedBy
             }
         });
 

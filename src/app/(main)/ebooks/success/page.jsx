@@ -33,7 +33,11 @@ export default async function Success({ searchParams }) {
         const paymentInfo = {
             email: customerEmail,
             ebookId: metadata.ebookId,
-            userId: metadata.userId
+            ebookPrice: metadata.ebookPrice,
+            userId: metadata.userId,
+            writerId: metadata.writerId,
+            buyerName: metadata.buyerName,
+            ebookTitle: metadata.ebookTitle
         }
 
         const res = await addPayment(paymentInfo);
