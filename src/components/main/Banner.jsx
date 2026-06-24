@@ -52,7 +52,7 @@ const Banner = () => {
                     }}
                     pagination={{ clickable: true }}
                     loop
-                    className="rounded-3xl overflow-hidden"
+                    className="overflow-hidden"
                 >
                     {slides.map((slide) => (
                         <SwiperSlide key={slide.id}>

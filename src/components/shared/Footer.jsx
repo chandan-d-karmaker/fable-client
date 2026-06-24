@@ -75,11 +75,11 @@ export default function Footer() {
                                     type="email"
                                     placeholder="Enter your email"
                                     required
-                                    className="w-full bg-background border border-foreground/10 text-foreground text-sm rounded-md px-4 py-2.5 focus:outline-none focus:border-[#4F46E5] transition-colors"
+                                    className="w-full bg-background border border-foreground/10 text-foreground text-sm rounded-none px-4 py-2.5 focus:outline-none focus:border-[#4F46E5] transition-colors"
                                 />
                                 <button
                                     type="submit"
-                                    className="w-full bg-[#4F46E5] hover:bg-[#4338ca] text-white text-sm font-medium py-2.5 rounded-md transition-colors"
+                                    className="w-full bg-[#4F46E5] hover:bg-[#4338ca] text-white text-sm font-medium py-2.5 rounded-none transition-colors"
                                 >
                                     Subscribe
                                 </button>
@@ -94,17 +94,17 @@ export default function Footer() {
                     {/* Social Icons (Gravity UI) */}
                     <div className="flex items-center gap-3 md:pl-5">
                         {/* Facebook */}
-                        <a href="#" className="flex items-center justify-center w-9 h-9 rounded-md border border-foreground/50 bg-backgroud text-foreground hover:text-background hover:bg-gray-800 transition-colors" aria-label="Facebook">
+                        <a href="#" className="flex items-center justify-center w-9 h-9 rounded-none border border-foreground/50 bg-backgroud text-foreground hover:text-background hover:bg-gray-800 transition-colors" aria-label="Facebook">
                             <FaFacebook />
                         </a>
 
                         {/* Pinterest */}
-                        <a href="#" className="flex items-center justify-center w-9 h-9 rounded-md border border-foreground/50 bg-backgroud text-foreground hover:text-background hover:bg-gray-800 transition-colors" aria-label="Pinterest">
+                        <a href="#" className="flex items-center justify-center w-9 h-9 rounded-none border border-foreground/50 bg-backgroud text-foreground hover:text-background hover:bg-gray-800 transition-colors" aria-label="Pinterest">
                             <FaPinterest />
                         </a>
 
                         {/* LinkedIn */}
-                        <a href="#" className="flex items-center justify-center w-9 h-9 rounded-md border border-foreground/50 bg-backgroud text-foreground hover:text-background hover:bg-gray-800 transition-colors" aria-label="LinkedIn">
+                        <a href="#" className="flex items-center justify-center w-9 h-9 rounded-none border border-foreground/50 bg-backgroud text-foreground hover:text-background hover:bg-gray-800 transition-colors" aria-label="LinkedIn">
                             <FaLinkedin />
                         </a>
                     </div>

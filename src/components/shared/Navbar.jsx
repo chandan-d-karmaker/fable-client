@@ -93,18 +93,18 @@ function Navbar() {
                                 </li>
                             ))}
                             {user ? <li>
-                                <Button variant="outline" onClick={() => signOut()}>
+                                <Button variant="outline" className='rounded-none' onClick={() => signOut()}>
                                     Log out
                                 </Button>
                             </li> : <li>
-                                <Button variant="outline">
+                                <Button variant="outline" className='rounded-none'>
                                     <Link href='/auth/login'>
                                         Log in
                                     </Link>
                                 </Button>
                             </li>}
                             {!user && <li>
-                                <Button variant="primary">
+                                <Button variant="primary" className='rounded-none'>
                                     <Link href='/auth/signup'>
                                         Get Started
                                     </Link>
@@ -136,25 +136,25 @@ function Navbar() {
                             <li key={index} className="px-1">
                                 <Link
                                     href={item.href}
-                                    className="text-sm font-medium text-foreground/80 hover:text-white transition-colors"
+                                    className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors"
                                 >
                                     {item.name}
                                 </Link>
                             </li>
                         ))}
                         {user ? <li>
-                            <Button variant="outline" onClick={() => signOut()}>
+                            <Button variant="outline" className='rounded-none' onClick={() => signOut()}>
                                 Log out
                             </Button>
                         </li> : <li>
-                            <Button variant="outline">
+                            <Button variant="outline" className='rounded-none'>
                                 <Link href='/auth/login'>
                                     Log in
                                 </Link>
                             </Button>
                         </li>}
                         {!user && <li>
-                            <Button variant="primary">
+                            <Button variant="primary" className='rounded-none'>
                                 <Link href='/auth/signup'>
                                     Get Started
                                 </Link>

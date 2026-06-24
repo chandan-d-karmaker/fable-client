@@ -4,7 +4,7 @@ import React from 'react';
 
 const BookCard = ({ book }) => {
     return (
-        <Card className="relative overflow-hidden w-full h-100 rounded-[32px] border-none flex flex-col">
+        <Card className="relative overflow-hidden w-full h-100 rounded-none border-none flex flex-col">
 
             {/* Background image */}
             <Image
@@ -38,10 +38,10 @@ const BookCard = ({ book }) => {
             </Card.Header>
 
             {/* Footer */}
-            <Card.Footer className="relative z-10 px-6 pb-6 pt-3 flex items-center justify-between border-none w-full">
+            <Card.Footer className="relative z-10 pb-6 pt-3 flex items-center justify-between border-none w-full">
                 <Button
-                    size="sm"
-                    className="w-full rounded-full bg-white text-zinc-900 font-bold text-sm shadow-sm hover:bg-zinc-200 transition-colors"
+                    size="sm" fullWidth
+                    className="w-full rounded-none  text-background/90 font-bold text-sm shadow-sm hover:bg-foreground/80 transition-colors"
                 >
                     View Ebook
                 </Button>
