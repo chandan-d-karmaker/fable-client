@@ -13,6 +13,9 @@ const SalesHistoryPage = async () => {
     console.log(sales);
     return (
         <div>
+            <div>
+                <h1 className='text-2xl font-bold text-foreground mb-10'>Ebook sale history</h1>
+            </div>
             <Table aria-label="Table of writer's sales">
                 <Table.ScrollContainer>
                     <Table.Content className="min-w-150">

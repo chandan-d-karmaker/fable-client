@@ -18,7 +18,6 @@ const WriterEbooksPage = async () => {
         switch (status?.toLowerCase()) {
             case 'published':
                 return 'success';
-            case 'draft':
             case 'unpublished':
                 return 'warning';
             // Add other statuses if needed

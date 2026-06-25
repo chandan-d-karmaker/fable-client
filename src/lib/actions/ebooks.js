@@ -22,3 +22,9 @@ export const deleteEbook = async (ebookId) => {
 export const addBookmark = async (Data) => {
     return serverMutation(`/api/ebooks/bookmark`, Data);
 }
+
+export const toggleStatus = async (ebookId, data) => {
+    const result = await serverMutation(`/api/ebooks/status/${ebookId}`, data, 'PATCH');
+    revalidatePath('/dashboard/writes/manage-ebook');
+    return result;
+}

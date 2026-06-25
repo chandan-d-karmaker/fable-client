@@ -80,7 +80,7 @@ export default function AddEbook() {
             ...data,
             image: logoUrl,
             addedBy: user?.id,
-            approved: 'Pending'
+            status: 'unpublished'
         };
 
         console.log("Submitting Ebook:", ebookData);
@@ -183,29 +183,6 @@ export default function AddEbook() {
                             className={baseInputClass}
                         />
                     </TextField>
-
-
-                    {/* Publishing Status */}
-                    <div className="flex flex-col w-full">
-                        <Label className={labelClass}>Publishing Status</Label>
-                        <Select name="status" defaultSelectedKey="published" isRequired>
-                            <Select.Trigger className={`${baseInputClass} min-h-11 flex items-center justify-between`}>
-                                <Select.Value />
-                                <Select.Indicator>
-                                    <ChevronDown className="w-4 h-4 text-default-500" />
-                                </Select.Indicator>
-                            </Select.Trigger>
-                            <Select.Popover className="bg-content1 border border-divider rounded-xl">
-                                <ListBox items={statuses}>
-                                    {(item) => (
-                                        <ListBox.Item key={item.id} id={item.id} textValue={item.label} className="text-foreground hover:bg-default-100 rounded-lg px-3 py-2 cursor-pointer">
-                                            {item.label}
-                                        </ListBox.Item>
-                                    )}
-                                </ListBox>
-                            </Select.Popover>
-                        </Select>
-                    </div>
 
                     {/* Publishing As (Static Display) */}
                     <div className="flex flex-col mt-2">
