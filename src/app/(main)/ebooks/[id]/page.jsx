@@ -19,17 +19,19 @@ const EbookDetailsPage = async ({ params }) => {
     const user = await getUserSession();
     // console.log(user);
 
+    
+
     const uploader = ebook?.addedBy;
 
     let isPurchased = false;
 
     if (user?.id) {
         try {
-            
+
             const res = await hasPurchased(id, user.id);
             const data = res
             isPurchased = data.hasPurchased;
-            
+
         } catch (error) {
             console.error("Failed to fetch purchase status:", error);
         }
@@ -37,8 +39,8 @@ const EbookDetailsPage = async ({ params }) => {
 
     const handleBookmark = async () => {
         'use server'
-
-        if(!user){
+        
+        if (!user) {
             redirect('/auth/login');
         }
         const bookmarkData = {
@@ -66,7 +68,7 @@ const EbookDetailsPage = async ({ params }) => {
                 <Image src={ebook.image} alt='ebook.title' width={100} height={100} className='max-h-screen w-full'></Image>
             </div>
             <div className='w-full space-y-4'>
-                <BackButton/>
+                <BackButton />
                 <div>
                     <h1 className='text-4xl font-bold! playfair'>{ebook.title}</h1>
                 </div>

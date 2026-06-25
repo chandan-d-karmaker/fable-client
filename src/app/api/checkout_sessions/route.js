@@ -7,7 +7,7 @@ import { getUserSession } from '@/lib/core/session';
 import { redirect } from 'next/navigation';
 
 export async function POST(req) {
-    
+
     try {
         const headersList = await headers();
         const origin = headersList.get('origin') || process.env.NEXT_PUBLIC_BASE_URL;
@@ -25,8 +25,11 @@ export async function POST(req) {
 
         const user = await getUserSession();
 
-        if (!user) {
-            redirect('/auth/login');
+        if (!user || !user.id) {
+            return NextResponse.json(
+                { error: "Unauthorized", redirectUrl: "/auth/login" },
+                { status: 401 }
+            );
         }
 
         if (!ebook) {
@@ -60,8 +63,8 @@ export async function POST(req) {
                 ebookId: ebook._id.toString(),
                 ebookTitle: ebook.title,
                 ebookPrice: ebook.price,
-                userId: user.id,
-                buyerName: user.name,
+                userId: user?.id,
+                buyerName: user?.name,
                 writerId: ebook.addedBy
             }
         });
