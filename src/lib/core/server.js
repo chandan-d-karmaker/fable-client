@@ -1,5 +1,6 @@
 'use server';
 
+import { redirect } from "next/navigation";
 import { getUserToken } from "./session";
 
 const baseUrl = process.env.NEXT_PUBLIC_API_URL;
@@ -65,7 +66,7 @@ const handleStatusCode = res => {
         redirect('/unauthorized')
     }
     else if (res.status === 403) {
-        redirect('/forbidden');
+        redirect('/auth/login');
     }
 
     return res.json();

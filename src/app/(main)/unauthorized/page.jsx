@@ -6,8 +6,8 @@ import { Button } from "@heroui/react";
 
 export default function UnauthorizedPage() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-white px-4 text-center dark:bg-black">
-      <div className="max-w-md w-full space-y-8">
+    <div className="flex min-h-screen flex-col items-center justify-center bg-background px-4 text-center">
+      <div className="max-w-md w-full space-y-8 border p-6">
         
         {/* Icon & Error Code */}
         <div className="flex flex-col items-center justify-center space-y-4">

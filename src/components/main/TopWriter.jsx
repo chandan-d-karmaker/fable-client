@@ -7,7 +7,7 @@ import React from 'react';
 const TopWriter = async () => {
 
     const writers = await getTopWriters();
-    console.log(writers);
+    // console.log(writers);
     return (
         <div className='flex flex-wrap items-center justify-between gap-2'>
             {

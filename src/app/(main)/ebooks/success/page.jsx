@@ -73,10 +73,10 @@ export default async function Success({ searchParams }) {
                         <div className="pt-4 flex flex-col gap-3">
                             <Link href={`/dashboard/${role}`} className="w-full">
                                 <Button color="success" className="w-full font-medium text-white rounded-none">
-                                    Go to My Library <ArrowRight className="w-4 h-4" />
+                                    Go to My Dashboard <ArrowRight className="w-4 h-4" />
                                 </Button>
                             </Link>
-                            <Link href="/" className="w-full">
+                            <Link href="/ebooks" className="w-full">
                                 <Button variant="light" className="w-full rounded-none text-default-500 hover:text-foreground">
                                     Return to Store
                                 </Button>

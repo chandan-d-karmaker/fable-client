@@ -6,7 +6,7 @@ import * as motion from "motion/react-client";
 const Featured = async () => {
 
     const books = await getFeatEbooks();
-    console.log(books);
+    // console.log(books);
     return (
         <div className='my-10'>
             <motion.div

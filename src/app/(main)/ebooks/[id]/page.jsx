@@ -17,7 +17,7 @@ const EbookDetailsPage = async ({ params }) => {
     const user = await getUserSession();
     // console.log(user);
 
-    const uploader = ebook.addedBy;
+    const uploader = ebook?.addedBy;
 
 
     const handleBookmark = async () => {
