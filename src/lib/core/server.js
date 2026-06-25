@@ -24,6 +24,7 @@ export const protectedServerQuery = async (path) => {
             headers: await authHeader()
         }
     );
+    console.log(res);
     return handleStatusCode(res);
 }
 
@@ -55,17 +56,19 @@ export const serverMutation = async (path, data = {}, method = 'POST') => {
     const res = await fetch(`${baseUrl}${path}`, options);
 
     if (res.status === 204) {
-        return { success: true }; 
+        return { success: true };
     }
 
     return res.json();
 }
 
 const handleStatusCode = res => {
-    if (res.status === 401) {
+    console.log("status codee:", res.statusCode);
+    if (res.statusCode === 401) {
         redirect('/unauthorized')
+
     }
-    else if (res.status === 403) {
+    else if (res.statusCode === 403) {
         redirect('/auth/login');
     }
 

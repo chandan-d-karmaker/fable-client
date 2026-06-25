@@ -3,7 +3,7 @@ import { useState } from 'react';
 import toast from 'react-hot-toast';
 import { Button } from '@heroui/react';
 
-const EbookActions = ({ ebookId, handleBookmark, uploader, user }) => {
+const EbookActions = ({ ebookId, handleBookmark, uploader, user, isPurchased }) => {
     // Add a loading state so the user can't click purchase twice
     const [isPurchasing, setIsPurchasing] = useState(false);
 
@@ -52,10 +52,11 @@ const EbookActions = ({ ebookId, handleBookmark, uploader, user }) => {
             <Button 
                 onClick={onPurchaseClick} 
                 isLoading={isPurchasing}
-                isDisabled={uploader === user?.id} 
+                isDisabled={uploader === user?.id || isPurchased} 
                 className='text-background bg-primary' // Added a color so it stands out
             >
-                {uploader === user?.id ? 'You cannot buy your own book' : 'Purchase'}
+                {uploader === user?.id && 'You cannot buy your own book'}
+                {isPurchased ? 'Already Purchased' : "Purchase"}
             </Button>
             
             <Button className='text-background'>Wishlist</Button>

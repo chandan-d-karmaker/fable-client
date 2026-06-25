@@ -1,5 +1,5 @@
 import { addBookmark } from '@/lib/actions/ebooks';
-import { getEbookById } from '@/lib/api/ebooks';
+import { getEbookById, hasPurchased } from '@/lib/api/ebooks';
 import { getUserSession } from '@/lib/core/session';
 import { Button, Chip } from '@heroui/react';
 import { format } from 'date-fns';
@@ -19,6 +19,21 @@ const EbookDetailsPage = async ({ params }) => {
 
     const uploader = ebook?.addedBy;
 
+    let isPurchased = false;
+
+    if (user?.id) {
+        try {
+            
+            const res = await hasPurchased(id, user.id);
+
+            // Note: If your protectedServerQuery already does res.json(), 
+            // change the next two lines to just: const data = res;
+            const data = res
+            isPurchased = data.hasPurchased;
+        } catch (error) {
+            console.error("Failed to fetch purchase status:", error);
+        }
+    }
 
     const handleBookmark = async () => {
         'use server'
@@ -73,7 +88,7 @@ const EbookDetailsPage = async ({ params }) => {
                     <Button onClick={handleBookmark} className='text-background'>Add to bookmark</Button>
                 </div> */}
 
-                <EbookActions ebookId={id} handleBookmark={handleBookmark} uploader={uploader} user={user} />
+                <EbookActions ebookId={id} handleBookmark={handleBookmark} uploader={uploader} user={user} isPurchased={isPurchased} />
             </div>
         </div >
     );

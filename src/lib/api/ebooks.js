@@ -17,3 +17,7 @@ export const getEbookById = async (ebookId) => {
     return protectedServerQuery(`/api/ebooks/${ebookId}`);
 }
 
+export const hasPurchased = async (ebookId, userId) =>{
+    return protectedServerQuery(`/api/purchases/check?userId=${userId}&ebookId=${ebookId}`);
+}
+
