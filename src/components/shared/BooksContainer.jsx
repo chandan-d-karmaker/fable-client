@@ -12,6 +12,7 @@ const BooksContainer = ({ books, filters }) => {
     const [selectedSort, setSelectedSort] = useState(filters.sort || "all");
 
     const router = useRouter();
+    console.log(books);
 
     useEffect(() => {
         const sp = new URLSearchParams()

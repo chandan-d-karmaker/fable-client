@@ -7,6 +7,8 @@ import Image from 'next/image';
 import React from 'react';
 import toast from 'react-hot-toast';
 import EbookActions from '../ebookActions';
+import BackButton from '@/components/shared/BackButton';
+import { redirect } from 'next/navigation';
 
 const EbookDetailsPage = async ({ params }) => {
 
@@ -25,11 +27,9 @@ const EbookDetailsPage = async ({ params }) => {
         try {
             
             const res = await hasPurchased(id, user.id);
-
-            // Note: If your protectedServerQuery already does res.json(), 
-            // change the next two lines to just: const data = res;
             const data = res
             isPurchased = data.hasPurchased;
+            
         } catch (error) {
             console.error("Failed to fetch purchase status:", error);
         }
@@ -37,9 +37,13 @@ const EbookDetailsPage = async ({ params }) => {
 
     const handleBookmark = async () => {
         'use server'
+
+        if(!user){
+            redirect('/auth/login');
+        }
         const bookmarkData = {
             ...ebook,
-            user: user.id
+            user: user?.id
         }
 
         const res = await addBookmark(bookmarkData)
@@ -62,6 +66,7 @@ const EbookDetailsPage = async ({ params }) => {
                 <Image src={ebook.image} alt='ebook.title' width={100} height={100} className='max-h-screen w-full'></Image>
             </div>
             <div className='w-full space-y-4'>
+                <BackButton/>
                 <div>
                     <h1 className='text-4xl font-bold! playfair'>{ebook.title}</h1>
                 </div>
@@ -74,9 +79,12 @@ const EbookDetailsPage = async ({ params }) => {
                 <p className="text-md font-medium text-foreground-300">Price: ${ebook.price}</p>
 
                 {/* review */}
-                <div className='space-y-4'>
+                {isPurchased && <div className='space-y-4'>
                     <p className='text-foreground'><span className='font-bold'>Description:</span> {ebook.description}</p>
-                </div>
+                </div>}
+                {uploader === user?.id && <div className='space-y-4'>
+                    <p className='text-foreground'><span className='font-bold'>Description:</span> {ebook.description}</p>
+                </div>}
 
                 <div>
                     <p>Date Uploaded: <span className='font-semibold'>{formattedDate}</span> </p>

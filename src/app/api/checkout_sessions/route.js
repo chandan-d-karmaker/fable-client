@@ -4,9 +4,10 @@ import { headers } from 'next/headers';
 import { stripe } from '../../../lib/stripe'; // Ensure this path is correct
 import { getEbookById } from '@/lib/api/ebooks'; // Import your DB function
 import { getUserSession } from '@/lib/core/session';
+import { redirect } from 'next/navigation';
 
 export async function POST(req) {
-
+    
     try {
         const headersList = await headers();
         const origin = headersList.get('origin') || process.env.NEXT_PUBLIC_BASE_URL;
@@ -23,6 +24,10 @@ export async function POST(req) {
         const ebook = await getEbookById(ebookId);
 
         const user = await getUserSession();
+
+        if (!user) {
+            redirect('/auth/login');
+        }
 
         if (!ebook) {
             return NextResponse.json({ error: "Ebook not found" }, { status: 404 });

@@ -14,7 +14,7 @@ export const getEbookByWriter = async (writerId) => {
 }
 
 export const getEbookById = async (ebookId) => {
-    return protectedServerQuery(`/api/ebooks/${ebookId}`);
+    return serverQuery(`/api/ebooks/${ebookId}`);
 }
 
 export const hasPurchased = async (ebookId, userId) =>{

@@ -68,6 +68,9 @@ export default function BooksFilters({
                                 <ListBox.Item id="Fantasy" className="flex items-center justify-between text-foreground/80 hover:bg-purple-600 hover:text-foreground rounded-none px-3 py-2 text-sm cursor-pointer capitalize">
                                     <span>Fantasy</span>
                                 </ListBox.Item>
+                                <ListBox.Item id="Classic" className="flex items-center justify-between text-foreground/80 hover:bg-purple-600 hover:text-foreground rounded-none px-3 py-2 text-sm cursor-pointer capitalize">
+                                    <span>Classic</span>
+                                </ListBox.Item>
                             </ListBox>
                         </Select.Popover>
                     </Select>

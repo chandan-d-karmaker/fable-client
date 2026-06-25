@@ -2,6 +2,7 @@
 
 import { redirect } from "next/navigation";
 import { getUserToken } from "./session";
+import { cookies } from "next/headers";
 
 const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 
@@ -10,22 +11,30 @@ export const serverQuery = async (path) => {
     return handleStatusCode(res);
 }
 
+// support session code
 export const authHeader = async () => {
-    const token = await getUserToken();
+    const cookieStore = await cookies();
+
+    const token = cookieStore.get("better-auth.session_data");
+    // const token = await getUserToken();
+    // console.log(token);
     const header = token ? {
-        authorization: `Bearer ${token}`
+        authorization: `Bearer ${token.value}`
     } : {};
     return header;
 }
+// support session code
 
 export const protectedServerQuery = async (path) => {
+
     const res = await fetch(`${baseUrl}${path}`,
         {
             headers: await authHeader()
         }
     );
-    console.log(res);
+    // console.log(res);
     return handleStatusCode(res);
+
 }
 
 // export const serverMutation = async (path, data, method ='POST') => {
@@ -62,8 +71,12 @@ export const serverMutation = async (path, data = {}, method = 'POST') => {
     return res.json();
 }
 
-const handleStatusCode = res => {
-    console.log("status codee:", res.statusCode);
+const handleStatusCode = async (res) => {
+
+    // const result = await res.json();
+    // console.log(result);
+    // console.log("status codee:", res);
+    // console.log(await res.unauthorized);
     if (res.statusCode === 401) {
         redirect('/unauthorized')
 
@@ -72,5 +85,5 @@ const handleStatusCode = res => {
         redirect('/auth/login');
     }
 
-    return res.json();
+    return res.json() || null;
 }

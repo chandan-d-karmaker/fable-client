@@ -6,10 +6,14 @@ import logo from "@/assets/logo.png"
 import Image from "next/image";
 import Link from "next/link";
 import ThemeSwitcher from "./theme-toggle";
-import { signOut, useSession } from "@/lib/auth-client";
+import { authClient, signOut, useSession } from "@/lib/auth-client";
+import { redirect, useRouter } from "next/navigation";
+import { revalidatePath } from "next/cache";
 
 function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const router = useRouter();
 
     const { data } = useSession();
     const user = data?.user;
@@ -32,6 +36,17 @@ function Navbar() {
                 href: dashboardLinks[user?.role || 'reader']
             }
         )
+    }
+
+    const handleLogout = async () => {
+        await authClient.signOut({
+            fetchOptions: {
+                onSuccess: () => {
+                    router.push('/');
+                    revalidatePatha('/')
+                }
+            }
+        });
     }
 
     return (
@@ -93,7 +108,7 @@ function Navbar() {
                                 </li>
                             ))}
                             {user ? <li>
-                                <Button variant="outline" className='rounded-none' onClick={() => signOut()}>
+                                <Button variant="outline" className='rounded-none' onClick={handleLogout}>
                                     Log out
                                 </Button>
                             </li> : <li>
