@@ -12,6 +12,14 @@ export const getUserSession = async () => {
     return session?.user || null;
 }
 
+export const getUserToken = async () => {
+    const token = await auth.api.getToken({
+        headers: await headers()
+    })
+
+    return token?.token|| null;
+}
+
 export const getUserRole = async () => {
     const session = await auth.api.getSession({
         headers: await headers()

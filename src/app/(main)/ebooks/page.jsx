@@ -3,7 +3,7 @@ import { getEbooks } from '@/lib/api/ebooks';
 import React from 'react';
 import * as motion from "motion/react-client";
 import BooksContainer from '@/components/shared/BooksContainer';
-import { getUserRole } from '@/lib/core/session';
+import { getUserRole, getUserToken } from '@/lib/core/session';
 
 const AllEBooksPage = async ({ searchParams }) => {
 
@@ -18,6 +18,8 @@ const AllEBooksPage = async ({ searchParams }) => {
     console.log('search Q', filters, queryString)
 
     const books = await getEbooks(queryString);
+    const token = await getUserToken();
+    console.log(token);
 
     return (
         <div className="w-full min-h-screen bg-background p-2 md:p-8 text-foreground">

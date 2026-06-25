@@ -4,7 +4,24 @@ const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 
 export const serverQuery = async (path) => {
     const res = await fetch(`${baseUrl}${path}`);
-    return res.json();
+    return handleStatusCode(res);
+}
+
+export const authHeader = async () => {
+    const token = await getUserToken();
+    const header = token ? {
+        authorization: `Bearer ${token}`
+    } : {};
+    return header;
+}
+
+export const protectedServerQuery = async (path) => {
+    const res = await fetch(`${baseUrl}${path}`,
+        {
+            headers: await authHeader()
+        }
+    );
+    return handleStatusCode(res);
 }
 
 // export const serverMutation = async (path, data, method ='POST') => {
@@ -24,6 +41,7 @@ export const serverMutation = async (path, data = {}, method = 'POST') => {
         method: method,
         headers: {
             'Content-Type': 'application/json',
+            ...await authHeader()
         },
     };
 
@@ -35,6 +53,17 @@ export const serverMutation = async (path, data = {}, method = 'POST') => {
 
     if (res.status === 204) {
         return { success: true }; 
+    }
+
+    return res.json();
+}
+
+const handleStatusCode = res => {
+    if (res.status === 401) {
+        redirect('/unauthorized')
+    }
+    else if (res.status === 403) {
+        redirect('/forbidden');
     }
 
     return res.json();

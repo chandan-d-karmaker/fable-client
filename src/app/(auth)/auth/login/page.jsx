@@ -43,12 +43,20 @@ const LoginContent = () => {
 
         console.log("Login user data:", data)
 
+        const role = data?.user?.role;
+
         if (error) {
             setError(error.message);
             return;
         } else {
             toast.success("Logged in successfully!");
-            window.location.href = '/';
+            if (role === 'admin') {
+                window.location.href = '/dashboard/admin';
+            } else if (role === 'writer') {
+                window.location.href = '/dashboard/writer';
+            } else {
+                window.location.href = '/';
+            }
             // router.push(redirectTo);
         }
 
@@ -129,7 +137,7 @@ const LoginContent = () => {
                         <div className="h-5 w-px bg-gray-700/80"></div>
 
                         <Button variant="secondary" onClick={handleGoogleSignIn}>
-                            <BsGoogle/>
+                            <BsGoogle />
                         </Button>
                         <Button type="reset" variant="secondary">
                             Reset

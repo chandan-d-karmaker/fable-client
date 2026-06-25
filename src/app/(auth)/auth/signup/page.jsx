@@ -42,6 +42,7 @@ function SignupContent() {
         console.log(userData);
 
         // userData.role = role;
+        const role = data?.user?.role;
 
         const { data, error } = await authClient.signUp.email({
             ...userData,
@@ -53,7 +54,13 @@ function SignupContent() {
             toast.error(error.message)
         } else {
             toast.success("Signup Successfull!");
-            window.location.href = '/';
+            if(role === 'admin'){
+                window.location.href = '/dashboard/admin';
+            } else if(role === 'writer'){
+                window.location.href = '/dashboard/writer';
+            } else {
+                window.location.href = '/';
+            }
         }
 
         // const role = data?.user?.role;
