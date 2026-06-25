@@ -1,3 +1,4 @@
+import { getBookmarksByUser } from '@/lib/api/bookmarks';
 import { getEbookByWriter } from '@/lib/api/ebooks';
 import { fetchRevenue, getPurchaseHistory } from '@/lib/api/payments';
 import { getUserSession } from '@/lib/core/session';
@@ -9,8 +10,11 @@ const WriterHomePage = async () => {
     const sales = await getPurchaseHistory(user?.id);
     const ebooks = await getEbookByWriter(user?.id);
     const totalIncome = await fetchRevenue(user?.id)
-    const avg = parseFloat(totalIncome/ sales.length).toFixed(2);
-    console.log(avg);
+    const bookmark = await getBookmarksByUser(user.id)
+    // const type = (typeof(totalIncome));
+    // console.log(type);
+    // const avg = (totalIncome/ sales.length).toFixed(2) || 0;
+    // console.log(avg);
 
     // console.log(totalIncome);
 
@@ -31,8 +35,8 @@ const WriterHomePage = async () => {
                     <h1 className='text-2xl font-bold'>${totalIncome}</h1>
                 </div>
                 <div className='p-4 border border-foreground space-y-4 text-center'>
-                    <h1 className='text-xl'>Average Income</h1>
-                    <h1 className='text-2xl font-bold'>${avg}</h1>
+                    <h1 className='text-xl'>Bookmarks</h1>
+                    <h1 className='text-2xl font-bold'>{bookmark.length}</h1>
                 </div>
             </div>
         </div>

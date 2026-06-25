@@ -66,7 +66,7 @@ const LoginContent = () => {
 
     return (
         <div className="flex min-h-screen items-center justify-around bg-background px-4">
-            <Card className="w-full max-w-md p-6 shadow-sm border border-zinc-200 dark:border-zinc-800">
+            <Card className="w-full max-w-md p-6 shadow-2xl border rounded-none border-default">
 
                 {/* Header Container */}
                 <div className="flex flex-col items-center justify-center gap-1 pb-6 border-b border-zinc-100 dark:border-zinc-800 mb-6 text-center">
@@ -78,7 +78,7 @@ const LoginContent = () => {
 
                 <Form className="flex flex-col gap-4" onSubmit={handleSubmit}>
                     {
-                        error && <div className="alert alert-error rounded-lg text-sm">
+                        error && <div className="alert alert-error text-sm">
                             <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
@@ -97,9 +97,10 @@ const LoginContent = () => {
                             }
                             return null;
                         }}
+                       
                     >
                         <Label>Email</Label>
-                        <Input placeholder="john@example.com" />
+                        <Input className="rounded-none" placeholder="john@example.com" />
                         <FieldError />
                     </TextField>
 
@@ -107,7 +108,7 @@ const LoginContent = () => {
                         <Label>Password</Label>
                         <InputGroup>
                             <InputGroup.Input
-                                className="w-full max-w-64 rounded-xl"
+                                className="w-full max-w-64 border"
                                 type={isVisible ? "text" : "password"}
                             />
                             <InputGroup.Suffix className="pr-0">
@@ -130,16 +131,16 @@ const LoginContent = () => {
                     </Link>
 
                     <div className="flex items-center gap-2 w-full">
-                        <Button type="submit" className="w-full">
+                        <Button type="submit" className="w-full rounded-none">
                             Login
                         </Button>
 
                         <div className="h-5 w-px bg-gray-700/80"></div>
 
-                        <Button variant="secondary" onClick={handleGoogleSignIn}>
+                        <Button variant="secondary" className='rounded-none' onClick={handleGoogleSignIn}>
                             <BsGoogle />
                         </Button>
-                        <Button type="reset" variant="secondary">
+                        <Button type="reset" className='rounded-none' variant="secondary">
                             Reset
                         </Button>
                     </div>

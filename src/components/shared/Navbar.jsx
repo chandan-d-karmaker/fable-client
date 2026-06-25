@@ -8,7 +8,6 @@ import Link from "next/link";
 import ThemeSwitcher from "./theme-toggle";
 import { authClient, signOut, useSession } from "@/lib/auth-client";
 import { redirect, useRouter } from "next/navigation";
-import { revalidatePath } from "next/cache";
 
 function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -43,7 +42,7 @@ function Navbar() {
             fetchOptions: {
                 onSuccess: () => {
                     router.push('/');
-                    revalidatePatha('/')
+                    window.location.href='/';
                 }
             }
         });

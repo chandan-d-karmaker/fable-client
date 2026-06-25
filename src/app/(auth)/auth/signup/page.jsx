@@ -69,17 +69,17 @@ function SignupContent() {
 
     return (
         <div className="flex min-h-screen items-center justify-around bg-background px-4 text-foreground">
-            <Card className="w-full max-w-md p-6 shadow-sm border border-zinc-200 dark:border-zinc-800">
+            <Card className="w-full max-w-md p-6 rounded-none shadow-sm border border-default">
 
                 {/* Header Container */}
-                <div className="flex flex-col items-center justify-center gap-1 pb-4 border-b border-zinc-100 dark:border-zinc-800 mb-6 text-center">
+                <div className="flex flex-col items-center justify-center gap-1 pb-4 border-b border-foreground/70 mb-6 text-center">
                     <h1 className="text-2xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50">Create an Fable account</h1>
                     <p className="text-sm text-zinc-600 dark:text-zinc-400">Fill in the fields below to get started</p>
                 </div>
 
                 <Form className="flex flex-col gap-4" onSubmit={onSubmit}>
                     {
-                        error && <div className="alert alert-error rounded-lg text-sm">
+                        error && <div className="alert alert-error text-sm">
                             <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
@@ -89,7 +89,7 @@ function SignupContent() {
 
                     <TextField isRequired className="w-full max-w-64" name="name" type="text">
                         <Label>Name</Label>
-                        <Input placeholder="Enter your name" />
+                        <Input className='rounded-none border border-foreground/20' placeholder="Enter your name" />
                     </TextField>
 
                     <TextField
@@ -105,7 +105,7 @@ function SignupContent() {
                         }}
                     >
                         <Label>Email</Label>
-                        <Input placeholder="john@example.com" />
+                        <Input className='rounded-none' placeholder="john@example.com" />
                         <FieldError />
                     </TextField>
 
@@ -113,10 +113,10 @@ function SignupContent() {
                         <Label>Password</Label>
                         <InputGroup>
                             <InputGroup.Input
-                                className="w-full max-w-64 rounded-xl"
+                                className="w-full max-w-64 border border-foreground/20"
                                 type={isVisible ? "text" : "password"}
                             />
-                            <InputGroup.Suffix className="pr-0">
+                            <InputGroup.Suffix className="pr-0 rounded-none">
                                 <Button
                                     isIconOnly
                                     aria-label={isVisible ? "Hide password" : "Show password"}
@@ -161,16 +161,16 @@ function SignupContent() {
                     </Link>
 
                     <div className="flex gap-2 w-full">
-                        <Button type="submit" className="w-full">
+                        <Button type="submit" className="w-full rounded-none">
                             Sign Up
                         </Button>
 
 
-                        <Button variant="secondary" onClick={handleGoogleSignIn}>
+                        <Button variant="secondary" className="w-full rounded-none" onClick={handleGoogleSignIn}>
                             Sign up with google
                         </Button>
 
-                        <Button type="reset" variant="secondary">
+                        <Button type="reset" className="rounded-none" variant="secondary">
                             Reset
                         </Button>
                     </div>
