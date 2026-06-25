@@ -1,6 +1,6 @@
 'use server';
 
-import { serverQuery } from "../core/server";
+import { protectedServerQuery, serverQuery } from "../core/server";
 
 export const getEbooks = async (queryString) => {
     return serverQuery(`/api/ebooks?${queryString}`);
@@ -10,10 +10,10 @@ export const getFeatEbooks = async () => {
 }
 
 export const getEbookByWriter = async (writerId) => {
-    return serverQuery(`/api/ebooks/writer/${writerId}`);
+    return protectedServerQuery(`/api/ebooks/writer/${writerId}`);
 }
 
 export const getEbookById = async (ebookId) => {
-    return serverQuery(`/api/ebooks/${ebookId}`);
+    return protectedServerQuery(`/api/ebooks/${ebookId}`);
 }
 

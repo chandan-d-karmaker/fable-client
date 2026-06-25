@@ -1,7 +1,7 @@
 'use server';
 
-import { serverQuery } from "../core/server";
+import { protectedServerQuery, serverQuery } from "../core/server";
 
 export const getBookmarksByUser = async (userId) => {
-    return serverQuery(`/api/ebooks/bookmark/${userId}`);
+    return protectedServerQuery(`/api/ebooks/bookmark/${userId}`);
 }

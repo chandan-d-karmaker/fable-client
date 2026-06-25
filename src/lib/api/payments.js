@@ -1,7 +1,7 @@
-import { serverQuery } from "../core/server"
+import { protectedServerQuery, serverQuery } from "../core/server"
 
 export const getPurchaseHistory = async (id) =>{
-    return serverQuery(`/api/purchase/${id}`);
+    return protectedServerQuery(`/api/purchase/${id}`);
 }
 
 export const fetchRevenue = async (writerId) => {

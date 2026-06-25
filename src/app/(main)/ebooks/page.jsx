@@ -18,8 +18,8 @@ const AllEBooksPage = async ({ searchParams }) => {
     console.log('search Q', filters, queryString)
 
     const books = await getEbooks(queryString);
-    const token = await getUserToken();
-    console.log(token);
+    // const token = await getUserToken();
+    // console.log(token);
 
     return (
         <div className="w-full min-h-screen bg-background p-2 md:p-8 text-foreground">

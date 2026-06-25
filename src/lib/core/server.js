@@ -1,5 +1,7 @@
 'use server';
 
+import { getUserToken } from "./session";
+
 const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 
 export const serverQuery = async (path) => {

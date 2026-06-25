@@ -1,13 +1,13 @@
 'use server';
 
-import { serverQuery } from "../core/server";
+import { protectedServerQuery, serverQuery } from "../core/server";
 
 export const getUsers = async () => {
-    return serverQuery('/api/users');
+    return protectedServerQuery('/api/users');
 }
 
 export const getWriters = async () => {
-    return serverQuery('/api/writers');
+    return protectedServerQuery('/api/writers');
 }
 export const getTopWriters = async () => {
     return serverQuery('/api/top-writers');
