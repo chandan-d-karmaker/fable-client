@@ -7,7 +7,7 @@ import { Button, Drawer } from "@heroui/react";
 import { VscLayoutSidebarLeftDock } from "react-icons/vsc";
 import { Bookmark, Building, CreditCard, FileText, Users } from "lucide-react";
 import { getUserSession } from "@/lib/core/session";
-import NavLink from "../shared/Navlink";
+import SideNavLink from "../shared/SideNavLink";
 
 export async function SideBar() {
 
@@ -48,7 +48,7 @@ export async function SideBar() {
 
     const navContent = <nav className="flex flex-col gap-1 w-full">
         {navItems.map((item) => (
-            <NavLink key={item.label} href={item.href}>
+            <SideNavLink key={item.label} href={item.href}>
                 <button
                     className="flex items-center gap-3 px-3 py-2.5 text-sm text-foreground w-full transition-colors hover:bg-default"
                     type="button"
@@ -56,20 +56,20 @@ export async function SideBar() {
                     <item.icon className="size-5 text-muted" />
                     {item.label}
                 </button>
-            </NavLink>
+            </SideNavLink>
         ))}
     </nav>
 
     const navContentclosed = <nav className="flex flex-col gap-1 w-full">
         {navItems.map((item) => (
-            <NavLink key={item.label} href={item.href}>
+            <SideNavLink key={item.label} href={item.href}>
                 <button
                     className="flex items-center gap-3 px-3 py-2.5 text-sm text-foreground w-full transition-colors hover:bg-default"
                     type="button"
                 >
                     <item.icon className="size-5 text-muted" />
                 </button>
-            </NavLink>
+            </SideNavLink>
         ))}
     </nav>
 

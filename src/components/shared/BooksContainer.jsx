@@ -5,6 +5,8 @@ import React, { useEffect, useState } from 'react';
 import BooksFilters from './BookFilters';
 import * as motion from "motion/react-client";
 import BookCard from './BookCard';
+import { Button } from '@heroui/react';
+import Link from 'next/link';
 
 const BooksContainer = ({ books, filters }) => {
     const [searchQuery, setSearchQuery] = useState(filters.search);
@@ -48,6 +50,15 @@ const BooksContainer = ({ books, filters }) => {
             />
 
             <div className='bg-background'>
+                {
+                    books.length === 0 && <div className='p-6 text-center flex flex-col gap-4 border border-foreground'>
+                        <h1 className='text-xl font-semibold'>No books found</h1>
+                        <p className='text-muted'>Please Reset the filters</p>
+                        <Link href='/ebooks'>
+                            <Button variant='primary' className='rounded-none'>Reset Filters</Button>
+                        </Link>
+                    </div>
+                }
                 <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 my-10 bg-background'>
                     {
                         books.map((book, index) => (

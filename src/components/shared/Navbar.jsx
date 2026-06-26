@@ -42,7 +42,7 @@ function Navbar() {
             fetchOptions: {
                 onSuccess: () => {
                     router.push('/');
-                    window.location.href='/';
+                    window.location.href = '/';
                 }
             }
         });
@@ -96,14 +96,12 @@ function Navbar() {
                         <ul className="hidden items-center gap-1 md:flex">
                             {menuItems.map((item, index) => (
                                 <li key={index} className="px-1">
-                                    <Button variant="ghost">
-                                        <Link
-                                            href={item.href}
-                                            className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors"
-                                        >
+                                    <NavLink href={item.href} className='w-full'>
+                                        <Button variant="ghost" className="text-sm font-medium text-foreground/80 hover:text-foreground rounded-none">
+
                                             {item.name}
-                                        </Link>
-                                    </Button>
+                                        </Button>
+                                    </NavLink>
                                 </li>
                             ))}
                             {user ? <li>

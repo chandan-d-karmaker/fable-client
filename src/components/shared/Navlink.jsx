@@ -8,7 +8,7 @@ const NavLink = ({ href, children, className }) => {
 
     const isActive = pathname === href;
 
-    return <Link href={href} className={`${isActive? 'font-semibold bg-default border-b-2 border-gray-500' : ''} ${className}`}>{children}</Link>
+    return <Link href={href} className={`${isActive? 'font-semibold border-b-2 border-gray-500' : ''} ${className}`}>{children}</Link>
 };
 
 export default NavLink;

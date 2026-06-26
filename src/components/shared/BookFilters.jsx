@@ -11,11 +11,11 @@ export default function BooksFilters({
     setSelectedSort
 }) {
     return (
-        <div className="flex flex-col gap-4 bg-background p-6 rounded-none border border-foreground/80 max-w-7xl mx-auto mb-10">
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-end">
+        <div className="flex flex-col gap-4 bg-content1 p-6 rounded-none border border-foreground/80 max-w-7xl mx-auto mb-10">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-3 items-end">
 
                 {/* 1. Search Text Field - Span 5 columns */}
-                <div className="md:col-span-5">
+                <div className="md:col-span-6">
                     <TextField
                         value={searchQuery}
                         onChange={(value) => setSearchQuery(value)}
