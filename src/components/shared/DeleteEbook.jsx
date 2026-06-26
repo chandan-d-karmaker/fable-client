@@ -13,7 +13,7 @@ const DeleteEbook = ({ ebook }) => {
         const res = await deleteEbook(ebook._id);
         if (res.deletedCount > 0) {
             toast.success(`${ebook.title} deleted successfully!`);
-            redirect('/dashboard/writer/manage-ebook');
+            redirect('/dashboard/admin/manage-ebook');
 
         } else {
             toast.error("Failed to delete ebook!")
@@ -27,15 +27,9 @@ const DeleteEbook = ({ ebook }) => {
     }
 
     return (
-        <Tooltip delay={0} color="danger">
             <Modal>
-                <Button
-                    isIconOnly
-                    size="sm"
-                    variant="light"
-                    aria-label="Delete ebook"
-                >
-                    <Trash2 className="text-default-500 w-4 h-4 hover:text-danger transition-colors" />
+                <Button size="sm" variant="outline" className="rounded-none bg-background">
+                    Delete
                 </Button>
                 <Modal.Backdrop>
                     <Modal.Container>
@@ -60,10 +54,7 @@ const DeleteEbook = ({ ebook }) => {
                     </Modal.Container>
                 </Modal.Backdrop>
             </Modal>
-            <Tooltip.Content showArrow placement="right">
-                Delete Ebook
-            </Tooltip.Content>
-        </Tooltip>
+         
     );
 };
 
