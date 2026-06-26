@@ -25,12 +25,12 @@ export default function Onboarding() {
         }
 
         toast.success("Profile updated!");
-        router.push("/"); // Or wherever they should go next
+        router.push("/");
     };
 
     return (
         <div className="flex min-h-screen items-center justify-center bg-background border px-4">
-            <Card className="max-w-md p-6 w-full text-center ">
+            <Card className="max-w-md p-6 w-full text-center rounded-none ">
                 <h1 className="text-2xl font-bold mb-2">Welcome to Fable!</h1>
                 <p className="text-zinc-500 mb-6">How do you want to use the platform?</p>
 
@@ -60,7 +60,7 @@ export default function Onboarding() {
                 <Button
                     onClick={handleSaveRole}
                     isLoading={isLoading}
-                    className="w-full bg-blue-600 text-white"
+                    className="w-full bg-blue-600 text-foreground rounded-none"
                 >
                     {isLoading ? <Spinner /> : 'Continue'}
                 </Button>

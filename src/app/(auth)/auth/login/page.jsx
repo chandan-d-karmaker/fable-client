@@ -22,6 +22,7 @@ const LoginContent = () => {
     const handleGoogleSignIn = async () => {
         const { data, error } = await authClient.signIn.social({
             provider: "google",
+            callbackURL: "/onboarding",
         });
         if (error) {
             toast.error(error.message);

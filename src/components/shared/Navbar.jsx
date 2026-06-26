@@ -28,7 +28,7 @@ function Navbar() {
         admin: '/dashboard/admin'
     }
 
-    if (user?.email) {
+    if (user) {
         menuItems.push(
             {
                 name: 'Dashboard',
@@ -96,7 +96,7 @@ function Navbar() {
                         <ul className="hidden items-center gap-1 md:flex">
                             {menuItems.map((item, index) => (
                                 <li key={index} className="px-1">
-                                    <NavLink href={item.href} className='w-full'>
+                                    <NavLink href={item?.href} className='w-full'>
                                         <Button variant="ghost" className="text-sm font-medium text-foreground/80 hover:text-foreground rounded-none">
 
                                             {item.name}
@@ -177,7 +177,7 @@ function Navbar() {
                                 {user && <div>
                                     <Avatar>
                                         <Avatar.Image alt={user?.name} src={user?.image} />
-                                        <Avatar.Fallback>{user.name[0]}</Avatar.Fallback>
+                                        <Avatar.Fallback>{user?.name[0]}</Avatar.Fallback>
                                     </Avatar>
                                 </div>}
 

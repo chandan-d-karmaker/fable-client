@@ -6,9 +6,13 @@ import React from 'react';
 const NavLink = ({ href, children, className }) => {
     const pathname = usePathname();
 
+    if (!href) {
+        return <div className={className}>{children}</div>;
+    }
+
     const isActive = pathname === href;
 
-    return <Link href={href} className={`${isActive? 'font-semibold border-b-2 border-gray-500' : ''} ${className}`}>{children}</Link>
+    return <Link href={href} className={`${isActive ? 'font-semibold border-b-2 border-gray-500' : ''} ${className}`}>{children}</Link>
 };
 
 export default NavLink;

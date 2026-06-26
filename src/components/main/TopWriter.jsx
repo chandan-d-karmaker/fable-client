@@ -9,7 +9,7 @@ const TopWriter = async () => {
     const writers = await getTopWriters();
     console.log(writers);
 
-    
+
     return (
 
         <section className='py-12 max-w-7xl mx-auto w-full'>
@@ -47,8 +47,9 @@ const TopWriter = async () => {
                                     {writer.writerName}
                                 </Card.Title>
                                 <Card.Description className="text-sm text-foreground-400 mt-1">
-                                    {writer.totalSales}
+                                    Total Sale
                                 </Card.Description>
+                                <h1>{writer.totalSales}</h1>
                             </Card.Content>
                         </Card>
                     ))
