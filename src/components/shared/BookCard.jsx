@@ -1,9 +1,13 @@
+import { getEbookById } from '@/lib/api/ebooks';
 import { Button, Card } from '@heroui/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
 const BookCard = ({ book }) => {
+
+   
+    if (!book) return null;
 
     // console.log(book);
     return (

@@ -106,9 +106,9 @@ const LoginContent = () => {
 
                     <TextField className="w-full max-w-64" name="password">
                         <Label>Password</Label>
-                        <InputGroup>
+                        <InputGroup className='rounded-none'>
                             <InputGroup.Input
-                                className="w-full max-w-64 border"
+                                className="w-full max-w-64 border rounded-none"
                                 type={isVisible ? "text" : "password"}
                             />
                             <InputGroup.Suffix className="pr-0">

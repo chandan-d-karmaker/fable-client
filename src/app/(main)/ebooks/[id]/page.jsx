@@ -13,13 +13,8 @@ import { redirect } from 'next/navigation';
 const EbookDetailsPage = async ({ params }) => {
 
     const { id } = await params;
-    // console.log(id);
     const ebook = await getEbookById(id);
-    // console.log(ebook);
     const user = await getUserSession();
-    // console.log(user);
-
-    
 
     const uploader = ebook?.addedBy;
 
@@ -27,9 +22,8 @@ const EbookDetailsPage = async ({ params }) => {
 
     if (user?.id) {
         try {
-
             const res = await hasPurchased(id, user.id);
-            const data = res
+            const data = res; // Ensure this matches what your protectedServerQuery returns
             isPurchased = data.hasPurchased;
 
         } catch (error) {
@@ -39,23 +33,38 @@ const EbookDetailsPage = async ({ params }) => {
 
     const handleBookmark = async () => {
         'use server'
-        
+
         if (!user) {
             redirect('/auth/login');
         }
+        const { _id, ...restEbook } = ebook;
+
         const bookmarkData = {
-            ...ebook,
-            user: user?.id
+            ...restEbook,
+            ebookId: _id, // Save the book's ID under a new key
+            user: user.id
         }
 
-        const res = await addBookmark(bookmarkData)
-        if (res.insertedId) {
-            return { success: true, message: `${ebook.title} added to your bookmark!` };
-        } else {
+        try {
+            // Call your API
+            const res = await addBookmark(bookmarkData);
+
+            // Catch the JSON error we sent from Express
+            if (res.error) {
+                return { success: false, message: res.message };
+            }
+
+            if (res.insertedId) {
+                return { success: true, message: `${ebook.title} added to your bookmark!` };
+            }
+
             return { success: false, message: "Something went wrong!" };
-        }
 
-    }
+        } catch (error) {
+            console.error(error);
+            return { success: false, message: "Failed to connect to server." };
+        }
+    };
 
     // const role = user?.role;
     // console.log(role);
@@ -84,6 +93,7 @@ const EbookDetailsPage = async ({ params }) => {
                 {isPurchased && <div className='space-y-4'>
                     <p className='text-foreground'><span className='font-bold'>Description:</span> {ebook.description}</p>
                 </div>}
+                
                 {uploader === user?.id && <div className='space-y-4'>
                     <p className='text-foreground'><span className='font-bold'>Description:</span> {ebook.description}</p>
                 </div>}
@@ -91,12 +101,6 @@ const EbookDetailsPage = async ({ params }) => {
                 <div>
                     <p>Date Uploaded: <span className='font-semibold'>{formattedDate}</span> </p>
                 </div>
-
-                {/* <div className='flex gap-4 mt-4'>
-                    <Button isDisabled={uploader === user.id} className='text-background'>{uploader === user.id ? 'You can not buy your own book' : 'Purchase'}</Button>
-                    <Button className='text-background'>Wishlist</Button>
-                    <Button onClick={handleBookmark} className='text-background'>Add to bookmark</Button>
-                </div> */}
 
                 <EbookActions ebookId={id} handleBookmark={handleBookmark} uploader={uploader} user={user} isPurchased={isPurchased} />
             </div>
