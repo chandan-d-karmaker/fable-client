@@ -1,6 +1,6 @@
 import { getBookmarksByUser } from '@/lib/api/bookmarks';
 import { getEbooks } from '@/lib/api/ebooks';
-import { fetchRevenue, getPurchaseHistory, totalRevenue } from '@/lib/api/payments';
+import { fetchRevenue, getAllPurcheseHistory, getPurchaseHistory, totalRevenue } from '@/lib/api/payments';
 import { getUsers, getWriters } from '@/lib/api/users';
 import { getUserSession } from '@/lib/core/session';
 import { Card } from '@heroui/react';
@@ -11,15 +11,9 @@ const AdminHomePage = async () => {
     const user = await getUserSession();
     const users  = await getUsers();
     const writers = await getWriters();
-    const ebooks = await getEbooks();
     const totalrevenue = await totalRevenue();
-    const totalSold = await getPurchaseHistory();
-    // const type = (typeof(totalIncome));
-    // console.log(type);
-    // const avg = (totalIncome/ sales.length).toFixed(2) || 0;
-    // console.log(avg);
-
-    // console.log(totalIncome);
+    const totalSold = await getAllPurcheseHistory();
+    
 
     return (
         <div>
