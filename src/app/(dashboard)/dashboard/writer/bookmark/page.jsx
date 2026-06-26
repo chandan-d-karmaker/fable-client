@@ -3,6 +3,8 @@ import { getBookmarksByUser } from '@/lib/api/bookmarks';
 import { getUserSession } from '@/lib/core/session';
 import React from 'react';
 import * as motion from "motion/react-client";
+import { Button } from '@heroui/react';
+import Link from 'next/link';
 
 const BookMarkPage = async () => {
 
@@ -14,28 +16,37 @@ const BookMarkPage = async () => {
 
     return (
         <div className='my-10'>
-            <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-            >
+
+            <div className='mb-4'>
                 <h1 className='text-4xl font-semibold text-center'>Bookmarked Ebooks</h1>
                 <p className='text-muted text-center'>Read now or later, all here!</p>
-            </motion.div>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-10'>
-                {
-                    bookmarks.map((book, index) => (
-                        <motion.div key={book._id}
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: index * 0.1 }} // Staggers each card by 0.1s
-                            viewport={{ once: true }}>
+            </div>
 
-                            <BookCard book={book} />
-                        </motion.div>
-                    ))
-                }
+            <div>
+
+                {bookmarks.length === 0 ? (
+                    <div className='bg-contain1 flex flex-col items-center justify-center p-6 border space-y-4'>
+                        <h1>No bookmarks yet!</h1>
+                        <Link href='/ebooks'>
+                            <Button>Browse Now</Button>
+                        </Link>
+                    </div>
+
+                ) : (<div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 my-10'>
+                    {
+                        bookmarks.map((book, index) => (
+                            <motion.div key={book._id}
+                                initial={{ opacity: 0, y: 50 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ delay: index * 0.1 }}
+                                viewport={{ once: true }}>
+
+                                <BookCard book={book} />
+                            </motion.div>
+                        ))
+                    }
+                </div>)}
+
             </div>
         </div>
     );

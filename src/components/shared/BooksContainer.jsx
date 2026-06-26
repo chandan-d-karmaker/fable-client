@@ -57,7 +57,7 @@ const BooksContainer = ({ books, filters }) => {
                                 transition={{ delay: index * 0.1 }} // Staggers each card by 0.1s
                                 viewport={{ once: true }}>
 
-                                <BookCard book={book} />
+                                <BookCard book={book} isPurchased={book.isPurchased} />
                             </motion.div>
                         ))
                     }

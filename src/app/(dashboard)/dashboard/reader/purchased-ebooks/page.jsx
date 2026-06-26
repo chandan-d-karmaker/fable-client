@@ -1,7 +1,9 @@
-import BookCard from '@/components/shared/BookCard'; 
+import BookCard from '@/components/shared/BookCard';
 import { getEbookById } from '@/lib/api/ebooks';
 import { getPurchaseHistory } from '@/lib/api/payments';
 import { getUserSession } from '@/lib/core/session';
+import { Button } from '@heroui/react';
+import Link from 'next/link';
 
 export default async function MyPurchasedBooksPage() {
     const user = await getUserSession();
@@ -30,14 +32,19 @@ export default async function MyPurchasedBooksPage() {
             <h1 className="text-3xl font-bold mb-8">My Library</h1>
 
             {validBooks.length === 0 ? (
-                <p>You haven&apos;t purchased any books yet.</p>
+                <div className='bg-contain1 flex flex-col items-center justify-center p-6 border space-y-4'>
+                    <h1 className='text-xl'>No books purchased yet!</h1>
+                    <Link href='/ebooks'>
+                        <Button>Browse Now</Button>
+                    </Link>
+                </div>
             ) : (
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                     {/* 4. Map over the fully hydrated books and pass them to BookCard */}
                     {validBooks.map((book) => (
-                        <BookCard 
-                            key={book._id} 
-                            book={book} 
+                        <BookCard
+                            key={book._id}
+                            book={book}
                         />
                     ))}
                 </div>

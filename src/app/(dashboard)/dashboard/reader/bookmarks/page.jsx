@@ -26,7 +26,7 @@ const BookMarkPage = async () => {
             <div>
 
                 {bookmarks.length === 0 ? (
-                    <div className='bg-contain1 p-6 border space-y-4'>
+                    <div className='bg-contain1 flex flex-col items-center justify-center p-6 border space-y-4'>
                         <h1>No bookmarks yet!</h1>
                         <Link href='/ebooks'>
                             <Button>Browse Now</Button>

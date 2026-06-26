@@ -42,13 +42,13 @@ function SignupContent() {
         console.log(userData);
 
         // userData.role = role;
-        const role = data?.user?.role;
-
+        
         const { data, error } = await authClient.signUp.email({
             ...userData,
         });
-
+        
         console.log("signup data", { data, error });
+        const role = data?.user?.role;
 
         if (error) {
             toast.error(error.message)

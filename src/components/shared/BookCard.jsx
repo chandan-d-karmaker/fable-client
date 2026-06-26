@@ -1,12 +1,25 @@
-import { getEbookById } from '@/lib/api/ebooks';
+import { getEbookById, hasPurchased } from '@/lib/api/ebooks';
+import { getUserSession } from '@/lib/core/session';
 import { Button, Card } from '@heroui/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
-const BookCard = ({ book }) => {
+const BookCard =  ({ book, isPurchased = false }) => {
 
-   
+    // const user = await getUserSession();
+
+    // let isPurchased = false;
+    // if (user?.id) {
+    //     try {
+    //         const res = await hasPurchased(book.id, user.id);
+    //         const data = res;
+    //         isPurchased = data.hasPurchased;
+
+    //     } catch (error) {
+    //         console.error("Failed to fetch purchase status:", error);
+    //     }
+    // }
     if (!book) return null;
 
     // console.log(book);
@@ -30,8 +43,13 @@ const BookCard = ({ book }) => {
                 <span
                     className="font-semibold text-[11px] uppercase tracking-wider px-3 py-1.5 rounded-full bg-white/20 backdrop-blur-md text-white border border-white/20"
                 >
-                    {book.approved}
+                    {book.status}
                 </span>
+                {isPurchased && <span
+                    className="font-semibold text-[11px] uppercase tracking-wider px-3 py-1.5 rounded-full bg-white/20 backdrop-blur-md text-white border border-white/20"
+                >
+                    SOLD
+                </span>}
 
             </div>
             {/* Header (Pushed to bottom with mt-auto) */}
