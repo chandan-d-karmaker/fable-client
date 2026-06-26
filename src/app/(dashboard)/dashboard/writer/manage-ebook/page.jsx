@@ -49,7 +49,7 @@ const WriterEbooksPage = async () => {
                             </Table.Header>
                             <Table.Body emptyContent={"You haven't published any ebooks yet."}>
                                 {ebooks.map((ebook) => (
-                                    <Table.Row key={ebook._id?.$oid || ebook._id || ebook.id}>
+                                    <Table.Row key={ebook._id?.$oid || ebook._id}>
                                         <Table.Cell>
                                             <div className="font-medium text-foreground">
                                                 {ebook.title || 'Untitled Ebook'}
@@ -88,28 +88,33 @@ const WriterEbooksPage = async () => {
                                                             <Edit2 className="text-default-500 w-4 h-4 hover:text-primary transition-colors" />
                                                         </Button>
                                                     </Link>
-                                                    <Tooltip.Content>
+                                                    <Tooltip.Content showArrow placement="left">
                                                         <p>Edit Ebook</p>
                                                     </Tooltip.Content>
                                                 </Tooltip>
 
                                                 {/* Publish/Unpublish Toggle Button */}
-                                                <Tooltip content={ebook.status?.toLowerCase() === 'published' ? "Unpublish Ebook" : "Publish Ebook"}>
-                                                    <Button
-                                                        isIconOnly
-                                                        size="sm"
-                                                        variant="light"
-                                                        aria-label={ebook.status?.toLowerCase() === 'published' ? "Unpublish ebook" : "Publish ebook"}
-                                                    >
-                                                        {ebook.status?.toLowerCase() === 'published' ? (
-                                                            <EyeOff className="text-default-500 w-4 h-4 hover:text-warning transition-colors" />
-                                                        ) : (
-                                                            <Eye className="text-default-500 w-4 h-4 hover:text-success transition-colors" />
-                                                        )}
-                                                    </Button>
+                                                <Tooltip delay={0}>
+                                                    <Link href={`/ebooks/${ebook._id}`}>
+                                                        <Button
+                                                            isIconOnly
+                                                            size="sm"
+                                                            variant="light"
+                                                            aria-label={ebook.status?.toLowerCase() === 'published' ? "Unpublish ebook" : "Publish ebook"}
+                                                        >
+                                                            {ebook.status?.toLowerCase() === 'published' ? (
+                                                                <EyeOff className="text-default-500 w-4 h-4 hover:text-warning transition-colors" />
+                                                            ) : (
+                                                                <Eye className="text-default-500 w-4 h-4 hover:text-success transition-colors" />
+                                                            )}
+                                                        </Button>
+                                                        <Tooltip.Content showArrow placement="top">
+                                                            View Details
+                                                        </Tooltip.Content>
+                                                    </Link>
                                                 </Tooltip>
 
-                                                <DeleteEbook ebook={ebook}/>
+                                                <DeleteEbook ebook={ebook} />
                                             </div>
                                         </Table.Cell>
                                     </Table.Row>

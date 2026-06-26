@@ -27,7 +27,7 @@ const DeleteEbook = ({ ebook }) => {
     }
 
     return (
-        <Tooltip content="Delete Ebook" color="danger">
+        <Tooltip delay={0} color="danger">
             <Modal>
                 <Button
                     isIconOnly
@@ -60,6 +60,9 @@ const DeleteEbook = ({ ebook }) => {
                     </Modal.Container>
                 </Modal.Backdrop>
             </Modal>
+            <Tooltip.Content showArrow placement="right">
+                Delete Ebook
+            </Tooltip.Content>
         </Tooltip>
     );
 };

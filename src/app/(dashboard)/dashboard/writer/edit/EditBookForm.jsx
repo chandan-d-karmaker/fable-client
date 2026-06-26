@@ -179,28 +179,6 @@ export default function EditEbookForm({ initialData }) {
                     </TextField>
 
 
-                    {/* Publishing Status */}
-                    <div className="flex flex-col w-full">
-                        <Label className={labelClass}>Publishing Status</Label>
-                        <Select name="status" defaultValue={initialData?.status} isRequired>
-                            <Select.Trigger className={`${baseInputClass} min-h-11 flex items-center justify-between`}>
-                                <Select.Value />
-                                <Select.Indicator>
-                                    <ChevronDown className="w-4 h-4 text-default-500" />
-                                </Select.Indicator>
-                            </Select.Trigger>
-                            <Select.Popover className="bg-content1 border border-divider rounded-xl">
-                                <ListBox items={statuses}>
-                                    {(item) => (
-                                        <ListBox.Item key={item.id} id={item.id} textValue={item.label} className="text-foreground hover:bg-default-100 rounded-lg px-3 py-2 cursor-pointer">
-                                            {item.label}
-                                        </ListBox.Item>
-                                    )}
-                                </ListBox>
-                            </Select.Popover>
-                        </Select>
-                    </div>
-
                     {/* Publishing As (Static Display) */}
                     <div className="flex flex-col mt-2">
                         <span className="text-sm text-default-500 mb-1">Updating as</span>
