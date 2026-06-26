@@ -30,7 +30,8 @@ const EbookActions = ({ ebookId, handleBookmark, uploader, user, isPurchased }) 
         if (!user) {
             toast("Please log in to purchase this book.");
             // passed a callback URL so they return to this book after logging in
-            router.push(`/auth/login?callbackUrl=/ebooks/${ebookId}`);
+            // ?callbackUrl=/ebooks/${ebookId}
+            router.push(`/auth/login`);
             return;
         }
 

@@ -1,5 +1,6 @@
 import Banner from "@/components/main/Banner";
 import Featured from "@/components/main/Featured";
+import Genre from "@/components/main/Genre";
 import TopWriter from "@/components/main/TopWriter";
 
 export default function Home() {
@@ -8,6 +9,7 @@ export default function Home() {
       <Banner />
       <Featured />
       <TopWriter />
+      <Genre />
     </>
   );
 }
