@@ -63,7 +63,7 @@ export default async function Success({ searchParams }) {
 
                         {/* Order Details Box */}
                         {session_id && (
-                            <div className="bg-default-50 rounded-xl p-4 border border-default-100 text-sm text-left">
+                            <div className="bg-default-50 p-4 border border-default-100 text-sm text-left">
                                 <p className="text-default-400 text-xs uppercase font-semibold tracking-wider mb-1">Order Reference email</p>
                                 <p className="font-mono text-default-600 truncate">{customerEmail}</p>
                             </div>

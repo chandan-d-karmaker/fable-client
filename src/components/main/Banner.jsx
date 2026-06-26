@@ -76,7 +76,7 @@ const Banner = () => {
                                         ease: "easeOut"
                                     }}>
                                     <div className="max-w-3xl px-8 md:px-16 text-white">
-                                        <span className="inline-block rounded-full border border-cyan-400/40 bg-cyan-500/10 px-4 py-1 text-sm backdrop-blur-md">
+                                        <span className="inline-block border border-cyan-400/40 bg-cyan-500/10 px-4 py-1 text-sm backdrop-blur-md">
                                             Ebook Sharing Platform
                                         </span>
 
@@ -91,14 +91,14 @@ const Banner = () => {
                                         <div className="mt-8 flex flex-wrap gap-4">
                                             {role === 'reader' && <Link
                                                 href="/ebooks"
-                                                className="rounded-xl bg-linear-to-r from-cyan-500 to-blue-600 px-6 py-3 font-semibold text-white shadow-lg hover:scale-105 transition"
+                                                className="bg-linear-to-r from-cyan-500 to-blue-600 px-6 py-3 font-semibold text-white shadow-lg hover:scale-105 transition"
                                             >
                                                 Explore Ebooks
                                             </Link>}
 
                                             {role === 'writer' && <Link
                                                 href="/add-ebook"
-                                                className="rounded-xl border border-white/30 bg-white/10 px-6 py-3 font-semibold backdrop-blur-md hover:bg-white/20 transition"
+                                                className="border border-white/30 bg-white/10 px-6 py-3 font-semibold backdrop-blur-md hover:bg-white/20 transition"
                                             >
                                                 Submit Your Ebook
                                             </Link>}

@@ -1,3 +1,4 @@
+import { getEbookById } from '@/lib/api/ebooks';
 import { getPurchaseHistory } from '@/lib/api/payments';
 import { getUserSession } from '@/lib/core/session';
 import { Table } from '@heroui/react';
@@ -11,6 +12,16 @@ const page = async () => {
 
     const sales = await getPurchaseHistory(user.id);
     console.log(sales);
+
+    // const purchasedBooks = await Promise.all(
+    //     sales.map(async (purchase) => {
+    //         const bookDetails = await getEbookById(purchase.ebookId);
+    //         return bookDetails;
+    //     })
+    // );
+
+    // 3. Filter out any null values (just in case an author deleted a book)
+    // const validBooks = purchasedBooks.filter((book) => book !== null);
     return (
         <div>
             <div>

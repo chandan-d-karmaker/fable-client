@@ -29,8 +29,8 @@ export default function Onboarding() {
     };
 
     return (
-        <div className="flex min-h-screen items-center justify-center bg-background px-4">
-            <Card className="max-w-md p-6 w-full text-center">
+        <div className="flex min-h-screen items-center justify-center bg-background border px-4">
+            <Card className="max-w-md p-6 w-full text-center ">
                 <h1 className="text-2xl font-bold mb-2">Welcome to Fable!</h1>
                 <p className="text-zinc-500 mb-6">How do you want to use the platform?</p>
 
