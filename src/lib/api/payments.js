@@ -9,3 +9,9 @@ export const fetchRevenue = async (writerId) => {
     const data = res.totalRevenue;
     return data;
 }
+
+export const totalRevenue = async () =>{
+    const res = await serverQuery('/api/admin/total-revenue');
+    const data = res.totalRevenue;
+    return data;
+}

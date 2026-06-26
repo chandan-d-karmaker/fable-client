@@ -31,8 +31,8 @@ export async function SideBar() {
 
     const adminNavLinks = [
         { icon: VectorSquare, href: "/dashboard/admin", label: "Dashboard" },
-        { icon: Users, href: "/dashboard/admin/users", label: "Manage Users" },
-        { icon: Magnifier, href: "/dashboard/admin/ebooks", label: "Manage All Ebooks" },
+        { icon: Users, href: "/dashboard/admin/manage-users", label: "Manage Users" },
+        { icon: Magnifier, href: "/dashboard/admin/manage-ebooks", label: "Manage All Ebooks" },
         { icon: LiaMoneyBillWaveAltSolid, href: "/dashboard/admin/transactions", label: "View All Transactions" },
     ];
 

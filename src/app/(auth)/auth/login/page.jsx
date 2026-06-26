@@ -78,7 +78,7 @@ const LoginContent = () => {
 
                 <Form className="flex flex-col gap-4" onSubmit={handleSubmit}>
                     {
-                        error && <div className="alert alert-error text-sm">
+                        error && <div className="alert alert-error rounded-none text-sm">
                             <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
@@ -87,7 +87,7 @@ const LoginContent = () => {
                     }
 
                     <TextField
-                        className='max-w-64 w-full'
+                        className='w-full'
                         isRequired
                         name="email"
                         type="email"
@@ -104,11 +104,11 @@ const LoginContent = () => {
                         <FieldError />
                     </TextField>
 
-                    <TextField className="w-full max-w-64" name="password">
+                    <TextField className="w-full" name="password">
                         <Label>Password</Label>
                         <InputGroup className='rounded-none'>
                             <InputGroup.Input
-                                className="w-full max-w-64 border rounded-none"
+                                className="w-full border rounded-none"
                                 type={isVisible ? "text" : "password"}
                             />
                             <InputGroup.Suffix className="pr-0">
