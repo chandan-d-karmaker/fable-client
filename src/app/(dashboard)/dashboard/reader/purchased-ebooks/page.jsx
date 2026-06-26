@@ -1,7 +1,7 @@
-import { getUserSession } from '@/lib/core/session';
 import BookCard from '@/components/shared/BookCard'; 
-import { getEbookById } from '@/lib/api/ebooks'; // Import your fetcher
-// Import your purchases fetcher: import { getUserPurchases } from '@/lib/api/purchases';
+import { getEbookById } from '@/lib/api/ebooks';
+import { getPurchaseHistory } from '@/lib/api/payments';
+import { getUserSession } from '@/lib/core/session';
 
 export default async function MyPurchasedBooksPage() {
     const user = await getUserSession();
