@@ -70,14 +70,14 @@ const EbookActions = ({ ebookId, handleBookmark, uploader, user, isPurchased }) 
                 onClick={onPurchaseClick}
                 isLoading={isPurchasing}
                 isDisabled={uploader === user?.id || isPurchased}
-                className='text-background bg-primary' // Added a color so it stands out
+                className='text-white bg-primary rounded-none' // Added a color so it stands out
             >
                 {uploader === user?.id && 'You cannot buy your own book'}
                 {isPurchased ? 'Already Purchased' : "Purchase"}
             </Button>
 
-            <Button className='text-background'>Wishlist</Button>
-            <Button onClick={onBookmarkClick} className='text-background'>Add to bookmark</Button>
+            <Button className='text-foreground rounded-none' variant='secondary'>Wishlist</Button>
+            <Button onClick={onBookmarkClick} variant='outline' className='text-foreground rounded-none'>Add to bookmark</Button>
         </div>
     );
 };

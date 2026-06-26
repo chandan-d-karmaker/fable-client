@@ -84,7 +84,7 @@ const EbookDetailsPage = async ({ params }) => {
 
                 {/* category */}
                 <div>
-                    <Chip color="success">{ebook.genre}</Chip>
+                    <Chip className='rounded-none' color="success">{ebook.genre}</Chip>
                 </div>
 
                 <p className="text-md font-medium text-foreground-300">Price: ${ebook.price}</p>

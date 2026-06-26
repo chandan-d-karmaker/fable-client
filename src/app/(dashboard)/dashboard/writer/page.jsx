@@ -50,7 +50,7 @@ const WriterHomePage = async () => {
                 >
                     <Card.Content className='bg-content1 p-4 space-y-4 text-center'>
                         <h1 className='text-xl'>Total Revenue</h1>
-                        <h1 className='text-2xl font-bold'>${totalIncome}</h1>
+                        <h1 className='text-2xl font-bold'>${totalIncome.toFixed(2)}</h1>
                     </Card.Content>
                 </Card>
                 <Card

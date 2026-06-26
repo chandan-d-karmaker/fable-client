@@ -9,7 +9,7 @@ const BackButton = () => {
     return (
         <div>
             <Tooltip delay={0}>
-                <Button variant='ghost' className='mb-5 rounded-none border' onClick={() => router.back()}>
+                <Button variant='ghost' className='mb-5 rounded-none border border-foreground' onClick={() => router.back()}>
                     <IoArrowBack />
                 </Button>
                 <Tooltip.Content>
