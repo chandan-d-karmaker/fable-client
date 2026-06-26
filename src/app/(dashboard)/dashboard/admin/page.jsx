@@ -5,11 +5,13 @@ import { getUsers, getWriters } from '@/lib/api/users';
 import { getUserSession } from '@/lib/core/session';
 import { Card } from '@heroui/react';
 import React from 'react';
+import AdminCharts from './AdminCharts';
 
 const AdminHomePage = async () => {
 
     const user = await getUserSession();
     const users  = await getUsers();
+    const ebooks = await getEbooks();
     const writers = await getWriters();
     const totalrevenue = await totalRevenue();
     const totalSold = await getAllPurcheseHistory();
@@ -61,6 +63,8 @@ const AdminHomePage = async () => {
                 </Card>
 
             </div>
+
+            <AdminCharts sales={totalSold} ebooks={ebooks} />
         </div>
     );
 };
