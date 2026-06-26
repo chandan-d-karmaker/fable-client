@@ -32,7 +32,7 @@ const WriterEbooksTable = ({ ebooks }) => {
                     <Table.Body renderEmptyState={() => (
                         <EmptyState className="flex h-full w-full flex-col items-center justify-center gap-4 my-4 text-center">
                             <FaInbox />
-                            <span className="text-sm text-muted">No Purchase history</span>
+                            <span className="text-sm text-muted">No books found</span>
                         </EmptyState>
                     )}>
                         {ebooks.map((ebook) => (

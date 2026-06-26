@@ -1,53 +1,24 @@
 import { getPurchaseHistory } from '@/lib/api/payments';
 import { getUserSession } from '@/lib/core/session';
-import { Table } from '@heroui/react';
-import { format } from 'date-fns';
 import React from 'react';
+import SalesHistoryTable from './SalesHistoryTable'; // Adjust path if needed
 
 const SalesHistoryPage = async () => {
-
     const user = await getUserSession();
-    console.log(user);
+    // console.log(user);
 
-    const sales = await getPurchaseHistory(user.id);
-    console.log(sales);
+    // Fetch data safely on the server
+    const sales = await getPurchaseHistory(user.id) || [];
+    // console.log(sales);
+
     return (
         <div>
             <div>
                 <h1 className='text-2xl font-bold text-foreground mb-10'>Ebook sale history</h1>
             </div>
-            <Table aria-label="Table of writer's sales">
-                <Table.ScrollContainer>
-                    <Table.Content className="min-w-150">
-                        <Table.Header>
-                            <Table.Column isRowHeader className="w-1/4">Title</Table.Column>
-                            <Table.Column className="w-1/4">Buyer Name</Table.Column>
-                            <Table.Column className="w-1/4">Purchase Date</Table.Column>
-                            <Table.Column className="w-1/4" align='center'>Amount</Table.Column>
-                        </Table.Header>
-                        <Table.Body emptyContent={"You haven't published any ebooks yet."}>
-                            {sales.map((ebook) => (
-                                <Table.Row key={ebook._id?.$oid || ebook._id || ebook.id}>
-                                    <Table.Cell>
-                                        <div className="font-medium text-foreground">
-                                            {ebook.ebookTitle || 'Untitled Ebook'}
-                                        </div>
-                                    </Table.Cell>
-                                    <Table.Cell>
-                                        <div className="text-xs text-default-500 mt-0.5">{ebook.buyerName}</div>
-                                    </Table.Cell>
-                                    <Table.Cell>
-                                       {format(new Date(ebook.createdAt), 'd MMM yyyy').toUpperCase()}
-                                    </Table.Cell>
-                                    <Table.Cell>
-                                        ${ebook.ebookPrice}
-                                    </Table.Cell>
-                                </Table.Row>
-                            ))}
-                        </Table.Body>
-                    </Table.Content>
-                </Table.ScrollContainer>
-            </Table>
+            
+            {/* Pass the server data directly into the Client Component */}
+            <SalesHistoryTable sales={sales} />
         </div>
     );
 };
