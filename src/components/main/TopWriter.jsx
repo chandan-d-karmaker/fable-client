@@ -1,13 +1,14 @@
 import { getTopWriters } from '@/lib/api/users';
 import { Avatar, Card } from '@heroui/react';
-import { motion } from "motion/react"
 import Image from 'next/image';
 import React from 'react';
+import * as motion from "motion/react-client";
 
 const TopWriter = async () => {
 
     const writers = await getTopWriters();
     console.log(writers);
+
 
 
     return (
@@ -23,35 +24,46 @@ const TopWriter = async () => {
             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6'>
 
                 {
-                    writers.map((writer) => (
-                        <Card
+                    writers.map((writer, index) => (
+                        <motion.div
                             key={writer.writerName}
                             ishoverable='true'
-                            className="bg-content1 border border-default rounded-none flex flex-col gap-4 hover:border-primary/50 transition-all duration-300 hover:shadow-[8px_8px_0px_0px_#555] hover:-translate-y-1 hover:-translate-x-1 shadow-sm w-full"
+                            initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                            viewport={{ once: true, amount: 0.3 }}
+                            transition={{
+                                duration: 0.3,
+                                delay: index * 0.3,
+                                type: "spring",
+                                stiffness: 100
+                            }}
+                            className="bg-content1 border border-default flex flex-col gap-4 hover:border-primary/50 transition-all duration-300 hover:shadow-[8px_8px_0px_0px_#555] hover:-translate-y-1 hover:-translate-x-1 shadow-sm w-full"
                         >
-                            {/* 1. Header */}
-                            <Card.Header className="flex justify-center items-center">
-                                <Avatar>
-                                    <Avatar.Image
-                                        src={writer?.image}
-                                        name={writer?.writerName}
-                                        radius="lg"
-                                        className="w-20 h-20 text-large bg-default-200" />
-                                    <Avatar.Fallback>{writer?.writerName[0]}</Avatar.Fallback>
-                                </Avatar>
-                            </Card.Header>
+                            <Card className='rounded-none'>
+                                {/* 1. Header */}
+                                <Card.Header className="flex justify-center items-center">
+                                    <Avatar>
+                                        <Avatar.Image
+                                            src={writer?.image}
+                                            name={writer?.writerName}
+                                            radius="lg"
+                                            className="w-20 h-20 text-large bg-default-200" />
+                                        <Avatar.Fallback>{writer?.writerName[0]}</Avatar.Fallback>
+                                    </Avatar>
+                                </Card.Header>
 
-                            {/* 2. Content (Title & Description) */}
-                            < Card.Content className="flex flex-col items-center py-2" >
-                                <Card.Title className="text-lg font-semibold text-foreground m-0">
-                                    {writer.writerName}
-                                </Card.Title>
-                                <Card.Description className="text-sm text-foreground-400 mt-1">
-                                    Total Sale
-                                </Card.Description>
-                                <h1>{writer.totalSales}</h1>
-                            </Card.Content>
-                        </Card>
+                                {/* 2. Content (Title & Description) */}
+                                < Card.Content className="flex flex-col items-center py-2" >
+                                    <Card.Title className="text-lg font-semibold text-foreground m-0">
+                                        {writer.writerName}
+                                    </Card.Title>
+                                    <Card.Description className="text-sm text-foreground-400 mt-1">
+                                        Total Sale
+                                    </Card.Description>
+                                    <h1>{writer.totalSales}</h1>
+                                </Card.Content>
+                            </Card>
+                        </motion.div>
                     ))
                 }
             </div >

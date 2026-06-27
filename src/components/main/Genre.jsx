@@ -2,6 +2,7 @@
 import React from 'react';
 import { Card, CardBody } from '@heroui/react';
 import Link from 'next/link';
+import * as motion from "motion/react-client";
 
 
 const genres = [
@@ -26,19 +27,31 @@ const Genre = async () => {
 
             {/* Grid Section */}
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
-                {genres.map((genre) => (
-                    <Link key={genre.name}  href={`/ebooks?genre=${genre.slug}`}>
-                        <Card
+                {genres.map((genre, index) => (
+                    <Link key={genre.name} href={`/ebooks?genre=${genre.slug}`}>
+                        <motion.div
                             ispressable='true'
                             ishoverable='true'
-                            className="bg-content1 rounded-none border border-default hover:border-primary/50 transition-all duration-300 hover:shadow-[8px_8px_0px_0px_#555] hover:-translate-y-1 hover:-translate-x-1 shadow-sm"
+                            initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                            viewport={{ once: true, amount: 0.3 }}
+                            transition={{
+                                duration: 0.3,
+                                delay: index * 0.3,
+                                type: "spring",
+                                stiffness: 100
+                            }}
+                            className="bg-content1 border border-default hover:border-primary/50 transition-all duration-300 hover:shadow-[8px_8px_0px_0px_#555] hover:-translate-y-1 hover:-translate-x-1 shadow-sm"
                         >
-                            <Card.Content className="flex items-center justify-center py-10 md:py-12">
-                                <span className="text-lg font-medium text-foreground">
-                                    {genre.name}
-                                </span>
-                            </Card.Content>
-                        </Card>
+                            <Card className='rounded-none'>
+                                <Card.Content className="flex items-center justify-center py-10 md:py-12 ">
+                                    <span className="text-lg font-medium text-foreground">
+                                        {genre.name}
+                                    </span>
+                                </Card.Content>
+                            </Card>
+
+                        </motion.div>
                     </Link>
                 ))}
             </div>

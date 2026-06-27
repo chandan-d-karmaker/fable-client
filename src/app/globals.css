@@ -1,18 +1,2 @@
 @import "tailwindcss";
 @import "@heroui/styles"; 
-
-/* Force all HeroUI components to be perfectly square */
-:root {
-  --heroui-radius-small: 0px !important;
-  --heroui-radius-medium: 0px !important;
-  --heroui-radius-large: 0px !important;
-}
-
-/* Ensure components don't have any hidden rounded corners */
-.heroui-modal-content, 
-.heroui-table, 
-.heroui-card, 
-.heroui-button, 
-.heroui-chip {
-  border-radius: 0px !important;
-}
