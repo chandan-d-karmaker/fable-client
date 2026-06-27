@@ -60,7 +60,7 @@ const AdminCharts = ({ ebooks, sales }) => {
                                 cy="50%"
                                 outerRadius="80%"
                             >
-                                {genreData.map((entry, index) => (
+                                {genreData?.map((entry, index) => (
                                     <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                                 ))}
                             </Pie>

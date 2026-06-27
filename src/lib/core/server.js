@@ -8,7 +8,7 @@ const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 
 export const serverQuery = async (path) => {
     const res = await fetch(`${baseUrl}${path}`);
-    return handleStatusCode(res);
+    return await handleStatusCode(res);
 }
 
 // support session code
@@ -85,5 +85,5 @@ const handleStatusCode = async (res) => {
         redirect('/auth/login');
     }
 
-    return res.json() || null;
+    return await res.json() || null;
 }
