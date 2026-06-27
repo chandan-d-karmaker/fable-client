@@ -17,7 +17,6 @@ const PurchaseHistoryTable = ({ sales }) => {
                         <Table.Column className="w-1/4" align='center'>Amount</Table.Column>
                     </Table.Header>
                     
-                    {/* Because we are in 'use client', passing this function works perfectly */}
                     <Table.Body renderEmptyState={() => (
                         <EmptyState className="flex h-full w-full flex-col items-center justify-center gap-4 my-4 text-center">
                             <FaInbox />

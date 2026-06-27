@@ -12,7 +12,6 @@ const ROWS_PER_PAGE = 6;
 const AdminUserTable = ({ users = [] }) => {
     const [page, setPage] = useState(1);
 
-    // Pagination logic
     const totalPages = Math.ceil(users?.length / ROWS_PER_PAGE) || 1;
     const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
 

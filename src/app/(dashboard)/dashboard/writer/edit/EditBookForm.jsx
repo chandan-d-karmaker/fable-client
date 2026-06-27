@@ -31,16 +31,11 @@ export default function EditEbookForm({ initialData }) {
 
     console.log(initialData);
 
-    const statuses = [
-        { id: "available", label: "Available" },
-        { id: "draft", label: "Draft" },
-    ];
 
     const handleLogoUpload = async (e) => {
         const file = e.target.files[0];
         if (!file) return;
 
-        // Simple Validation
         if (file.size > 5 * 1024 * 1024) {
             setErrors(prev => ({ ...prev, logo: "File size exceeds 5MB limit" }));
             return;
@@ -102,7 +97,6 @@ export default function EditEbookForm({ initialData }) {
 
     };
 
-    // Refactored to use semantic theme colors that adapt to Light/Dark mode
     const baseInputClass = "bg-default-100 border border-default-200 hover:border-default-300 focus-within:border-default-400 rounded-xl px-4 py-2.5 text-foreground shadow-none focus-visible:ring-0 placeholder:text-default-500 w-full transition-colors";
     const labelClass = "text-foreground font-medium pb-2 text-sm";
 
@@ -116,9 +110,6 @@ export default function EditEbookForm({ initialData }) {
                     <h1 className="text-3xl font-bold text-foreground tracking-tight mb-2">
                         Update your Ebook
                     </h1>
-                    {/* <p className="text-default-500 text-sm">
-                        Share your stories with readers around the world.
-                    </p> */}
                 </div>
 
                 {/* Form */}
@@ -180,7 +171,7 @@ export default function EditEbookForm({ initialData }) {
                     </TextField>
 
 
-                    {/* Publishing As (Static Display) */}
+                    {/* Publishing As */}
                     <div className="flex flex-col mt-2">
                         <span className="text-sm text-default-500 mb-1">Updating as</span>
                         <span className="text-sm font-semibold text-foreground">

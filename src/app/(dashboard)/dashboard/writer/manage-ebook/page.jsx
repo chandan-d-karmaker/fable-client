@@ -1,12 +1,11 @@
 import { getEbookByWriter } from '@/lib/api/ebooks';
 import { getUserSession } from '@/lib/core/session';
 import React from 'react';
-import WriterEbooksTable from './WriterEbooksTable'; // Adjust path if you placed it elsewhere
+import WriterEbooksTable from './WriterEbooksTable'; 
 
 const WriterEbooksPage = async () => {
     const user = await getUserSession();
     
-    // Fetch the data on the server
     const ebooks = await getEbookByWriter(user.id) || [];
     // console.log(ebooks);
 
@@ -16,7 +15,7 @@ const WriterEbooksPage = async () => {
                 <h1 className="text-2xl font-bold text-foreground">My Ebooks</h1>
             </div>
 
-            {/* Pass the fetched data to the Client Component */}
+           
             <div>
                 <WriterEbooksTable ebooks={ebooks} />
             </div>

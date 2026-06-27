@@ -9,10 +9,10 @@ import Link from 'next/link';
 const BookMarkPage = async () => {
 
     const user = await getUserSession();
-    console.log(user);
+    // console.log(user);
 
     const bookmarks = await getBookmarksByUser(user.id);
-    console.log(bookmarks);
+    // console.log(bookmarks);
 
     return (
         <div className='max-w-7xl mx-auto p-6 my-10'>

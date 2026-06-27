@@ -12,11 +12,9 @@ export default async function MyPurchasedBooksPage() {
         return <div>Please log in.</div>;
     }
 
-    // 1. Fetch the array of purchases (just the IDs)
     const sales = await getPurchaseHistory(user.id);
     console.log(sales);
 
-    // 2. Fetch the full book details for every purchased ID in parallel!
     const purchasedBooks = await Promise.all(
         sales.map(async (purchase) => {
             const bookDetails = await getEbookById(purchase.ebookId);
@@ -24,7 +22,6 @@ export default async function MyPurchasedBooksPage() {
         })
     );
 
-    // 3. Filter out any null values (just in case an author deleted a book)
     const validBooks = purchasedBooks.filter((book) => book !== null);
 
     return (
@@ -40,7 +37,6 @@ export default async function MyPurchasedBooksPage() {
                 </div>
             ) : (
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                    {/* 4. Map over the fully hydrated books and pass them to BookCard */}
                     {validBooks.map((book) => (
                         <BookCard
                             key={book._id}

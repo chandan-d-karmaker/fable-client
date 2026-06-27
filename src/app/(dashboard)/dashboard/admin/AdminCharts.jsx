@@ -11,7 +11,6 @@ const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8884d8'];
 
 const AdminCharts = ({ ebooks, sales }) => {
 
-    // 1. Prepare Monthly Sales Data
     const monthlySales = useMemo(() => {
         const data = {};
         sales?.forEach(s => {
@@ -21,7 +20,6 @@ const AdminCharts = ({ ebooks, sales }) => {
         return Object.keys(data).map(month => ({ name: month, revenue: data[month] }));
     }, [sales]);
 
-    // 2. Prepare Genre Pie Chart Data
     const genreData = useMemo(() => {
         const data = {};
         ebooks?.forEach(b => {
@@ -48,7 +46,6 @@ const AdminCharts = ({ ebooks, sales }) => {
             <Card className="flex flex-col p-4 w-full h-auto min-h-100 rounded-none border border-foreground">
                 <h3 className="font-bold mb-4">Ebooks by Genre</h3>
 
-                {/* This container will grow/shrink dynamically */}
                 <div className="w-full grow relative min-h-62.5">
                     <ResponsiveContainer width="100%" height="100%">
                         <PieChart>
@@ -69,7 +66,6 @@ const AdminCharts = ({ ebooks, sales }) => {
                     </ResponsiveContainer>
                 </div>
 
-                {/* The Legend sits below and wraps naturally */}
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 mt-4 text-[10px] sm:text-xs mx-auto">
                     {genreData?.map((entry, index) => (
                         <div key={entry.name} className="flex items-center justify-center gap-1">

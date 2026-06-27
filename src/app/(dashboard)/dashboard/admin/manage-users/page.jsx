@@ -15,7 +15,6 @@ const AdminUserPage = async () => {
                 <h1 className="text-2xl font-bold text-foreground">All Users</h1>
             </div>
 
-            {/* Pass the fetched data to the Client Component */}
             <div>
                 {users && Array.isArray(users) &&
                     <AdminUserTable users={users} />

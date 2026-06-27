@@ -13,8 +13,7 @@ const DeleteEbook = ({ ebook }) => {
         const res = await deleteEbook(ebook._id);
         if (res.deletedCount > 0) {
             toast.success(`${ebook.title} deleted successfully!`);
-            // refresh the page
-            // redirect('/dashboard/admin/manage-ebooks');
+            
 
         } else {
             toast.error("Failed to delete ebook!")

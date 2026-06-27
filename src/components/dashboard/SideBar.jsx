@@ -5,7 +5,7 @@ import { LiaMoneyBillWaveAltSolid } from "react-icons/lia";
 import { IoBookSharp } from "react-icons/io5";
 import { Button, Drawer } from "@heroui/react";
 import { VscLayoutSidebarLeftDock } from "react-icons/vsc";
-import { Bookmark, Building, CreditCard, FileText, Users } from "lucide-react";
+import { Users } from "lucide-react";
 import { getUserSession } from "@/lib/core/session";
 import SideNavLink from "../shared/SideNavLink";
 

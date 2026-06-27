@@ -22,11 +22,9 @@ export default function Footer() {
 
     return (
         <footer className="w-full bg-background py-10 border-t border-backgroud/50">
-            <div className="">
-                {/* Top Section: Branding & Links */}
+            <div>
                 <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-8 mb-16">
 
-                    {/* Left Column: Logo & Tagline */}
                     <div className="lg:col-span-2 md:mx-0 mx-auto flex items-center gap-5 p-4 md:border lg:border-l-0">
                         <Image src={Logo} alt='logo' height={50} width={50} className="md:w-25"></Image>
                         <p className="text-[#a2a1a1] text-sm leading-relaxed max-w-xs pr-4">
@@ -88,10 +86,9 @@ export default function Footer() {
                     </div>
                 </div>
 
-                {/* Bottom Section: Socials & Copyright */}
                 <div className="flex flex-col md:flex-row justify-between items-center gap-6 py-4 border-y">
 
-                    {/* Social Icons (Gravity UI) */}
+                   
                     <div className="flex items-center gap-3 md:pl-5">
                         {/* Facebook */}
                         <a href="#" className="flex items-center justify-center w-9 h-9 rounded-none border border-foreground/50 bg-backgroud text-foreground hover:text-background hover:bg-gray-800 transition-colors" aria-label="Facebook">
@@ -109,7 +106,6 @@ export default function Footer() {
                         </a>
                     </div>
 
-                    {/* Copyright Text */}
                     <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-sm text-[#525252] md:pr-5">
                         <p>Copyright 2026 — Fable</p>
                         <p className="hidden sm:block">|</p>

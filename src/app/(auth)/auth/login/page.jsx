@@ -1,11 +1,10 @@
 'use client'
 import React, { useState, Suspense } from 'react';
 import { Check, Eye, EyeSlash } from "@gravity-ui/icons";
-import { Button, Card, FieldError, Form, Input, InputGroup, Label, TextField } from "@heroui/react";
+import { Button, Card, FieldError, Form, Input, InputGroup, Label, Spinner, TextField } from "@heroui/react";
 import { authClient } from '@/lib/auth-client';
 import Link from 'next/link';
 import toast from 'react-hot-toast';
-import { useRouter, useSearchParams } from 'next/navigation';
 import welcome from '@/assets/Login.svg'
 import Image from 'next/image';
 import { BsGoogle } from 'react-icons/bs';
@@ -15,9 +14,6 @@ const LoginContent = () => {
     const [isVisible, setIsVisible] = useState(false);
     const [error, setError] = useState('');
 
-    const router = useRouter();
-    const searchParams = useSearchParams();
-    // const redirectTo = searchParams.get("redirect") || '/';
 
     const handleGoogleSignIn = async () => {
         const { data, error } = await authClient.signIn.social({
@@ -58,11 +54,8 @@ const LoginContent = () => {
             } else {
                 window.location.href = '/';
             }
-            // router.push(redirectTo);
         }
 
-        // const role = data?.user?.role;
-        // Role based redirection commented out based on your snippet
     }
 
     return (
@@ -126,7 +119,6 @@ const LoginContent = () => {
                         </InputGroup>
                     </TextField>
 
-                    {/* `/auth/signup?redirect=${redirectTo}` */}
                     <Link href={`/auth/signup?`}>
                         <p>Not a member? <span className='text-blue-500'>Register Now</span> </p>
                     </Link>
@@ -155,11 +147,9 @@ const LoginContent = () => {
     );
 };
 
-// 2. Wrap the component in Suspense for the default export
 const LoginPage = () => {
     return (
-        // You can customize the fallback UI to be a spinner or skeleton loader
-        <Suspense fallback={<div className="flex min-h-screen items-center justify-center">Loading...</div>}>
+        <Suspense fallback={<div className="flex min-h-screen items-center justify-center"><Spinner /></div>}>
             <LoginContent />
         </Suspense>
     );

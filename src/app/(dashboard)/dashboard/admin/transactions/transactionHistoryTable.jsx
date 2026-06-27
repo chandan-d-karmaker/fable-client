@@ -8,21 +8,16 @@ import { FaInbox } from 'react-icons/fa6';
 const ROWS_PER_PAGE = 10;
 
 const TransactionHistoryTable = ({ sales }) => {
-    // 1. Move the state inside the component
     const [page, setPage] = useState(1);
     
-    // 2. Base the math on the 'sales' array, not 'users'
-    // Fallback to 1 page if the array is empty so the math doesn't break
     const totalPages = Math.ceil(sales?.length / ROWS_PER_PAGE) || 1; 
     const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
     
-    // 3. Slice the array to only show the current page's items
     const paginatedItems = useMemo(() => {
         const start = (page - 1) * ROWS_PER_PAGE;
         return sales?.slice(start, start + ROWS_PER_PAGE) || [];
     }, [page, sales]);
 
-    // 4. Calculate summary tracking numbers
     const start = sales?.length === 0 ? 0 : (page - 1) * ROWS_PER_PAGE + 1;
     const end = Math.min(page * ROWS_PER_PAGE, sales?.length || 0);
 
@@ -44,7 +39,6 @@ const TransactionHistoryTable = ({ sales }) => {
                             <span className="text-sm text-muted">No sales history found</span>
                         </EmptyState>
                     )}>
-                        {/* 5. Map over paginatedItems instead of the full sales array! */}
                         {paginatedItems.map((ebook) => (
                             <Table.Row key={ebook._id?.$oid || ebook._id || ebook.id}>
                                 <Table.Cell>
@@ -70,7 +64,6 @@ const TransactionHistoryTable = ({ sales }) => {
                 </Table.Content>
             </Table.ScrollContainer>
             
-            {/* 6. Only render the pagination footer if there are items to paginate */}
             {sales?.length > 0 && (
                 <Table.Footer>
                     <Pagination size="sm">

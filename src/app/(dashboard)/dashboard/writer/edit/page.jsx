@@ -18,7 +18,6 @@ const WriterEbooksPage = async () => {
             case 'draft':
             case 'unpublished':
                 return 'warning';
-            // Add other statuses if needed
             default:
                 return 'default';
         }
@@ -28,15 +27,11 @@ const WriterEbooksPage = async () => {
         <div>
             <div className="flex justify-between items-center mb-6">
                 <h1 className="text-2xl font-bold text-foreground">My Ebooks</h1>
-                {/* <Link href='/dashboard/writer/books/new'>
-                    <Button color='primary' className="font-medium">Publish New Ebook</Button>
-                </Link> */}
             </div>
 
             <div>
                 <Table aria-label="Table of writer's ebooks">
-                    {/* The structure here differs slightly from the very newest HeroUI alpha, 
-                        but matches the pattern you provided in your guideline code */}
+                  
                     <Table.ScrollContainer>
                         <Table.Content className="min-w-150">
                             <Table.Header>
@@ -52,14 +47,12 @@ const WriterEbooksPage = async () => {
                                             <div className="font-medium text-foreground">
                                                 {ebook.title || 'Untitled Ebook'}
                                             </div>
-                                            {/* Optional: Add genre or category below the title if your data supports it */}
                                             {ebook.genre && (
                                                 <div className="text-xs text-default-500 mt-0.5">{ebook.genre}</div>
                                             )}
                                         </Table.Cell>
                                         <Table.Cell>
                                             <div className="text-sm text-default-600">
-                                                {/* Assuming price is a number. Add formatting if needed */}
                                                 ${parseFloat(ebook.price).toFixed(2)}
                                             </div>
                                         </Table.Cell>
@@ -76,7 +69,6 @@ const WriterEbooksPage = async () => {
                                         <Table.Cell>
                                             <div className="relative flex items-center justify-start gap-2">
                                                 <Tooltip content="Edit Ebook">
-                                                    {/* Consider using a Link wrapping the Button if editing is on a separate page */}
                                                     <Link href='/dashboard/writer/edit'>
                                                         <Button
                                                             isIconOnly
@@ -89,7 +81,6 @@ const WriterEbooksPage = async () => {
                                                     </Link>
                                                 </Tooltip>
 
-                                                {/* Publish/Unpublish Toggle Button */}
                                                 <Tooltip content={ebook.status?.toLowerCase() === 'published' ? "Unpublish Ebook" : "Publish Ebook"}>
                                                     <Button
                                                         isIconOnly

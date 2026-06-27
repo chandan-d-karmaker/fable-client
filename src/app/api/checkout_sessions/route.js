@@ -12,7 +12,6 @@ export async function POST(req) {
         const headersList = await headers();
         const origin = headersList.get('origin') || process.env.NEXT_PUBLIC_BASE_URL;
 
-        // 1. Parse the incoming request to get the ebookId
         const body = await req.json();
         const { ebookId } = body;
 
@@ -20,7 +19,6 @@ export async function POST(req) {
             return NextResponse.json({ error: "Ebook ID is required" }, { status: 400 });
         }
 
-        // 2. Fetch the true price from your database securely on the backend
         const ebook = await getEbookById(ebookId);
 
         const user = await getUserSession();
@@ -36,10 +34,8 @@ export async function POST(req) {
             return NextResponse.json({ error: "Ebook not found" }, { status: 404 });
         }
 
-        // 3. Convert price to cents
         const priceInCents = Math.round(parseFloat(ebook.price) * 100);
 
-        // 4. Create Checkout Session using dynamic price_data
         const session = await stripe.checkout.sessions.create({
             customer_email: user?.email,
             payment_method_types: ['card'],
@@ -49,7 +45,7 @@ export async function POST(req) {
                         currency: 'usd',
                         product_data: {
                             name: ebook.title,
-                            images: [ebook.image], // Optional: shows the cover on checkout
+                            images: [ebook.image], 
                         },
                         unit_amount: priceInCents,
                     },
@@ -58,7 +54,7 @@ export async function POST(req) {
             ],
             mode: 'payment',
             success_url: `${origin}/ebooks/success?session_id={CHECKOUT_SESSION_ID}`,
-            cancel_url: `${origin}/ebooks/cancel`, // Good practice to have a cancel URL
+            cancel_url: `${origin}/ebooks/cancel`,
             metadata: {
                 ebookId: ebook._id.toString(),
                 ebookTitle: ebook.title,
@@ -69,7 +65,6 @@ export async function POST(req) {
             }
         });
 
-        // 5. Return the URL as JSON instead of forcing a server redirect
         return NextResponse.json({ url: session.url });
 
     } catch (err) {

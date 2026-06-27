@@ -16,7 +16,6 @@ const page = async () => {
                 <h1 className='text-2xl font-bold text-foreground mb-10'>Ebook purchase history</h1>
             </div>
             
-            {/* Pass the server-fetched data to your Client Component */}
             <PurchaseHistoryTable sales={sales} />
         </div>
     );

@@ -8,7 +8,6 @@ import { ArrowUpToLine } from 'lucide-react';
 import Image from 'next/image';
 
 const UpdateProfileModal = () => {
-    // Add a loading state to give the user immediate feedback
     const [isUpdating, setIsUpdating] = useState(false);
     const [isUploading, setIsUploading] = useState(false);
     const [logoUrl, setLogoUrl] = useState('');
@@ -18,7 +17,6 @@ const UpdateProfileModal = () => {
         const file = e.target.files[0];
         if (!file) return;
 
-        // Simple Validation
         if (file.size > 5 * 1024 * 1024) {
             setErrors(prev => ({ ...prev, logo: "File size exceeds 5MB limit" }));
             return;
@@ -70,8 +68,6 @@ const UpdateProfileModal = () => {
                     duration: duration,
                 });
 
-                // Keep the modal open in a loading state for 1 second until the page reloads.
-                // This is much smoother UX than snapping the modal closed and waiting.
                 setTimeout(() => {
                     window.location.reload();
                 }, duration);
@@ -87,7 +83,6 @@ const UpdateProfileModal = () => {
 
     return (
         <Modal>
-            {/* The Trigger Button */}
             <Button variant="outline" className='rounded-none'>Edit Profile</Button>
 
             <Modal.Backdrop>
@@ -106,7 +101,7 @@ const UpdateProfileModal = () => {
                         {/* Body Section */}
                         <Modal.Body className="p-6">
                             <Surface variant="default">
-                                {/* Notice the ID here! It connects to the submit button in the footer */}
+                               
                                 <form id="update-profile-form" onSubmit={handleUpdate} className="flex flex-col gap-4">
                                     <TextField className="w-full" name="name" type="text" variant="secondary">
                                         <Label>Name</Label>
@@ -141,14 +136,12 @@ const UpdateProfileModal = () => {
                             </Surface>
                         </Modal.Body>
 
-                        {/* Footer Section */}
                         <Modal.Footer>
-                            {/* slot="close" automatically wires this button to close the uncontrolled modal */}
+                           
                             <Button slot="close" variant="secondary" isDisabled={isUpdating}>
                                 Cancel
                             </Button>
 
-                            {/* The form attribute links this button to the form in the Body */}
                             <Button
                                 type="submit"
                                 form="update-profile-form"

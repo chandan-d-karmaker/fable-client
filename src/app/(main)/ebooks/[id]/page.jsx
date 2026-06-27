@@ -23,7 +23,7 @@ const EbookDetailsPage = async ({ params }) => {
     if (user?.id) {
         try {
             const res = await hasPurchased(id, user.id);
-            const data = res; // Ensure this matches what your protectedServerQuery returns
+            const data = res; 
             isPurchased = data.hasPurchased;
 
         } catch (error) {
@@ -41,15 +41,13 @@ const EbookDetailsPage = async ({ params }) => {
 
         const bookmarkData = {
             ...restEbook,
-            ebookId: _id, // Save the book's ID under a new key
+            ebookId: _id,
             user: user.id
         }
 
         try {
-            // Call your API
             const res = await addBookmark(bookmarkData);
 
-            // Catch the JSON error we sent from Express
             if (res.error) {
                 return { success: false, message: res.message };
             }

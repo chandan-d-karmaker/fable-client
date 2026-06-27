@@ -19,7 +19,6 @@ function SignupContent() {
     const [role, setRole] = useState("reader");
     const router = useRouter();
     const searchParams = useSearchParams();
-    // const redirectTo = searchParams.get("redirect") || "/"
 
     const handleGoogleSignIn = async () => {
         const { data, error } = await authClient.signIn.social({
@@ -64,8 +63,7 @@ function SignupContent() {
             }
         }
 
-        // const role = data?.user?.role;
-        // Role based redirection commented out based on your snippet
+    
     };
 
     return (
@@ -156,7 +154,7 @@ function SignupContent() {
                         </Radio>
                     </RadioGroup>
 
-                    {/* {`/auth/login?redirect=${redirectTo}`} */}
+                    
                     <Link href={`/auth/login`}>
                         <p>Already a member? <span className='text-blue-500'>Login now!</span> </p>
                     </Link>
@@ -184,7 +182,6 @@ function SignupContent() {
     );
 }
 
-// 2. Wrap the component in Suspense for the default export
 export default function Signup() {
     return (
         <Suspense fallback={<div className="flex min-h-screen items-center justify-center"><Spinner /></div>}>

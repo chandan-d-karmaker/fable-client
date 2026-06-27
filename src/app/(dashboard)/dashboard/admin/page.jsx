@@ -12,12 +12,12 @@ const AdminHomePage = async () => {
     const user = await getUserSession();
     const users  = await getUsers();
     const {ebooks} = await getEbooks();
-    console.log(ebooks);
+    // console.log(ebooks);
     const writers = await getWriters();
     const totalrevenue = await totalRevenue();
-    console.log(totalrevenue)
+    // console.log(totalrevenue)
     const totalSold = await getAllPurcheseHistory();
-    console.log(totalSold);
+    // console.log(totalSold);
     
 
     return (

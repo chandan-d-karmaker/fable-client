@@ -7,7 +7,6 @@ const TransactionHistoryPage = async () => {
     const user = await getUserSession();
     // console.log(user);
 
-    // Fetch data safely on the server
     const sales = await getAllPurcheseHistory() || [];
     console.log(sales);
 

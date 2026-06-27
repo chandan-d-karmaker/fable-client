@@ -29,16 +29,11 @@ export default function AddEbook() {
     const user = session?.user;
     const router = useRouter();
 
-    const statuses = [
-        { id: "available", label: "Available" },
-        { id: "draft", label: "Draft" },
-    ];
 
     const handleLogoUpload = async (e) => {
         const file = e.target.files[0];
         if (!file) return;
 
-        // Simple Validation
         if (file.size > 5 * 1024 * 1024) {
             setErrors(prev => ({ ...prev, logo: "File size exceeds 5MB limit" }));
             return;
@@ -96,18 +91,8 @@ export default function AddEbook() {
             toast.error("Something went wrong!");
             setIsLoading(false);
         }
-
-
-        // Simulate API Call
-        // setTimeout(() => {
-        //     toast.success("Ebook published successfully!");
-        //     setIsLoading(false);
-        //     e.target.reset();
-        //     router.push("/dashboard/writer/books");
-        // }, 1500);
     };
 
-    // Refactored to use semantic theme colors that adapt to Light/Dark mode
     const baseInputClass = "bg-default-100 border border-default-200 hover:border-default-300 focus-within:border-default-400 rounded-xl px-4 py-2.5 text-foreground shadow-none focus-visible:ring-0 placeholder:text-default-500 w-full transition-colors";
     const labelClass = "text-foreground font-medium pb-2 text-sm";
 
@@ -184,7 +169,7 @@ export default function AddEbook() {
                         />
                     </TextField>
 
-                    {/* Publishing As (Static Display) */}
+                    {/* Publishing As */}
                     <div className="flex flex-col mt-2">
                         <span className="text-sm text-default-500 mb-1">Publishing as</span>
                         <span className="text-sm font-semibold text-foreground">

@@ -46,7 +46,6 @@ const Featured = async () => {
                                 transition={{ delay: index * 0.1 }}
                                 viewport={{ once: true }}
                             >
-                                {/* Pass the book AND the purchase status to the card */}
                                 <BookCard book={book} isPurchased={isPurchased} />
                             </motion.div>
                         )

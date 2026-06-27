@@ -2,12 +2,10 @@
 
 import React, { useState, useMemo } from 'react';
 import { Table, Chip, Button, Tooltip, Pagination, EmptyState, Modal } from '@heroui/react';
-import { Eye, EyeOff, Trash2 } from 'lucide-react';
 import { FaInbox } from 'react-icons/fa6';
 import DeleteEbook from '@/components/shared/DeleteEbook';
 import { toggleStatus } from '@/lib/actions/ebooks';
 import toast from 'react-hot-toast';
-import { getWriters } from '@/lib/api/users';
 
 const ROWS_PER_PAGE = 8;
 
@@ -105,15 +103,7 @@ const ManageEbookTable = ({ ebooks = [] }) => {
                                         {ebook.status}
                                     </Chip>
                                 </Table.Cell>
-                                {/* <Table.Cell>
-                                    <div className="flex items-center justify-start gap-2">
-                                        <Tooltip content={ebook.status === 'published' ? "Unpublish" : "Publish"}>
-                                            <Button isIconOnly size="sm" variant="light">
-                                                {ebook.status === 'published' ? <EyeOff size={18} /> : <Eye size={18} />}
-                                            </Button>
-                                        </Tooltip>
-                                    </div>
-                                </Table.Cell> */}
+
                                 <Table.Cell>
                                     <div className="flex items-center justify-start gap-2">
                                         {ebook.status !== 'published' && <StatusUpdateModal ebook={ebook} targetStatus="published" />}

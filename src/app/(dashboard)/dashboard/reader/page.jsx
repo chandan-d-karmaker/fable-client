@@ -36,11 +36,6 @@ const ReaderHomePage = async () => {
                     </Card.Content>
                 </Card>
 
-                {/* <div className='bg-content1 p-4 border border-foreground space-y-4 text-center'>
-                    <h1 className='text-xl'>Ebook Bought</h1>
-                    <h1 className='text-2xl font-bold'>{purchasedBooks.length}</h1>
-                </div> */}
-
                 <Card
                     ispressable='true'
                     ishoverable='true'
@@ -52,10 +47,6 @@ const ReaderHomePage = async () => {
                     </Card.Content>
                 </Card>
 
-                {/* <div className='p-4 border border-foreground space-y-4 text-center'>
-                    <h1 className='text-xl'>Bookmarks</h1>
-                    <h1 className='text-2xl font-bold'>{bookmarks.length}</h1>
-                </div> */}
             </div>
         </div>
     );

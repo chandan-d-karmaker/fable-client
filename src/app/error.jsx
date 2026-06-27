@@ -6,7 +6,6 @@ import Link from 'next/link';
 
 export default function ErrorPage({ error, reset }) {
     useEffect(() => {
-        // Log the error to an error reporting service
         console.error("Fable App Error:", error);
     }, [error]);
 

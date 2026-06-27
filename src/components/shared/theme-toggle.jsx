@@ -9,13 +9,11 @@ export default function ThemeSwitcher() {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
 
-  // Ensure component is mounted on the client before rendering theme-dependent UI
   useEffect(() => {
     // eslint-disable-next-line
     setMounted(true);
   }, []);
 
-  // Return a placeholder button of the exact same size to prevent layout shift during hydration
   if (!mounted) {
     return (
       <Button 
@@ -34,7 +32,7 @@ export default function ThemeSwitcher() {
   return (
     <Button
       isIconOnly
-      variant="light" // 'light' gives it a clean, text-like background behavior on hover
+      variant="light"
       aria-label="Toggle theme"
       onPress={toggleTheme}
       className="text-default-500 hover:text-default-900"
