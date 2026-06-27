@@ -32,7 +32,7 @@ const PurchaseHistoryTable = ({ sales }) => {
                                     </div>
                                 </Table.Cell>
                                 <Table.Cell>
-                                    <div className="text-xs text-default-500 mt-0.5">{ebook.writerName}</div>
+                                    <div className="text-xs text-default-500 mt-0.5">{ebook.writerName || 'Deleted Writer'} </div>
                                 </Table.Cell>
                                 <Table.Cell>
                                     {format(new Date(ebook.createdAt), 'd MMM yyyy').toUpperCase()}
