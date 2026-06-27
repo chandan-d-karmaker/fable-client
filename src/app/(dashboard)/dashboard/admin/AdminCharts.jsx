@@ -14,7 +14,7 @@ const AdminCharts = ({ ebooks, sales }) => {
     // 1. Prepare Monthly Sales Data
     const monthlySales = useMemo(() => {
         const data = {};
-        sales.forEach(s => {
+        sales?.forEach(s => {
             const month = new Date(s.createdAt).toLocaleString('default', { month: 'short' });
             data[month] = (data[month] || 0) + parseFloat(s.ebookPrice);
         });
@@ -24,7 +24,7 @@ const AdminCharts = ({ ebooks, sales }) => {
     // 2. Prepare Genre Pie Chart Data
     const genreData = useMemo(() => {
         const data = {};
-        ebooks.forEach(b => {
+        ebooks?.forEach(b => {
             const genre = b.genre || "Uncategorized";
             data[genre] = (data[genre] || 0) + 1;
         });
@@ -71,7 +71,7 @@ const AdminCharts = ({ ebooks, sales }) => {
 
                 {/* The Legend sits below and wraps naturally */}
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 mt-4 text-[10px] sm:text-xs mx-auto">
-                    {genreData.map((entry, index) => (
+                    {genreData?.map((entry, index) => (
                         <div key={entry.name} className="flex items-center justify-center gap-1">
                             <div
                                 className="w-2 h-2 sm:w-3 sm:h-3 rounded-full shrink-0"
