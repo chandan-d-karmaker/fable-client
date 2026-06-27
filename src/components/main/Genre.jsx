@@ -11,7 +11,7 @@ const genres = [
     { name: 'Romance', slug: 'Romance' },
     { name: 'Sci-Fi', slug: 'Sci-Fi' },
     { name: 'Fantasy', slug: 'Fantasy' },
-    { name: 'Horror', slug: 'Horror' },
+    { name: 'Classic', slug: 'Classic' },
 ];
 
 const Genre = async () => {
