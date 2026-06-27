@@ -3,7 +3,7 @@ import ManageEbookTable from './ManageEbookTable';
 import { getUsers } from '@/lib/api/users';
 
 const ManageEbookPage = async () => {
-    const [ebooks, users] = await Promise.all([
+    const [{ebooks}, users] = await Promise.all([
         getEbooks(),
         getUsers() //
     ]);

@@ -7,16 +7,9 @@ import { revalidatePath } from "next/cache";
 import { auth } from "../auth";
 
 export const updateUserRole = async (userId, role) => {
-    console.log("Action triggered for:", userId, role); // ADD THIS
+    console.log("Action triggered for:", userId, role); 
     try {
-        const data = await auth.api.setRole({
-            body: {
-                userId: userId,
-                role: role
-            },
-            headers: await headers()
-        });
-        
+        const res = await serverMutation(`/api/admin/user/role/${userId}`, role, "PATCH");
         revalidatePath('/dashboard/admin/manage-user');
         return data;
     } catch (error) {
@@ -36,3 +29,10 @@ export const deleteUser = async (userId) => {
 //     revalidatePath('/dashboard/adim/manage-user');
 //     return result;
 // }
+/// const data = await auth.api.setRole({
+        //     body: {
+        //         userId: userId,
+        //         role: role
+        //     },
+        //     headers: await headers()
+        // });

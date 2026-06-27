@@ -13,7 +13,7 @@ const DeleteUser = ({ user }) => {
         const res = await deleteUser(user._id);
         if (res.deletedCount > 0) {
             toast.success(`${user.name} deleted successfully!`);
-            redirect('/dashboard/writer/manage-user');
+            redirect('/dashboard/writer/manage-users');
 
         } else {
             toast.error("Failed to delete user!")

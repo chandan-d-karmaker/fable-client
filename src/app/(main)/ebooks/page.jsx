@@ -20,7 +20,9 @@ const AllEBooksPage = async ({ searchParams }) => {
 
     console.log('search Q', filters, queryString)
 
-    const books = await getEbooks(queryString);
+    const {total, ebooks} = await getEbooks(queryString) || {};
+    // const books = response.ebooks || [];
+    // const total = response.total || 0;
 
     let purchasedEbookIds = [];
     if (user?.id) {
@@ -33,7 +35,7 @@ const AllEBooksPage = async ({ searchParams }) => {
         }
     }
 
-    const booksWithPurchaseStatus = books.map(book => ({
+    const booksWithPurchaseStatus = ebooks.map(book => ({
         ...book,
         isPurchased: purchasedEbookIds.includes(book._id) // Returns true or false
     }));
@@ -47,7 +49,7 @@ const AllEBooksPage = async ({ searchParams }) => {
             </div>
 
             {/* Pass data to the Client Wrapper to handle filtering interactivity */}
-            <BooksContainer filters={filterObj} books={booksWithPurchaseStatus || []} />
+            <BooksContainer filters={filterObj} books={booksWithPurchaseStatus || []} total={total} />
         </div>
     )
 };

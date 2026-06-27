@@ -6,11 +6,11 @@ import Link from 'next/link';
 
 const notfound = () => {
     return (
-        <div className='min-h-screen flex items-center justify-center'>
+        <div className='min-h-screen flex flex-col items-center justify-center'>
 
             <Image src={error} alt='404-animation' width={500} height={500} loading='eager'></Image>
 
-            <h1>Page Not Found</h1>
+            <h1 className='text-foreground text-xl text-center mb-4'>Page Not Found</h1>
             <Link href='/'>
                 <Button variant='primary' className='rounded-none'>Go Home</Button>
             </Link>

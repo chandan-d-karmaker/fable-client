@@ -39,7 +39,7 @@ const AdminUserTable = ({ users = [] }) => {
         const handleRoleChange = async () => {
             setIsUpdating(true);
             try {
-                await updateUserRole(user._id, targetRole);
+                await updateUserRole(user._id, {role : targetRole});
                 toast.success(`Role updated to ${targetRole} successfully!`);
             } catch (error) {
                 toast.error("Failed to update role");

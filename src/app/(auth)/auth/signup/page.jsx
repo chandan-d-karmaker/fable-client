@@ -51,6 +51,7 @@ function SignupContent() {
         const role = data?.user?.role;
 
         if (error) {
+            console.log(error)
             toast.error(error.message)
         } else {
             toast.success("Signup Successfull!");

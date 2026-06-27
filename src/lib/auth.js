@@ -23,7 +23,8 @@ export const auth = betterAuth({
     user: {
         additionalFields: {
             role: {
-                defaultValue: "reader"
+                defaultValue: "reader",
+                input: true
             }
         }
     },
@@ -32,10 +33,9 @@ export const auth = betterAuth({
             enabled: true,
             strategy: "jwt",
             maxAge: 7 * 24 * 60 * 60,
-        } // 1 day
+        } // 7 days
     },
     plugins: [
-        jwt(),
-        admin()
+        jwt()
     ]
 });
