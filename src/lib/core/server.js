@@ -17,7 +17,7 @@ export const authHeader = async () => {
 
     const token = cookieStore.get("better-auth.session_data");
     // const token = await getUserToken();
-    // console.log(token);
+    console.log(token);
     const header = token ? {
         authorization: `Bearer ${token.value}`
     } : {};
@@ -37,17 +37,6 @@ export const protectedServerQuery = async (path) => {
 
 }
 
-// export const serverMutation = async (path, data, method ='POST') => {
-//     const res = await fetch(`${baseUrl}${path}`, {
-//         method: method,
-//         headers: {
-//             'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify(data),
-//     });
-
-//     return res.json();
-// }
 
 export const serverMutation = async (path, data = {}, method = 'POST') => {
     const options = {

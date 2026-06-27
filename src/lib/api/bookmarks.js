@@ -3,5 +3,5 @@
 import { protectedServerQuery, serverQuery } from "../core/server";
 
 export const getBookmarksByUser = async (userId) => {
-    return protectedServerQuery(`/api/ebooks/bookmark/${userId}`);
+    return await protectedServerQuery(`/api/ebooks/bookmark/${userId}`);
 }
