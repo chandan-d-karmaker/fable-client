@@ -67,7 +67,8 @@ const AdminHomePage = async () => {
 
             </div>
 
-            <AdminCharts sales={totalSold} ebooks={ebooks} />
+            { totalSold && Array.isArray(totalSold) && ebooks && Array.isArray(ebooks) &&
+             <AdminCharts sales={totalSold} ebooks={ebooks} />}
         </div>
     );
 };
