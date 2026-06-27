@@ -25,7 +25,7 @@ export default function ErrorPage({ error, reset }) {
 
                 
                 <div className="bg-content1 border flex items-center justify-center p-3 text-left overflow-hidden">
-                    <p className="text-md text-red-500 font-mono truncate">
+                    <p className="text-md text-red-500 font-mono">
                         {error?.message || "An unknown error occurred"}
                     </p>
                 </div>
