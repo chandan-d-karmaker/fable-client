@@ -119,6 +119,150 @@ Traditional ebook reading is often limited to bookstores or libraries. Fable dem
 
 ---
 
+### Folder Structure
+
+```
+├── 📁 app
+│   ├── 📁 (auth)
+│   │   ├── 📁 auth
+│   │   │   ├── 📁 login
+│   │   │   │   └── 📄 page.jsx
+│   │   │   └── 📁 signup
+│   │   │       └── 📄 page.jsx
+│   │   └── 📄 layout.jsx
+│   ├── 📁 (dashboard)
+│   │   └── 📁 dashboard
+│   │       ├── 📁 admin
+│   │       │   ├── 📁 manage-ebooks
+│   │       │   │   ├── 📄 ManageEbookTable.jsx
+│   │       │   │   ├── 📄 loading.jsx
+│   │       │   │   └── 📄 page.jsx
+│   │       │   ├── 📁 manage-users
+│   │       │   │   ├── 📄 ManageUserTable.jsx
+│   │       │   │   ├── 📄 loading.jsx
+│   │       │   │   └── 📄 page.jsx
+│   │       │   ├── 📁 transactions
+│   │       │   │   ├── 📄 loading.jsx
+│   │       │   │   ├── 📄 page.jsx
+│   │       │   │   └── 📄 transactionHistoryTable.jsx
+│   │       │   ├── 📄 AdminCharts.jsx
+│   │       │   ├── 📄 layout.jsx
+│   │       │   └── 📄 page.jsx
+│   │       ├── 📁 reader
+│   │       │   ├── 📁 bookmarks
+│   │       │   │   ├── 📄 loading.jsx
+│   │       │   │   └── 📄 page.jsx
+│   │       │   ├── 📁 profile
+│   │       │   │   └── 📄 page.jsx
+│   │       │   ├── 📁 purchased-ebooks
+│   │       │   │   ├── 📄 loading.jsx
+│   │       │   │   └── 📄 page.jsx
+│   │       │   ├── 📁 purchased-history
+│   │       │   │   ├── 📄 PurchaseHistoryTable.jsx
+│   │       │   │   ├── 📄 loading.jsx
+│   │       │   │   └── 📄 page.jsx
+│   │       │   ├── 📄 layout.jsx
+│   │       │   └── 📄 page.jsx
+│   │       ├── 📁 writer
+│   │       │   ├── 📁 add-ebook
+│   │       │   │   └── 📄 page.jsx
+│   │       │   ├── 📁 bookmark
+│   │       │   │   ├── 📄 loading.jsx
+│   │       │   │   └── 📄 page.jsx
+│   │       │   ├── 📁 edit
+│   │       │   │   ├── 📁 [id]
+│   │       │   │   │   └── 📄 page.jsx
+│   │       │   │   ├── 📄 EditBookForm.jsx
+│   │       │   │   └── 📄 page.jsx
+│   │       │   ├── 📁 manage-ebook
+│   │       │   │   ├── 📄 WriterEbooksTable.jsx
+│   │       │   │   ├── 📄 loading.jsx
+│   │       │   │   └── 📄 page.jsx
+│   │       │   ├── 📁 sales-history
+│   │       │   │   ├── 📄 SalesHistoryTable.jsx
+│   │       │   │   ├── 📄 loading.jsx
+│   │       │   │   └── 📄 page.jsx
+│   │       │   ├── 📄 layout.jsx
+│   │       │   └── 📄 page.jsx
+│   │       ├── 📄 layout.jsx
+│   │       └── 📄 loading.jsx
+│   ├── 📁 (main)
+│   │   ├── 📁 ebooks
+│   │   │   ├── 📁 [id]
+│   │   │   │   ├── 📄 loading.jsx
+│   │   │   │   └── 📄 page.jsx
+│   │   │   ├── 📁 cancel
+│   │   │   │   └── 📄 page.jsx
+│   │   │   ├── 📁 success
+│   │   │   │   └── 📄 page.jsx
+│   │   │   ├── 📄 ebookActions.jsx
+│   │   │   ├── 📄 loading.jsx
+│   │   │   └── 📄 page.jsx
+│   │   ├── 📁 onboarding
+│   │   │   └── 📄 page.jsx
+│   │   ├── 📁 unauthorized
+│   │   │   └── 📄 page.jsx
+│   │   ├── 📄 layout.jsx
+│   │   ├── 📄 loading.jsx
+│   │   └── 📄 page.js
+│   ├── 📁 api
+│   │   ├── 📁 auth
+│   │   │   └── 📁 [...all]
+│   │   │       └── 📄 route.js
+│   │   └── 📁 checkout_sessions
+│   │       └── 📄 route.js
+│   ├── 📁 providers
+│   │   └── 📄 theme-provider.jsx
+│   ├── 📄 error.jsx
+│   ├── 📄 favicon.ico
+│   ├── 🎨 globals.css
+│   ├── 📄 layout.js
+│   └── 📄 not-found.jsx
+├── 📁 assets
+│   ├── 🖼️ Book.svg
+│   ├── 🖼️ Error404.svg
+│   ├── 🖼️ Login.svg
+│   └── 🖼️ logo.png
+├── 📁 components
+│   ├── 📁 dashboard
+│   │   └── 📄 SideBar.jsx
+│   ├── 📁 main
+│   │   ├── 📄 Banner.jsx
+│   │   ├── 📄 Featured.jsx
+│   │   ├── 📄 Genre.jsx
+│   │   └── 📄 TopWriter.jsx
+│   └── 📁 shared
+│       ├── 📄 BackButton.jsx
+│       ├── 📄 BookCard.jsx
+│       ├── 📄 BookFilters.jsx
+│       ├── 📄 BooksContainer.jsx
+│       ├── 📄 DeleteEbook.jsx
+│       ├── 📄 DeleteUser.jsx
+│       ├── 📄 EditProfile.jsx
+│       ├── 📄 Footer.jsx
+│       ├── 📄 Navbar.jsx
+│       ├── 📄 Navlink.jsx
+│       ├── 📄 SideNavLink.jsx
+│       └── 📄 theme-toggle.jsx
+└── 📁 lib
+    ├── 📁 actions
+    │   ├── 📄 ebooks.js
+    │   ├── 📄 payments.js
+    │   └── 📄 user.js
+    ├── 📁 api
+    │   ├── 📄 bookmarks.js
+    │   ├── 📄 ebooks.js
+    │   ├── 📄 payments.js
+    │   └── 📄 users.js
+    ├── 📁 core
+    │   ├── 📄 server.js
+    │   └── 📄 session.js
+    ├── 📁 utilits
+    ├── 📄 auth-client.js
+    ├── 📄 auth.js
+    └── 📄 stripe.js
+```
+
 ## 🚀 Getting Started
 
 ### Prerequisites
