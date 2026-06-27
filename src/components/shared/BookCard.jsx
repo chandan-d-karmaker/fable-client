@@ -27,7 +27,7 @@ const BookCard = ({ book, isPurchased = false }) => {
                 <div className="absolute bottom-0 left-0 w-full h-[70%] bg-linear-to-t from-black/95 via-black/60 to-transparent z-0 pointer-events-none" />
 
                 {/* Top Section: Tags (Glassmorphism effect) */}
-                <div className="relative z-10 flex gap-2 p-5 pointer-events-none">
+                <div className="relative z-10 flex gap-2 p-2 md:p-5 pointer-events-none">
 
                     {/* <span
                     className="font-semibold text-[11px] uppercase tracking-wider px-3 py-1.5 rounded-full bg-white/20 backdrop-blur-md text-white border border-white/20"
@@ -42,8 +42,8 @@ const BookCard = ({ book, isPurchased = false }) => {
 
                 </div>
                 {/* Header (Pushed to bottom with mt-auto) */}
-                <Card.Header className="relative z-10 mt-auto flex flex-col items-start px-6 pb-2 border-none">
-                    <Card.Title className="text-xl font-bold text-white mb-1 line-clamp-2 text-left leading-tight">
+                <Card.Header className="relative z-10 mt-auto flex flex-col items-start px-3 md:px-6 pb-2 border-none">
+                    <Card.Title className="text-sm md:text-xl font-bold text-white mb-1 line-clamp-2 text-left leading-tight overflow-hidden">
                         {book.title}
                     </Card.Title>
                     <div>

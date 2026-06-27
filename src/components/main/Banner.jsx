@@ -80,15 +80,15 @@ const Banner = () => {
                                             Ebook Sharing Platform
                                         </span>
 
-                                        <h1 className="mt-6 text-4xl md:text-6xl font-bold leading-tight">
+                                        <h1 className="mt-4 text-3xl md:text-6xl font-bold leading-tight">
                                             {slide.title}
                                         </h1>
 
-                                        <p className="mt-4 text-lg text-slate-200 max-w-2xl">
+                                        <p className="mt-4 text-md text-slate-200 max-w-2xl">
                                             {slide.description}
                                         </p>
 
-                                        <div className="mt-8 flex flex-wrap gap-4">
+                                        <div className="mt-2 flex flex-wrap gap-2">
                                             <Link
                                                 href="/ebooks"
                                                 className="bg-linear-to-r from-cyan-500 to-blue-600 px-6 py-3 font-semibold text-white shadow-lg hover:scale-105 transition"

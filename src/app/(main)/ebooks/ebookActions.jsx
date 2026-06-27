@@ -64,7 +64,7 @@ const EbookActions = ({ ebookId, handleBookmark, uploader, user, isPurchased }) 
     };
 
     return (
-        <div className='flex gap-4 mt-4'>
+        <div className='flex items-center justify-center gap-4 mt-4'>
             {/* Replaced the form with our custom onClick handler */}
             <Button
                 onClick={onPurchaseClick}
@@ -76,7 +76,7 @@ const EbookActions = ({ ebookId, handleBookmark, uploader, user, isPurchased }) 
                 {isPurchased ? 'Already Purchased' : "Purchase"}
             </Button>
 
-            <Button className='text-foreground rounded-none' variant='secondary'>Wishlist</Button>
+            {/* <Button className='text-foreground rounded-none' variant='secondary'>Wishlist</Button> */}
             <Button onClick={onBookmarkClick} variant='outline' className='text-foreground rounded-none'>Add to bookmark</Button>
         </div>
     );

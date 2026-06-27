@@ -41,7 +41,7 @@ export default function BooksFilters({
                         selectedKey={selectedGenre}
                         onSelectionChange={(key) => setSelectedGenre(key)}
                     >
-                        <Select.Trigger className="w-full flex items-center justify-between bg-background/80 text-foreground border border-foreground/70 hover:border-foreground/60 rounded-none py-2.5 px-4 text-sm font-normal transition-all">
+                        <Select.Trigger className="w-full flex items-center justify-between bg-background/80 text-foreground border border-foreground hover:border-foreground/60 rounded-none py-2.5 px-4 text-sm font-normal transition-all">
                             <Select.Value>{selectedGenre === "all" ? "All Types" : selectedGenre.replace("-", " ")}</Select.Value>
                             <Select.Indicator>
                                 <ChevronDown className="w-4 h-4 text-foreground/40" />
@@ -83,7 +83,7 @@ export default function BooksFilters({
                         selectedKey={selectedSort}
                         onSelectionChange={(key) => setSelectedSort(key)}
                     >
-                        <Select.Trigger className="w-full flex items-center justify-between bg-background text-foreground border border-foreground/70 hover:border-foreground/60 rounded-none py-2.5 px-4 text-sm font-normal transition-all">
+                        <Select.Trigger className="w-full flex items-center justify-between bg-background text-foreground border border-foreground hover:border-foreground/60 rounded-none py-2.5 px-4 text-sm font-normal transition-all">
                             <Select.Value>{selectedSort === "all" ? "All Categories" : selectedSort}</Select.Value>
                             <Select.Indicator>
                                 <ChevronDown className="w-4 h-4 text-foreground/80" />
