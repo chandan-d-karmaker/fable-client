@@ -1,3 +1,5 @@
+'use server';
+
 import { protectedServerQuery, serverQuery } from "../core/server"
 
 export const getPurchaseHistory = async (id) =>{

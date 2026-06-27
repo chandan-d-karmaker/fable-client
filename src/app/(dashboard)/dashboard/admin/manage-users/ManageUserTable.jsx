@@ -13,16 +13,16 @@ const AdminUserTable = ({ users = [] }) => {
     const [page, setPage] = useState(1);
 
     // Pagination logic
-    const totalPages = Math.ceil(users.length / ROWS_PER_PAGE) || 1;
+    const totalPages = Math.ceil(users?.length / ROWS_PER_PAGE) || 1;
     const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
 
     const paginatedItems = useMemo(() => {
         const start = (page - 1) * ROWS_PER_PAGE;
-        return users.slice(start, start + ROWS_PER_PAGE);
+        return users?.slice(start, start + ROWS_PER_PAGE);
     }, [page, users]);
 
     const start = users.length === 0 ? 0 : (page - 1) * ROWS_PER_PAGE + 1;
-    const end = Math.min(page * ROWS_PER_PAGE, users.length);
+    const end = Math.min(page * ROWS_PER_PAGE, users?.length);
 
     const getStatusColor = (role) => {
         switch (role?.toLowerCase()) {
@@ -52,7 +52,7 @@ const AdminUserTable = ({ users = [] }) => {
         return (
             <Modal>
                 <Button size="sm" variant="outline" className="rounded-none bg-background">
-                    Make {targetRole.charAt(0).toUpperCase() + targetRole.slice(1)}
+                    Make {targetRole?.charAt(0).toUpperCase() + targetRole?.slice(1)}
                 </Button>
                 <Modal.Backdrop>
                     <Modal.Container>
