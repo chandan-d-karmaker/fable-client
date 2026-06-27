@@ -10,7 +10,7 @@ const notfound = () => {
 
             <Image src={error} alt='404-animation' width={500} height={500} loading='eager'></Image>
 
-            <h1 className='text-foreground text-xl text-center mb-4'>Page Not Found</h1>
+            <h1 className='text-foreground text-2xl font-mono text-center mb-4'>Page Not Found</h1>
             <Link href='/'>
                 <Button variant='primary' className='rounded-none'>Go Home</Button>
             </Link>

@@ -8,13 +8,13 @@ export const getAllPurcheseHistory = async () =>{
 }
 
 export const fetchRevenue = async (writerId) => {
-    const res = await serverQuery(`/api/revenue/${writerId}`);
+    const res = await protectedServerQuery(`/api/revenue/${writerId}`);
     const data = res.totalRevenue;
     return data;
 }
 
 export const totalRevenue = async () =>{
-    const res = await serverQuery('/api/admin/total-revenue');
+    const res = await protectedServerQuery('/api/admin/total-revenue');
     const data = res.totalRevenue;
     return data;
 }
