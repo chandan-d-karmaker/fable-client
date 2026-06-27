@@ -11,7 +11,7 @@ export const updateUserRole = async (userId, role) => {
     try {
         const res = await serverMutation(`/api/admin/user/role/${userId}`, role, "PATCH");
         revalidatePath('/dashboard/admin/manage-user');
-        return data;
+        return res;
     } catch (error) {
         console.error("Auth API Error:", error); // ADD THIS
         throw error; // Rethrow so toast.error in your component catches it

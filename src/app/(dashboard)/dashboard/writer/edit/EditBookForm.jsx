@@ -88,8 +88,9 @@ export default function EditEbookForm({ initialData }) {
         console.log("Submitting Ebook:", ebookData);
 
         const res = await updateEbook(initialData._id, ebookData);
+        console.log(res);
 
-        if (res.insertedId) {
+        if (res.modifiedCount > 0) {
             toast.success("Ebook updated successfully! Wait for admin's approval.");
             e.target.reset();
             setIsLoading(false);

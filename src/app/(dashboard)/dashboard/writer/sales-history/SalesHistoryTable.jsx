@@ -1,11 +1,28 @@
 'use client';
 
-import React from 'react';
-import { EmptyState, Table } from '@heroui/react';
+import React, { useMemo, useState } from 'react';
+import { EmptyState, Pagination, Table } from '@heroui/react';
 import { format } from 'date-fns';
 import { FaInbox } from 'react-icons/fa6';
 
+const ROWS_PER_PAGE = 10;
+
 const SalesHistoryTable = ({ sales }) => {
+
+    const [page, setPage] = useState(1);
+
+    // Pagination logic
+    const totalPages = Math.ceil(sales.length / ROWS_PER_PAGE) || 1;
+    const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
+
+    const paginatedItems = useMemo(() => {
+        const start = (page - 1) * ROWS_PER_PAGE;
+        return sales.slice(start, start + ROWS_PER_PAGE);
+    }, [page, sales]);
+
+    const start = sales.length === 0 ? 0 : (page - 1) * ROWS_PER_PAGE + 1;
+    const end = Math.min(page * ROWS_PER_PAGE, sales.length);
+
     return (
         <Table aria-label="Table of writer's sales">
             <Table.ScrollContainer>
@@ -22,7 +39,7 @@ const SalesHistoryTable = ({ sales }) => {
                             <span className="text-sm text-muted">No sales history found</span>
                         </EmptyState>
                     )}>
-                        {sales.map((ebook) => (
+                        {paginatedItems.map((ebook) => (
                             <Table.Row key={ebook._id?.$oid || ebook._id || ebook.id}>
                                 <Table.Cell>
                                     <div className="font-medium text-foreground">
@@ -43,6 +60,30 @@ const SalesHistoryTable = ({ sales }) => {
                     </Table.Body>
                 </Table.Content>
             </Table.ScrollContainer>
+            {sales.length > 0 && (
+                <Table.Footer>
+                    <Pagination size="sm">
+                        <Pagination.Summary>{start} to {end} of {sales.length} results</Pagination.Summary>
+                        <Pagination.Content>
+                            <Pagination.Item>
+                                <Pagination.Previous isDisabled={page === 1} onPress={() => setPage(p => Math.max(1, p - 1))}>
+                                    <Pagination.PreviousIcon /> Prev
+                                </Pagination.Previous>
+                            </Pagination.Item>
+                            {pages.map((p) => (
+                                <Pagination.Item key={p}>
+                                    <Pagination.Link isActive={p === page} onPress={() => setPage(p)}>{p}</Pagination.Link>
+                                </Pagination.Item>
+                            ))}
+                            <Pagination.Item>
+                                <Pagination.Next isDisabled={page === totalPages} onPress={() => setPage(p => Math.min(totalPages, p + 1))}>
+                                    Next <Pagination.NextIcon />
+                                </Pagination.Next>
+                            </Pagination.Item>
+                        </Pagination.Content>
+                    </Pagination>
+                </Table.Footer>
+            )}
         </Table>
     );
 };

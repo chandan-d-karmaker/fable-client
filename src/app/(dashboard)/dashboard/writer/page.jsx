@@ -17,7 +17,7 @@ const WriterHomePage = async () => {
     // const avg = (totalIncome/ sales.length).toFixed(2) || 0;
     // console.log(avg);
 
-    // console.log(totalIncome);
+    console.log(totalIncome);
 
     return (
         <div>
