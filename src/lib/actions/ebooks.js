@@ -16,6 +16,7 @@ export const updateEbook = async (ebookId, ebookData) => {
 export const deleteEbook = async (ebookId) => {
     const result = await serverMutation(`/api/ebooks/${ebookId}`, null, 'DELETE');
     revalidatePath('/dashboard/writes/manage-ebook');
+    revalidatePath('/dashboard/admin/manage-ebooks');
     return result;
 }
 

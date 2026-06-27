@@ -89,12 +89,12 @@ const Banner = () => {
                                         </p>
 
                                         <div className="mt-8 flex flex-wrap gap-4">
-                                            {role === 'reader' && <Link
+                                            <Link
                                                 href="/ebooks"
                                                 className="bg-linear-to-r from-cyan-500 to-blue-600 px-6 py-3 font-semibold text-white shadow-lg hover:scale-105 transition"
                                             >
                                                 Explore Ebooks
-                                            </Link>}
+                                            </Link>
 
                                             {role === 'writer' && <Link
                                                 href="/add-ebook"
