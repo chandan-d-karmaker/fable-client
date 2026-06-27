@@ -3,7 +3,7 @@
 **Fable** — an ebook sharing platform built with Next.js, HeroUI, and Tailwind CSS.
 
 ## Purpose
-### Traditional ebook reading is often limited to bookstores or libraries. An online ebook sharing platform democratizes access to literature, enables emerging writers to reach global audiences, and provides a secure, streamlined reading experience. The project demonstrates advanced MERN stack concepts including role-based access, payment integration, and interactive features and analytics
+- Traditional ebook reading is often limited to bookstores or libraries. An online ebook sharing platform democratizes access to literature, enables emerging writers to reach global audiences, and provides a secure, streamlined reading experience. The project demonstrates advanced MERN stack concepts including role-based access, payment integration, and interactive features and analytics
 
 ## Live URL
 > https://fable-ebooks.vercel.app

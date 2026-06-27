@@ -9,7 +9,7 @@ const TransactionHistoryPage = async () => {
 
     // Fetch data safely on the server
     const sales = await getAllPurcheseHistory() || [];
-    // console.log(sales);
+    console.log(sales);
 
     return (
         <div>
@@ -17,7 +17,7 @@ const TransactionHistoryPage = async () => {
                 <h1 className='text-2xl font-bold text-foreground mb-6'>Ebook sale history</h1>
             </div>
             
-            <TransactionHistoryTable sales={sales} />
+           { sales && Array.isArray(sales) && <TransactionHistoryTable sales={sales} />}
         </div>
     );
 };

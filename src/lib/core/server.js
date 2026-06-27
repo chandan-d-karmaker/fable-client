@@ -19,7 +19,7 @@ export const authHeader = async () => {
     const token = await getUserToken();
     console.log(token);
     const header = token ? {
-        authorization: `Bearer ${token.value}`
+        authorization: `Bearer ${token}`
     } : {};
     return header;
 }

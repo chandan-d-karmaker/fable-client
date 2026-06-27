@@ -6,6 +6,7 @@ import { getUsers } from '@/lib/api/users';
 
 const AdminUserPage = async () => {
     const users = await getUsers();
+    console.log(users);
 
 
     return (

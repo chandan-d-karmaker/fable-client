@@ -5,7 +5,7 @@ import { getUsers } from '@/lib/api/users';
 const ManageEbookPage = async () => {
     const [{ ebooks }, users] = await Promise.all([
         getEbooks(),
-        getUsers() //
+        getUsers()
     ]);
 
 
@@ -19,6 +19,7 @@ const ManageEbookPage = async () => {
         ...ebook,
         writerName: userMap[ebook.addedBy] || "Deleted Writer"
     }));
+    console.log(detailedEbooks);
 
     return (
         <div className="p-6">
