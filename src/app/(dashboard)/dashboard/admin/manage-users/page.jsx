@@ -6,7 +6,7 @@ import { getUsers } from '@/lib/api/users';
 
 const AdminUserPage = async () => {
     const users = await getUsers();
-   
+
 
     return (
         <div>
@@ -16,7 +16,9 @@ const AdminUserPage = async () => {
 
             {/* Pass the fetched data to the Client Component */}
             <div>
-                <AdminUserTable users={users} />
+                {users && Array.isArray(users) &&
+                    <AdminUserTable users={users} />
+                }
             </div>
         </div>
     );

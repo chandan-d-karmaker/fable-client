@@ -3,12 +3,12 @@
 import { protectedServerQuery, serverQuery } from "../core/server";
 
 export const getUsers = async () => {
-    return protectedServerQuery('/api/users');
+    return await protectedServerQuery('/api/users');
 }
 
 export const getWriters = async () => {
-    return protectedServerQuery('/api/writers');
+    return await protectedServerQuery('/api/writers');
 }
 export const getTopWriters = async () => {
-    return serverQuery('/api/top-writers');
+    return await serverQuery('/api/top-writers');
 }

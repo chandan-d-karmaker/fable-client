@@ -33,7 +33,7 @@ export const protectedServerQuery = async (path) => {
         }
     );
     // console.log(res);
-    return handleStatusCode(res);
+    return await handleStatusCode(res);
 
 }
 
@@ -68,7 +68,7 @@ export const serverMutation = async (path, data = {}, method = 'POST') => {
         return { success: true };
     }
 
-    return res.json();
+    return await res.json();
 }
 
 const handleStatusCode = async (res) => {
