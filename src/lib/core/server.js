@@ -13,10 +13,10 @@ export const serverQuery = async (path) => {
 
 // support session code
 export const authHeader = async () => {
-    const cookieStore = await cookies();
+    // const cookieStore = await cookies();
 
-    const token = cookieStore.get("better-auth.session_data");
-    // const token = await getUserToken();
+    // const token = cookieStore.get("better-auth.session_data");
+    const token = await getUserToken();
     console.log(token);
     const header = token ? {
         authorization: `Bearer ${token.value}`
