@@ -9,7 +9,7 @@ import welcome from '@/assets/Login.svg'
 import Image from 'next/image';
 import { BsGoogle } from 'react-icons/bs';
 
-// 1. Move your main logic into a separate component
+
 const LoginContent = () => {
     const [isVisible, setIsVisible] = useState(false);
     const [error, setError] = useState('');

@@ -8,12 +8,14 @@ const notfound = () => {
     return (
         <div className='min-h-screen flex flex-col items-center justify-center'>
 
-            <Image src={error} alt='404-animation' width={500} height={500} loading='eager'></Image>
+            <div className='border flex flex-col items-center p-4'>
+                <Image src={error} alt='404-animation' width={500} height={500} loading='eager'></Image>
 
-            <h1 className='text-foreground text-2xl font-mono text-center mb-4'>Page Not Found</h1>
-            <Link href='/'>
-                <Button variant='primary' className='rounded-none'>Go Home</Button>
-            </Link>
+                <h1 className='text-foreground text-2xl font-mono text-center mb-4 border border-foreground py-1 px-2'>Page Not Found</h1>
+                <Link href='/'>
+                    <Button variant='primary' className='rounded-none'>Go Home</Button>
+                </Link>
+            </div>
 
         </div>
     );

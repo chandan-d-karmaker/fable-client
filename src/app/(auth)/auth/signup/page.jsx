@@ -8,7 +8,6 @@ import { useState, Suspense } from "react";
 import { Description, Radio, RadioGroup } from "@heroui/react";
 import toast from "react-hot-toast";
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
 import Image from 'next/image';
 import welcome from '@/assets/Login.svg'
 import { BsGoogle } from 'react-icons/bs';
