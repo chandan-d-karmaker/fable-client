@@ -2,6 +2,11 @@ import { getEbooks } from '@/lib/api/ebooks';
 import ManageEbookTable from './ManageEbookTable';
 import { getUsers } from '@/lib/api/users';
 
+export const metadata = {
+  title: "Manage Users",
+};
+
+
 const ManageEbookPage = async () => {
     const [{ ebooks }, users] = await Promise.all([
         getEbooks(),

@@ -5,6 +5,11 @@ import React from 'react';
 import { getEbookById } from '@/lib/api/ebooks';
 import { Card } from '@heroui/react';
 
+export const metadata = {
+  title: "Reader Dashboard",
+};
+
+
 const ReaderHomePage = async () => {
 
     const user = await getUserSession();

@@ -5,6 +5,11 @@ import { getUserSession } from '@/lib/core/session';
 import { Button } from '@heroui/react';
 import Link from 'next/link';
 
+export const metadata = {
+  title: "Purchased Ebooks",
+};
+
+
 export default async function MyPurchasedBooksPage() {
     const user = await getUserSession();
 

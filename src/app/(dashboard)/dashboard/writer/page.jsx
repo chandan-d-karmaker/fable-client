@@ -5,6 +5,11 @@ import { getUserSession } from '@/lib/core/session';
 import { Card } from '@heroui/react';
 import React from 'react';
 
+export const metadata = {
+  title: "Reader Dashboard",
+};
+
+
 const WriterHomePage = async () => {
 
     const user = await getUserSession();

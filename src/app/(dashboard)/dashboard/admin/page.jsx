@@ -7,6 +7,11 @@ import { Card } from '@heroui/react';
 import React from 'react';
 import AdminCharts from './AdminCharts';
 
+export const metadata = {
+  title: "Admin Dashboard",
+};
+
+
 const AdminHomePage = async () => {
 
     const user = await getUserSession();

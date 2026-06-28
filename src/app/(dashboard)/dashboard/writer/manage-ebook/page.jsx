@@ -3,6 +3,11 @@ import { getUserSession } from '@/lib/core/session';
 import React from 'react';
 import WriterEbooksTable from './WriterEbooksTable'; 
 
+export const metadata = {
+  title: "Manage Ebook",
+};
+
+
 const WriterEbooksPage = async () => {
     const user = await getUserSession();
     

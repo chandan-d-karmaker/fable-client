@@ -4,6 +4,11 @@ import React from 'react';
 import AdminUserTable from './ManageUserTable';
 import { getUsers } from '@/lib/api/users';
 
+export const metadata = {
+  title: "Manage Users",
+};
+
+
 const AdminUserPage = async () => {
     const users = await getUsers();
     console.log(users);

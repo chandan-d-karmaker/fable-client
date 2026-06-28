@@ -3,6 +3,11 @@ import { getUserSession } from '@/lib/core/session';
 import React from 'react';
 import SalesHistoryTable from './SalesHistoryTable'; 
 
+export const metadata = {
+  title: "Sales History",
+};
+
+
 const SalesHistoryPage = async () => {
     const user = await getUserSession();
     console.log(user);

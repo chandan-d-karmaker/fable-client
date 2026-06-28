@@ -6,6 +6,11 @@ import * as motion from "motion/react-client";
 import { Button } from '@heroui/react';
 import Link from 'next/link';
 
+export const metadata = {
+  title: "Bookmark Page",
+};
+
+
 const BookMarkPage = async () => {
 
     const user = await getUserSession();

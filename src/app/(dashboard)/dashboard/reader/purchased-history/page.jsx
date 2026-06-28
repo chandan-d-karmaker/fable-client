@@ -1,7 +1,12 @@
 import { getPurchaseHistory } from '@/lib/api/payments';
 import { getUserSession } from '@/lib/core/session';
 import React from 'react';
-import PurchaseHistoryTable from './PurchaseHistoryTable'; 
+import PurchaseHistoryTable from './PurchaseHistoryTable';
+
+export const metadata = {
+  title: "Purchase History",
+};
+
 
 const page = async () => {
     const user = await getUserSession();
