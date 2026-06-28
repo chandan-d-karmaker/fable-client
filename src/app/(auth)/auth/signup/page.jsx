@@ -18,8 +18,8 @@ function SignupContent() {
     const [isVisible, setIsVisible] = useState(false);
     const [error, setError] = useState('');
     const [role, setRole] = useState("reader");
-    const router = useRouter();
-    const searchParams = useSearchParams();
+    const [isLoading, setIsLoading] = useState(false);
+    const [isGLoading, setIsGLoading] = useState(false);
 
     const handleGoogleSignIn = async () => {
         const { data, error } = await authClient.signIn.social({
@@ -28,6 +28,7 @@ function SignupContent() {
         });
         if (error) {
             toast.error(error.message);
+            setError(error.message);
             return;
         } else {
             toast.success("Redirecting to google!");
@@ -36,6 +37,7 @@ function SignupContent() {
 
     const onSubmit = async (e) => {
         e.preventDefault();
+        setIsLoading(true);
         const formData = new FormData(e.currentTarget);
         const userData = Object.fromEntries(formData.entries());
 
@@ -52,8 +54,10 @@ function SignupContent() {
 
         if (error) {
             console.log(error)
+            setError(error.message);
             toast.error(error.message)
         } else {
+            setIsLoading(false);
             toast.success("Signup Successfull!");
             if (role === 'admin') {
                 window.location.href = '/dashboard/admin';
@@ -162,13 +166,13 @@ function SignupContent() {
 
                     <div className="flex items-center justify-center gap-2 w-full">
                         <Button type="submit" className="w-full rounded-none">
-                            Sign Up
+                            {isLoading ? <Spinner className="text-background" /> : 'Sign Up'}
                         </Button>
 
                         <div className="h-5 w-px bg-gray-700/80"></div>
 
                         <Button variant="secondary" className="w-full rounded-none" onClick={handleGoogleSignIn}>
-                            <BsGoogle />
+                            {isGLoading ? <Spinner className="text-foreground" /> : <BsGoogle />}
                         </Button>
 
                         <Button type="reset" className="rounded-none" variant="secondary">

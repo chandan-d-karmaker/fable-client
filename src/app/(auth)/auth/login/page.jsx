@@ -13,23 +13,29 @@ import { BsGoogle } from 'react-icons/bs';
 const LoginContent = () => {
     const [isVisible, setIsVisible] = useState(false);
     const [error, setError] = useState('');
-
+    const [isLoading, setIsLoading] = useState(false);
+    const [isGLoading, setIsGLoading] = useState(false);
+    
 
     const handleGoogleSignIn = async () => {
+        setIsGLoading(true);
         const { data, error } = await authClient.signIn.social({
             provider: "google",
             // callbackURL: "/onboarding",
         });
         if (error) {
+            setError(error.message);
             toast.error(error.message);
             return;
         } else {
+            setIsGLoading(false);
             toast.success("Redirecting to google!");
         }
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsLoading(true);
         const formData = new FormData(e.target);
         const userData = Object.fromEntries(formData.entries());
 
@@ -46,6 +52,7 @@ const LoginContent = () => {
             setError(error.message);
             return;
         } else {
+            setIsLoading(false);
             toast.success("Logged in successfully!");
             if (role === 'admin') {
                 window.location.href = '/dashboard/admin';
@@ -125,13 +132,13 @@ const LoginContent = () => {
 
                     <div className="flex items-center gap-2 w-full">
                         <Button type="submit" className="w-full rounded-none">
-                            Login
+                            {isLoading ? <Spinner className="text-background" /> : 'Login'}
                         </Button>
 
                         <div className="h-5 w-px bg-gray-700/80"></div>
 
                         <Button variant="secondary" className='rounded-none' onClick={handleGoogleSignIn}>
-                            <BsGoogle />
+                            {isGLoading ? <Spinner className="text-foreground" /> : <BsGoogle />}
                         </Button>
                         <Button type="reset" className='rounded-none' variant="secondary">
                             Reset

@@ -54,7 +54,7 @@ export default function Footer() {
                             <ul className="flex flex-col gap-3">
                                 {footerLinks.navigations.map((link) => (
                                     <li key={link.name}>
-                                        <Link href={link.href} className="text-[#908f8f] hover:text-foreground/80 transition-colors text-sm">
+                                        <Link href={link.href} className="text-foreground/50 hover:text-foreground/80 transition-colors text-sm">
                                             {link.name}
                                         </Link>
                                     </li>
@@ -91,22 +91,22 @@ export default function Footer() {
                    
                     <div className="flex items-center gap-3 md:pl-5">
                         {/* Facebook */}
-                        <a href="#" className="flex items-center justify-center w-9 h-9 rounded-none border border-foreground/50 bg-backgroud text-foreground hover:text-background hover:bg-gray-800 transition-colors" aria-label="Facebook">
+                        <a href="#" className="flex items-center justify-center w-9 h-9 rounded-none border border-foreground/50 bg-backgroud text-foreground hover:text-background hover:bg-foreground transition-colors" aria-label="Facebook">
                             <FaFacebook />
                         </a>
 
                         {/* Pinterest */}
-                        <a href="#" className="flex items-center justify-center w-9 h-9 rounded-none border border-foreground/50 bg-backgroud text-foreground hover:text-background hover:bg-gray-800 transition-colors" aria-label="Pinterest">
+                        <a href="#" className="flex items-center justify-center w-9 h-9 rounded-none border border-foreground/50 bg-backgroud text-foreground hover:text-background hover:bg-foreground transition-colors" aria-label="Pinterest">
                             <FaPinterest />
                         </a>
 
                         {/* LinkedIn */}
-                        <a href="#" className="flex items-center justify-center w-9 h-9 rounded-none border border-foreground/50 bg-backgroud text-foreground hover:text-background hover:bg-gray-800 transition-colors" aria-label="LinkedIn">
+                        <a href="#" className="flex items-center justify-center w-9 h-9 rounded-none border border-foreground/50 bg-backgroud text-foreground hover:text-background hover:bg-foreground transition-colors" aria-label="LinkedIn">
                             <FaLinkedin />
                         </a>
                     </div>
 
-                    <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-sm text-[#525252] md:pr-5">
+                    <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-sm text-foreground/40 md:pr-5">
                         <p>Copyright 2026 — Fable</p>
                         <p className="hidden sm:block">|</p>
                         <div className="flex gap-1">

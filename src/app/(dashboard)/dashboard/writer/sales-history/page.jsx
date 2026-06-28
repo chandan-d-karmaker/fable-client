@@ -13,7 +13,7 @@ const SalesHistoryPage = async () => {
     console.log(user);
 
     const sales = await getPurchaseHistory(user.id) || [];
-    // console.log(sales);
+    console.log(sales);
 
     return (
         <div>
