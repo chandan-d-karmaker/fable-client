@@ -29,16 +29,15 @@ const EbookActions = ({ ebookId, handleBookmark, uploader, user, isPurchased }) 
 
         if (!user) {
             toast("Please log in to purchase this book.");
-            // passed a callback URL so they return to this book after logging in
+            
             // ?callbackUrl=/ebooks/${ebookId}
-            router.push(`/auth/login`);
+            router.push(`/auth/login?callbackUrl=/ebooks/${ebookId}`);
             return;
         }
 
         setIsPurchasing(true);
         try {
-            // Call the dynamic API route we created in the previous step
-            // Make sure the path matches your actual API route (e.g., '/api/checkout_sessions')
+            
             const res = await fetch('/api/checkout_sessions', {
                 method: 'POST',
                 headers: {
@@ -64,7 +63,7 @@ const EbookActions = ({ ebookId, handleBookmark, uploader, user, isPurchased }) 
     };
 
     return (
-        <div className='flex items-center justify-center gap-4 mt-4'>
+        <div className='flex items-center justify-start gap-4 mt-4'>
             {/* Replaced the form with our custom onClick handler */}
             <Button
                 onClick={onPurchaseClick}

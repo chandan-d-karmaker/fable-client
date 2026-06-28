@@ -87,13 +87,13 @@ function SignupContent() {
                         </div>
                     }
 
-                    <TextField isRequired className="w-full max-w-64" name="name" type="text">
+                    <TextField isRequired className="w-full" name="name" type="text">
                         <Label>Name</Label>
                         <Input className='rounded-none border border-foreground/20' placeholder="Enter your name" />
                     </TextField>
 
                     <TextField
-                        className='max-w-64 w-full'
+                        className='w-full'
                         isRequired
                         name="email"
                         type="email"
@@ -109,14 +109,14 @@ function SignupContent() {
                         <FieldError />
                     </TextField>
 
-                    <TextField isRequired className="w-full max-w-64" name="password">
+                    <TextField isRequired className="w-full  rounded-none" name="password">
                         <Label>Password</Label>
-                        <InputGroup>
+                        <InputGroup className="rounded-none">
                             <InputGroup.Input
-                                className="w-full max-w-64 border border-foreground/20"
+                                className="w-full  border rounded-none border-foreground/20"
                                 type={isVisible ? "text" : "password"}
                             />
-                            <InputGroup.Suffix className="pr-0 rounded-none">
+                            <InputGroup.Suffix className="pr-0">
                                 <Button
                                     isIconOnly
                                     aria-label={isVisible ? "Hide password" : "Show password"}
@@ -130,14 +130,14 @@ function SignupContent() {
                         </InputGroup>
                     </TextField>
 
-
                     <Label>What you want to do?</Label>
                     <RadioGroup
                         onValueChange={setRole}
-                        defaultValue={role} name="role" orientation="horizontal">
+                        defaultValue={role} name="role" 
+                        className="flex flex-col md:flex-row justify-between" orientation="horizontal">
                         <Radio value="reader">
                             <Radio.Content>
-                                <Radio.Control>
+                                <Radio.Control className='border border-foreground'>
                                     <Radio.Indicator />
                                 </Radio.Control>
                                 Reader
@@ -146,7 +146,7 @@ function SignupContent() {
                         </Radio>
                         <Radio value="writer">
                             <Radio.Content>
-                                <Radio.Control>
+                                <Radio.Control className='border border-foreground'>
                                     <Radio.Indicator />
                                 </Radio.Control>
                                 Writer
@@ -160,11 +160,12 @@ function SignupContent() {
                         <p>Already a member? <span className='text-blue-500'>Login now!</span> </p>
                     </Link>
 
-                    <div className="flex gap-2 w-full">
+                    <div className="flex items-center justify-center gap-2 w-full">
                         <Button type="submit" className="w-full rounded-none">
                             Sign Up
                         </Button>
 
+                        <div className="h-5 w-px bg-gray-700/80"></div>
 
                         <Button variant="secondary" className="w-full rounded-none" onClick={handleGoogleSignIn}>
                             <BsGoogle />
