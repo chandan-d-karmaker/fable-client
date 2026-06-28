@@ -10,10 +10,10 @@ export const metadata = {
 
 const SalesHistoryPage = async () => {
     const user = await getUserSession();
-    console.log(user);
+    // console.log(user);
 
     const sales = await getPurchaseHistory(user.id) || [];
-    console.log(sales);
+    // console.log(sales);
 
     return (
         <div>
