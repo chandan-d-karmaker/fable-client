@@ -6,7 +6,7 @@ import { Card } from '@heroui/react';
 import React from 'react';
 
 export const metadata = {
-  title: "Reader Dashboard",
+  title: "Writer Dashboard",
 };
 
 
