@@ -155,7 +155,7 @@ function Navbar() {
                             </li>
                         ))}
                         {user ? <li>
-                            <Button variant="outline" className='rounded-none' onClick={() => signOut()}>
+                            <Button variant="outline" className='rounded-none' onClick={handleLogout}>
                                 Log out
                             </Button>
                         </li> : <li>

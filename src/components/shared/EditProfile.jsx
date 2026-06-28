@@ -109,7 +109,7 @@ const UpdateProfileModal = () => {
                                     </TextField>
 
                                     <div className="flex flex-col gap-1 w-full">
-                                        <span className="text-foreground font-medium text-sm">Cover Image</span>
+                                        <span className="text-foreground font-medium text-sm">Profile Image</span>
                                         <div className="flex items-center gap-4 mt-1">
                                             <label className="w-14 h-14 border border-dashed border-foreground/90 hover:border-foreground bg-background/40 rounded-xl flex flex-col items-center justify-center cursor-pointer transition-colors group relative overflow-hidden">
                                                 <input

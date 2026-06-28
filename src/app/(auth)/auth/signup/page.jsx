@@ -41,11 +41,11 @@ function SignupContent() {
         console.log(userData);
 
         // userData.role = role;
-        
+
         const { data, error } = await authClient.signUp.email({
             ...userData,
         });
-        
+
         console.log("signup data", { data, error });
         const role = data?.user?.role;
 
@@ -54,16 +54,16 @@ function SignupContent() {
             toast.error(error.message)
         } else {
             toast.success("Signup Successfull!");
-            if(role === 'admin'){
+            if (role === 'admin') {
                 window.location.href = '/dashboard/admin';
-            } else if(role === 'writer'){
+            } else if (role === 'writer') {
                 window.location.href = '/dashboard/writer';
             } else {
                 window.location.href = '/';
             }
         }
 
-    
+
     };
 
     return (
@@ -154,7 +154,7 @@ function SignupContent() {
                         </Radio>
                     </RadioGroup>
 
-                    
+
                     <Link href={`/auth/login`}>
                         <p>Already a member? <span className='text-blue-500'>Login now!</span> </p>
                     </Link>
@@ -166,7 +166,7 @@ function SignupContent() {
 
 
                         <Button variant="secondary" className="w-full rounded-none" onClick={handleGoogleSignIn}>
-                            Sign up with google
+                            <BsGoogle />
                         </Button>
 
                         <Button type="reset" className="rounded-none" variant="secondary">
