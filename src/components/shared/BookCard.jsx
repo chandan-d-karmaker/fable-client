@@ -53,7 +53,7 @@ const BookCard = ({ book, isPurchased = false }) => {
                 <Card.Footer className="relative z-10 pb-6 pt-3 flex items-center justify-between border-none w-full">
                     <Button
                         size="sm" fullWidth
-                        className="w-full rounded-none  text-background/90 font-bold text-sm shadow-sm hover:bg-foreground/80 transition-colors"
+                        className="w-full rounded-none text-white font-bold text-sm shadow-sm transition-colors"
                     >
                         View Ebook
                     </Button>
