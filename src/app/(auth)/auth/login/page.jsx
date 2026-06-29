@@ -24,6 +24,7 @@ const LoginContent = () => {
             // callbackURL: "/onboarding",
         });
         if (error) {
+            setIsGLoading(false);
             setError(error.message);
             toast.error(error.message);
             return;
@@ -49,6 +50,7 @@ const LoginContent = () => {
         const role = data?.user?.role;
 
         if (error) {
+            setIsLoading(false);
             setError(error.message);
             return;
         } else {

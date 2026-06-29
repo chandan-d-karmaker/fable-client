@@ -21,15 +21,18 @@ function SignupContent() {
     const [isGLoading, setIsGLoading] = useState(false);
 
     const handleGoogleSignIn = async () => {
+        setIsGLoading(true);
         const { data, error } = await authClient.signIn.social({
             provider: "google",
             callbackURL: "/onboarding",
         });
         if (error) {
+            setIsGLoading(false);
             toast.error(error.message);
             setError(error.message);
             return;
         } else {
+            setIsGLoading(false);
             toast.success("Redirecting to google!");
         }
     };
@@ -52,6 +55,7 @@ function SignupContent() {
         const role = data?.user?.role;
 
         if (error) {
+            setIsLoading(false);
             console.log(error)
             setError(error.message);
             toast.error(error.message)
