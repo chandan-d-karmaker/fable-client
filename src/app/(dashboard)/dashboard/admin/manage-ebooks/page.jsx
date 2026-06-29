@@ -3,7 +3,7 @@ import ManageEbookTable from './ManageEbookTable';
 import { getUsers } from '@/lib/api/users';
 
 export const metadata = {
-  title: "Manage Users",
+  title: "Manage Ebooks",
 };
 
 
