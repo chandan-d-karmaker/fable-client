@@ -92,7 +92,7 @@ export default function BooksFilters({
                         <Select.Popover className="bg-background/70 backdrop-blur-sm border border-foreground-700 rounded-none shadow-xl mt-1 overflow-hidden z-50">
                             <ListBox className="p-1">
                                 <ListBox.Item id="all" className="text-foreground/80 hover:bg-purple-600 hover:text-foreground rounded-none px-3 py-2 text-sm cursor-pointer capitalize">
-                                    <span>All Categories</span>
+                                    <span>All</span>
                                 </ListBox.Item>
                                 <ListBox.Item id="new" className="text-foreground/80 hover:bg-purple-600 hover:text-foreground rounded-none px-3 py-2 text-sm cursor-pointer capitalize">
                                     <span>Newst First</span>
